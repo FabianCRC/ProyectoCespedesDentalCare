@@ -26,3 +26,4 @@ Instalacion GitHub Desktop: https://desktop.github.com/
 
 Intalacion del repositorio de manera local:
 
+Primero se accedera a Github desktop, nos vamos a repositorio actual, seleccionamos add, despues clonar repositorio, elegimos la opcion de URL, pegamos la direccion del reposotprio y seleccionamos donde queremos guardar el repositorio, despues solo le damos clonar repositorio y estara lista la copia del repositorio para empezar a trabajarlo.
