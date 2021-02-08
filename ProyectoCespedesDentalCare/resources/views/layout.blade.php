@@ -18,9 +18,13 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!--Titulo del Sitio-->
-        <a class="navbar-brand" href="{{ route('Inicio') }}">Cespedes Dental Care</a>
+        <a class="navbar-brand" href="">Cespedes Dental Care</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
                 class="fas fa-bars"></i></button>
+ 
+        <!-- CSRF Token --> 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
 
@@ -33,7 +37,19 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="{{ route('MiPerfil') }}">Mi Perfil</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('Login') }}">Cerrar Sesión</a>
+                   
+                    <!--Aqui va el logout-->
+
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                          {{ __('Cerrar Sesión') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                    
                 </div>
             </li>
         </ul>
@@ -44,7 +60,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Menu</div>
-                        <a class="nav-link" href="{{ route('Inicio') }}">
+                        <a class="nav-link" href="">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Inicio
                         </a>
@@ -64,7 +80,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logeado como:</div>
-                    Nombre del Dentista
+                    {{ Auth::user()->usuario }}
                 </div>
             </nav>
         </div>
@@ -73,6 +89,7 @@
                 <div class="container mt-5">
                     <!--Aqui va el Contenido-->
                     @yield('Contenido')
+                    
 
                 </div>
             </main>
@@ -81,9 +98,9 @@
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; Cespedes Dental Care</div>
                         <div>
-                            <a href="#">Politica de Privacidad</a>
+                            <a href="#"></a>
                             &middot;
-                            <a href="#">Terminos &amp; Condiciones</a>
+                            <a href="#"></a>
                         </div>
                     </div>
                 </div>
