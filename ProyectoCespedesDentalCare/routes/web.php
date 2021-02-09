@@ -13,22 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/','index')->name('Inicio');
+//Ruta de raiz que envia al login
+//El middleware('auth') lo que hace es redireccionar al login si no se encuentra autenticada la sesion
 
-Route::view('/login','login')->name('Login');
+Route::view('/','auth.login');
 
-Route::view('/agendarCita','agendarCita')->name('AgendarCita');
-
-Route::view('/registro','registro')->name('Registro');
+Route::view('/agendarCita','agendarCita')->name('AgendarCita')->middleware('auth');
 
 Route::view('/layout','layout')->name('Layout');
 
-Route::view('/citas','citas')->name('Citas');
+Route::view('/citas','citas')->name('Citas')->middleware('auth');
 
-Route::view('/pacientes','pacientes')->name('Pacientes');
+Route::view('/pacientes','pacientes')->name('Pacientes')->middleware('auth');
 
-Route::view('/servicios','servicios')->name('Servicios');
+Route::view('/servicios','servicios')->name('Servicios')->middleware('auth');
 
-Route::view('/prueba','prueba')->name('Prueba');
+Route::view('/miPerfil','miPerfil')->name('MiPerfil')->middleware('auth');
 
-Route::view('/miPerfil','miPerfil')->name('MiPerfil');
+Route::view('/index','index')->name('Index')->middleware('auth');
+
+
+//Ruta post para el logout
+Route::post('/','LoginController@logout')->name('logout');
+
+
+//Rutas de auth para el inicio de sesion y registro de nuevos usuarios, en los controladores esta el de registro de usuarios
+Auth::routes();
+
