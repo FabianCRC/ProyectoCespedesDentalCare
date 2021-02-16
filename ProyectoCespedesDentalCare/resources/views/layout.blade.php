@@ -126,7 +126,9 @@
     <script>
        $('#pacientes').DataTable();
     </script>
-
+    <script>
+       $('#servicios').DataTable();
+    </script>
 </body>
 
 </html>

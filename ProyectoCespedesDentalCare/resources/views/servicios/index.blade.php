@@ -1,18 +1,19 @@
 @extends('layout')
 <!--Hereda la navegacion-->
 @section('Contenido')
-    <div class="form-group text-center">
-        <a class="btn btn-secondary " href="{{ route('Servicios.create') }}">
-            Registrar Servicio
-        </a>
-    </div>
-    <div class="form-group text-center">
+<div class="form-group text-center">
         <h1>Lista de Servicios</h1>
     </div>
+    <div class="form-group ml-3">
+        <a class="btn btn-secondary " href="{{ route('Servicios.create') }}">
+            Agregar Servicio
+        </a>
+    </div>
+
 
     <div class="container-fluid row">
         <div class="col-lg-12">
-            <table class="table table-striped table-inverse">
+            <table class="table table-striped table-inverse" id="servicios">
                 <thead class="thead-inverse">
                     <tr>
                         <th>Nombre del Servicio</th>

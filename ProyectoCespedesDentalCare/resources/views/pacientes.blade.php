@@ -2,13 +2,14 @@
 <!--Hereda la navegacion-->
 @section('Contenido')
     <div class="container-fluid">
+    <div class="form-group text-center">
+        <h1>Lista de Pacientes</h1>
+    </div>
         <div class="row">
             <!-- Agregar Paciente -->
-            <div class="col-12 text-center">
-
-                <a data-toggle="modal" data-target="#exampleModal"><span class="btn btn-secondary">Agregar Paciente
+                <a data-toggle="modal" data-target="#exampleModal"><span class="btn btn-secondary ml-3">Agregar Paciente
                     </span></a>
-            </div>
+        
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -19,6 +20,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        
                         <div class="modal-body">
 
                             <div class="card mb-5 shadow-sm border-0 shadow-hover">
@@ -135,6 +137,7 @@
 
         <!--Tabla que muestra los pacientes-->
         <div class="col-xl-15 col-lg-12">
+
             <div class="">
                 <table class=" table table-responsive table-striped table-inverse" id="pacientes">
                     <thead>
