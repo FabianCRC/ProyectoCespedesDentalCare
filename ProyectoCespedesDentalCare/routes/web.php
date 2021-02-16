@@ -24,8 +24,6 @@ Route::view('/layout','layout')->name('Layout');
 
 Route::view('/citas','citas')->name('Citas')->middleware('auth');
 
-Route::view('/pacientes','pacientes')->name('Pacientes')->middleware('auth');
-
 Route::view('/servicios','servicios')->name('Servicios')->middleware('auth');
 
 Route::view('/miPerfil','miPerfil')->name('MiPerfil')->middleware('auth');
@@ -40,3 +38,8 @@ Route::post('/','LoginController@logout')->name('logout');
 //Rutas de auth para el inicio de sesion y registro de nuevos usuarios, en los controladores esta el de registro de usuarios
 Auth::routes();
 
+//Rutas de los pacientes
+Route::resource('/Pacientes', 'App\Http\Controllers\PacienteController')->middleware('auth');
+
+
+Route::resource('/Servicios', 'App\Http\Controllers\ServicioController')->middleware('auth');

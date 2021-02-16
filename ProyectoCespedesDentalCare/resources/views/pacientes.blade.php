@@ -3,136 +3,210 @@
 @section('Contenido')
     <div class="container-fluid">
         <div class="row">
-            <!--Tabla que muestra los pacientes-->
-            <div class="col-xl-7 col-lg-12">
-                <div class="">
-                    <table class=" table table-responsive table-striped table-inverse">
-                        <thead>
-                            <tr>
+            <!-- Agregar Paciente -->
+            <div class="col-12 text-center">
 
-                                <th scope="col"><small class="font-weight-bold">Paciente</small></th>
-                                <th scope="col"><small class="font-weight-bold">Contacto</small></th>
-                                <th scope="col"><small class="font-weight-bold">Numero</small></th>
-                                <th scope="col"><small class="font-weight-bold">Cedula</small></th>
-                                <th scope="col"><small class="font-weight-bold">Observaciones</small></th>
-                                <th scope="col"><small class="font-weight-bold">Datos</small></th>
-                                <th scope="col"><small class="font-weight-bold">Fecha Nacimiento</small></th>
-                                <th scope="col"><small class="font-weight-bold">Fecha Ingreso</small></th>
-                                <th scope="col"><small class="font-weight-bold">Enfermedades</small></th>
-                                <th scope="col"><small class="font-weight-bold">Alergias</small></th>
-                                <th scope="col"><small class="font-weight-bold">Dentista</small></th>
-                                <th scope="col"><small class="font-weight-bold">Acciones<small></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="shadow-sm">
-                                <td><img src='' class="img-fluid rounded-circle avatar" alt="Imagen" /></td>
-                                <td><span class="d-block">Nombre Paciente</span><small
-                                        class="text-muted">ejemplo@gmail.com</small>
-                                </td>
-                                <td><span class="d-block">8888 8888</span>
-                                </td>
-                                <td><span class="d-block">1-1111-1111</span></td>
-                                <td><span class="d-block">Observaciones</span></td>
-                                <td><span class="d-block">Datos</span>
-                                </td>
-                                <td><span class="d-block">22/22/2222</span></td>
-                                <td><span class="d-block">22/22/2222</span></td>
-                                <td><span class="d-block">Enfermedades</span></td>
-                                <td><span class="d-block">Alergias</span>
-                                </td>
-                                <td><span class="d-block">Dentista</span>
-                                </td>
-                                <td> <a href=""><span class="btn btn-secondary">Editar </span></a></td>
-                                <td> <a href=""><span class="btn btn-danger">Eliminar</span></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <a data-toggle="modal" data-target="#exampleModal"><span class="btn btn-secondary">Agregar Paciente
+                    </span></a>
             </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Agregar Paciente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
-            <!--Formulario-->
+                            <div class="card mb-5 shadow-sm border-0 shadow-hover">
+                                <div class="card-header bg-light border-0 pt-3 pb-0">
+                                    <form action="{{ route('Pacientes.store') }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="inputAddress">Numero de cedula</label>
+                                                    <input type="text" class="form-control" name="idP"
+                                                        placeholder="305390002" minlength="7" maxlength="20" required
+                                                        pattern="[0-9]+"
+                                                        title="Números. Tamaño mínimo: 7. Tamaño máximo: 20">
 
-            <div class="col-xl-5 col-lg-12">
-                <div class="card mb-5 shadow-sm border-0 shadow-hover">
-                    <div class="card-header bg-light border-0 pt-3 pb-0">
-                        <br>
-                        <h5 style="text-align: center">Registrar paciente</h5>
-                        <br>
 
-                        <form action="php/ingresarP.php" method="post" enctype="multipart/form-data">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputAddress">Numero de cedula</label>
-                                        <input type="text" class="form-control" name="idP" placeholder="305390002">
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputAddress">Numero celular</label>
-                                    <input type="text" class="form-control" name="numeroP" placeholder="61857405">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputAddress">Nombre completo</label>
-                                        <input type="text" class="form-control" name="nombreP"
-                                            placeholder="Nombre y Apellidos">
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" name="correoP" placeholder="Email">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputPassword4">Enfermedades</label>
-                                        <input type="text" class="form-control" name="enfermedadesP"
-                                            placeholder="Diabetes,Presion alta...">
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Alergias</label>
-                                    <input type="text" class="form-control" name="alergiasP"
-                                        placeholder="Alergia a algun medicamento">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Observaciones</label>
-                                    <input type="text" class="form-control" name="observacionesP"
-                                        placeholder="Observaciones sobre el paciente">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Dentista</label>
-                                    <input type="text" class="form-control" name="dentistaP"
-                                        placeholder="Dentista del pasiciente  ">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Fecha de Nacimiento</label>
-                                    <input type="text" class="form-control datepicker entrada" name="fechanaciP"
-                                        placeholder="23/5/2002">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Fecha de ingreso</label>
-                                    <input type="text" class="form-control datepicker entrada" placeholder="26/7/2020"
-                                        name="fechaingrP">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress">Datos importantes</label>
-                                    <input type="text" class="form-control" name="datosP"
-                                        placeholder="Tipo de tratamiento...">
-                                    <label>Foto de paciente</label>
-                                    <input type="file" class="form-control" name="img" />
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-secondary">Registrar</button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputAddress">Numero celular</label>
+                                                <input type="text" class="form-control" name="numeroP"
+                                                    placeholder="61857405" minlength="8" maxlength="20" required
+                                                    pattern="[0-9]+" title="Números. Tamaño mínimo: 8. Tamaño máximo: 20">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="inputAddress">Nombre completo</label>
+                                                    <input type="text" class="form-control" name="nombreP"
+                                                        placeholder="Nombre y Apellidos">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Email</label>
+                                                <input type="email" class="form-control" name="correoP" placeholder="Email">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="inputPassword4">Enfermedades</label>
+
+                                                    <select name="enfermedadesP" class="form-control" required>
+                                                        <option value="" disabled selected>Seleccione una opción</option>
+                                                        @foreach ($enfermedades as $enfermedad)
+                                                            <option value="{{ $enfermedad->id_Enfermedad }}">
+                                                                {{ $enfermedad->nombre_Enfermedad }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Alergias</label>
+                                                <select name="alergiasP" class="form-control" required>
+                                                    <option value="" disabled selected>Seleccione una opción</option>
+                                                    @foreach ($alergias as $alergia)
+                                                        <option value="{{ $alergia->id_Alergia }}">
+                                                            {{ $alergia->nombre_Alergia }}</option>
+                                                    @endforeach
+                                                </select>
+
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Observaciones</label>
+                                                <input type="text" class="form-control" name="observacionesP"
+                                                    placeholder="Observaciones sobre el paciente" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Dentista</label>
+                                                <input type="text" class="form-control" name="dentistaP"
+                                                    placeholder="Dentista del paciente" required title="Texto">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Fecha de Nacimiento</label>
+                                                <input type="date" class="form-control datepicker entrada" name="fechanaciP"
+                                                    required min="1930-01-01" min="2020-01-01">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Fecha de ingreso</label>
+                                                <input type="date" class="form-control datepicker entrada" name="fechaingrP"
+                                                    required min="2021-01-01">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputAddress">Datos importantes</label>
+                                                <input type="text" class="form-control" name="datosP"
+                                                    placeholder="Tipo de tratamiento..." required>
+                                                <label>Foto de paciente</label>
+                                                <input type="file" class="form-control" name="img" accept="image/*"
+                                                    required />
+                                                @error('img')
+                                                    <br>
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group col-6 ">
+                                                <button type="submit" class="btn btn-secondary btn-block">Guardar</button>
+                                            </div>
+                                            <div class="form-group col-6 ">
+                                                <button type="submit" class="btn btn-danger btn-block"
+                                                    data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <br>
                                 </div>
                             </div>
-                        </form>
-                        <br>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!--Fin Agregar Paciente -->
 
+        <br />
+
+        <!--Tabla que muestra los pacientes-->
+        <div class="col-xl-15 col-lg-12">
+            <div class="">
+                <table class=" table table-responsive table-striped table-inverse" id="pacientes">
+                    <thead>
+                        <tr>
+
+                            <th scope="col"><small class="font-weight-bold">Paciente</small></th>
+                            <th scope="col"><small class="font-weight-bold">Contacto</small></th>
+                            <th scope="col"><small class="font-weight-bold">Numero</small></th>
+                            <th scope="col"><small class="font-weight-bold">Cedula</small></th>
+                            <th scope="col"><small class="font-weight-bold">Observaciones</small></th>
+                            <th scope="col"><small class="font-weight-bold">Datos</small></th>
+                            <th scope="col"><small class="font-weight-bold">Fecha Nacimiento</small></th>
+                            <th scope="col"><small class="font-weight-bold">Fecha Ingreso</small></th>
+                            <th scope="col"><small class="font-weight-bold">Enfermedades</small></th>
+                            <th scope="col"><small class="font-weight-bold">Alergias</small></th>
+                            <th scope="col"><small class="font-weight-bold">Dentista</small></th>
+                            <th scope="col"><small class="font-weight-bold">Acciones<small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach ($pacientes as $paciente)
+
+                            <tr class="shadow-sm">
+                                <td><img src='{{ $paciente->imagen_Paciente }}' class="img-fluid rounded-circle avatar"
+                                        alt="Imagen" /></td>
+                                <td><span class="d-block">{{ $paciente->nombre_Paciente }}</span><small
+                                        class="text-muted">{{ $paciente->correo_Paciente }}</small>
+                                </td>
+                                <td><span class="d-block">{{ $paciente->numero_Paciente }}</span>
+                                </td>
+                                <td><span class="d-block">{{ $paciente->id_Paciente }}</span></td>
+                                <td><span class="d-block">{{ $paciente->observaciones_Paciente }}</span></td>
+                                <td><span class="d-block">{{ $paciente->datos_Paciente }}</span>
+                                </td>
+                                <td><span class="d-block">{{ $paciente->fecha_Nacimiento }}</span></td>
+                                <td><span class="d-block">{{ $paciente->fecha_Ingreso }}</span></td>
+
+                                @foreach ($pacientes_enfermedades as $pacienteE)
+                                    @if ($paciente->id_Paciente == $pacienteE->id_Paciente)
+                                        @foreach ($enfermedades as $enfermedad)
+                                            @if ($enfermedad->id_Enfermedad == $pacienteE->id_Enfermedad)
+                                                <td><span class="d-block">{{ $enfermedad->nombre_Enfermedad }}</span>
+                                                </td>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                @endforeach
+
+                                @foreach ($pacientes_alergias as $pacienteA)
+                                    @if ($paciente->id_Paciente == $pacienteA->id_Paciente)
+                                        @foreach ($alergias as $alergia)
+                                            @if ($alergia->id_Alergia == $pacienteA->id_Alergia)
+                                                <td><span class="d-block">{{ $alergia->nombre_Alergia }}</span>
+                                                </td>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                                <td><span class="d-block">{{ $paciente->dentista_Paciente }}</span>
+                                <td> <a href="{{ route('Pacientes.show', $paciente->id_Paciente) }}"><span
+                                            class="btn btn-secondary">Expediente </span></a>
+                                </td>
+                                </form>
+
+                            </tr>
+
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
 @endsection

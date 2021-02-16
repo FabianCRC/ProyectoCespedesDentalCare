@@ -9,6 +9,7 @@
     <meta name="author" content="" />
     <title>Cespedes Dental Care</title>
     <link href="static/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<?php echo URL::asset('static/css/styles.css')?>">
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous">
@@ -60,7 +61,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Menu</div>
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="/index">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Inicio
                         </a>
@@ -68,11 +69,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Agendar Cita
                         </a>
-                        <a class="nav-link" href="{{ route('Pacientes') }}">
+                        <a class="nav-link" href="{{ route('Pacientes.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Pacientes
                         </a>
-                        <a class="nav-link" href="{{ route('Servicios') }}">
+                        <a class="nav-link" href="{{ route('Servicios.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Servicios
                         </a>
@@ -117,6 +118,15 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
+
+
+    <script src="<?php echo URL::asset('static/assets/demo/chart-area-demo.js')?>"></script>
+    <script src="<?php echo URL::asset('static/assets/demo/chart-bar-demo.js')?>"></script> 
+    <script src="<?php echo URL::asset ('assets/demo/datatables-demo.js')?>"></script>
+    <script>
+       $('#pacientes').DataTable();
+    </script>
+
 </body>
 
 </html>
