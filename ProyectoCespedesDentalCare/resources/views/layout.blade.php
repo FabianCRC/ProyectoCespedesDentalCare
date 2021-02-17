@@ -97,7 +97,7 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Cespedes Dental Care</div>
+                        <div class="text-muted">Cespedes Dental Care Digital</div>
                         <div>
                             <a href="#"></a>
                             &middot;
