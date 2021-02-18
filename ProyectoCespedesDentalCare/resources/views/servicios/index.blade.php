@@ -34,13 +34,12 @@
                                 <div class="row">
                                     <a class="btn btn-secondary "
                                         href="{{ route('Servicios.edit', $servicio->id_Servicio) }}">
-                                        Editar
+                                        <i class="far fa-edit"></i>
                                     </a>
                                     <form action="{{ route('Servicios.destroy', $servicio->id_Servicio) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger" type="submit" title="delete">
-                                            Eliminar
+                                        <button class="far fa-trash-alt" type="submit" title="delete">
                                         </button>
                                     </form>
 

@@ -12,15 +12,13 @@
                     @csrf
 
                     <div class="form-row">
-              
+
 
                         <div class="form-group col-md-6">
                             <div class="form-group">
-                                <label for="usuario"
-                                    class="inputAddress">{{ 'Usuario' }}</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="usuario"
-                                    id="usuario" value="">
-
+                                <label for="usuario" class="inputAddress">{{ __('Usuario') }}</label>
+                                <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror"
+                                    name="usuario" value="{{ old('usuario') }}" required autocomplete="usuario" autofocus>
                                 @error('usuario')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -34,7 +32,7 @@
                             <div class="form-group"> <label for="name"
                                     class="inputAddress">{{ 'Nombre del usuario' }}</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                    id="name" value="">
+                                    id="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -48,8 +46,9 @@
                         <div class="form-group col-md-6">
                             <div class="form-group"> <label for="apellido"
                                     class="inputAddress">{{ 'Apellido del usuario' }}</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="apellido"
-                                    id="apellido" value="">
+                                <input type="text" class="form-control @error('apellido') is-invalid @enderror"
+                                    name="apellido" id="apellido" value="{{ old('apellido') }}" required
+                                    autocomplete="apellido" autofocus>
 
                                 @error('apellido')
                                     <span class="invalid-feedback" role="alert">
@@ -63,8 +62,8 @@
                         <div class="form-group col-md-6">
                             <div class="form-group"> <label for="cedula"
                                     class="inputAddress">{{ 'Cedula del usuario' }}</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="cedula"
-                                    id="cedula" value="">
+                                <input type="text" class="form-control @error('cedula') is-invalid @enderror" name="cedula"
+                                    id="cedula" value="{{ old('cedula') }}" required autocomplete="cedula" autofocus>
 
                                 @error('cedula')
                                     <span class="invalid-feedback" role="alert">
@@ -77,8 +76,8 @@
                         <div class="form-group col-md-6">
                             <div class="form-group"> <label for="imagen"
                                     class="inputAddress">{{ 'Imagen del usuario' }}</label>
-                                <input type="file" class="form-control @error('name') is-invalid @enderror" name="imagen"
-                                    id="imagen" value="">
+                                <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen"
+                                    id="imagen" value="{{ old('imagen') }}" required autocomplete="imagen" autofocus>
 
                                 @error('imagen')
                                     <span class="invalid-feedback" role="alert">
@@ -90,8 +89,9 @@
                         <div class="form-group col-md-6">
                             <div class="form-group"> <label for="telefono"
                                     class="inputAddress">{{ 'Telefono del usuario' }}</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="telefono"
-                                    id="telefono" value="">
+                                <input type="text" class="form-control @error('telefono') is-invalid @enderror"
+                                    name="telefono" id="telefono" value="{{ old('telefono') }}" required
+                                    autocomplete="telefono" autofocus>
 
                                 @error('telefono')
                                     <span class="invalid-feedback" role="alert">
@@ -100,24 +100,32 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="form-group col-md-6">
-                            <div class="form-group"> <label for="idRol"
-                                    class="inputAddress">{{ 'Rol del usuario' }}</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="idRol"
-                                    id="idRol" value="">
+                            <label for="inputPassword4">Rol</label>
+                            <select name="idRol" class="form-control" required>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                @foreach ($roles as $rol)
+                                    <option value="{{ $rol->id_Rol }}">
+                                        {{ $rol->nombre_Rol }}</option>
+                                @endforeach
+                            </select>
 
-                                @error('telefono')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
                         </div>
+
+
+
+
+
+
+
+
+
                         <div class="form-group col-md-6">
                             <div class="form-group"> <label for="email"
                                     class="inputAddress">{{ 'Email del usuario' }}</label>
-                                <input type="email" class="form-control @error('name') is-invalid @enderror" name="email"
-                                    id="email" value="">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                                    id="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -129,8 +137,9 @@
                         <div class="form-group col-md-6">
                             <div class="form-group"> <label for="password"
                                     class="inputAddress">{{ 'Contraseña del usuario' }}</label>
-                                <input type="password" class="form-control @error('name') is-invalid @enderror"
-                                    name="password" id="password" value="">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                    name="password" id="password" value="{{ old('password') }}" required
+                                    autocomplete="password" autofocus>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

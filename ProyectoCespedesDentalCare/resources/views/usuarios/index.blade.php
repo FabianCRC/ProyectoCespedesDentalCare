@@ -20,9 +20,7 @@
                         <th scope="col"><small class="font-weight-bold">Apellido</small></th>
                         <th scope="col"><small class="font-weight-bold">Cedula</small></th>
                         <th scope="col"><small class="font-weight-bold">Telefono</small></th>
-                        <th scope="col"><small class="font-weight-bold">ID Rol</small></th>
                         <th scope="col"><small class="font-weight-bold">Email</small></th>
-                        <th scope="col"><small class="font-weight-bold">Contraseña</small></th>
                         <th scope="col"><small class="font-weight-bold">Acciones</small></th>
                     </tr>
                 </thead>
@@ -41,9 +39,7 @@
                             <td><span class="d-block">{{ $registro->cedula }}</span></td>
 
                             <td><span class="d-block">{{ $registro->telefono }}</span></td>
-                            <td><span class="d-block">{{ $registro->idRol }}</span></td>
                             <td><span class="d-block">{{ $registro->email }}</span></td>
-                            <td><span class="d-block">{{ $registro->password }}</span></td>
                             <td>
                                 <div class="row">
 

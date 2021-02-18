@@ -15,7 +15,7 @@ class UsersController extends Controller
     */
    public function index()
    {
-       $datos['registros']=users::paginate(10);
+       $datos['registros']=users::paginate(10000);
        return view('usuarios/index',$datos);
    }
 
@@ -26,7 +26,12 @@ class UsersController extends Controller
     */
    public function create()
    {
-       return view('usuarios/createUser');
+               //Consulta las ALERGIAS registradas en la base de datos
+               $roles = \DB::table('roles')
+               ->select('roles.*')
+               ->orderBy('id_Rol','DESC')
+               ->get();
+       return view('usuarios/createUser')->with('roles',$roles);
    }
 
    /**
@@ -37,19 +42,21 @@ class UsersController extends Controller
     */
     public function store(Request $request)
     {
-        $request->request->add(['password'=> Hash::make($request->input('password'))
-        ]);
+      
      $request->validate([
-         'name' => 'required',
-         'apellido' => 'required',
-         'cedula' => 'required',
-         'imagen' => 'required',
-         'telefono' => 'required',
-         'idRol' => 'required',
-         'email' => 'required',
-         'password' => 'required',]);
+            'usuario' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+            'apellido' => ['required', 'string'],
+            'cedula' => ['required', 'string'],
+            'telefono' => ['required', 'string'],
+            'imagen' => ['required'],
+            'idRol' => ['required', 'string'],
+            ]);
          
-     
+            $request->request->add(['password'=> Hash::make($request->input('password'))
+            ]);
  
         //$datosUsuario=request()->all();
         $datosUsuario=request()->except('_token');
@@ -87,7 +94,6 @@ class UsersController extends Controller
    public function edit($id)
    {
        $users= users::findOrFail($id);
-
        return view('usuarios.editUser',compact('users'));
    }
 
@@ -100,8 +106,21 @@ class UsersController extends Controller
     */
    public function update(Request $request, $id)
    {
+
+    $request->validate([
+        'usuario' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:8'],
+            'apellido' => ['required', 'string'],
+           //'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'cedula' => ['required', 'string'],
+            'telefono' => ['required', 'string'],
+            ]);
+         
+     
     $request->request->add(['password'=> Hash::make($request->input('password'))
     ]);
+
        $datosUsuario=request()->except(['_token','_method']);
 
 

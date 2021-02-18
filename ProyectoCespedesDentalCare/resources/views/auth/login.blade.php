@@ -42,7 +42,7 @@
                         <div class="form-group row mb-0 mt-5">
                             <div class="col-md-8 offset-md-2">
                                 <button type="submit" class="btn btn-secondary btn-block">
-                                    {{ __('Iniciciar Sesión') }}
+                                    {{ __('Iniciar Sesión') }}
                                 </button>
                             </div>
                         </div>
