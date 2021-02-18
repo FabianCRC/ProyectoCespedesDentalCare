@@ -8,11 +8,15 @@
                 <div class="card-header bg-light border-0 pt-3 pb-0">
                     <br>
                     <div class="text-center">
+                        <img src='storage/{{ Auth::user()->imagen }}' class="img-fluid rounded-circle avatar "
+                        style="height: 200px; width: 200px;" alt="Imagen" />
+                        
+                    </div>
+                    <div class="text-center">
                         <h5>Actualizar Perfil</h5>
                     </div>
                     <br>
-                    <img style="width: 100px; border-radius: 50%!important;" src='' />
-                    <form action="" method="post" enctype="multipart/form-data">
+                     <form action="" method="" enctype="multipart/form-data">
                         <div class="row">
                             <div class="form-group col-md-12 col-lg-6">
                                 <label for="usuario">Usuario</label>

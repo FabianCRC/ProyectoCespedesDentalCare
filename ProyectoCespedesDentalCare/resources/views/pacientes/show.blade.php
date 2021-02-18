@@ -84,7 +84,7 @@
                         <div class="form-group col-6 btn-md">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger btn-block" type="submit" title="delete">
+                            <button class="btn btn-danger btn-block" type="submit" title="delete"   onclick="return confirm('¿Desea borrar este Paciente?');">
                                 Eliminar
                             </button>
                         </div>

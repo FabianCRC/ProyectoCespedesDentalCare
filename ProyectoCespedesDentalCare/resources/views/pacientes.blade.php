@@ -112,7 +112,7 @@
                                             </div>
 
                                             <div class="form-group col-6 ">
-                                                <button type="submit" class="btn btn-secondary btn-block">Guardar</button>
+                                                <button type="submit" class="btn btn-secondary btn-block">Registrar</button>
                                             </div>
                                             <div class="form-group col-6 ">
                                                 <button type="submit" class="btn btn-danger btn-block"
@@ -196,7 +196,7 @@
                                 @endforeach
                                 <td><span class="d-block">{{ $paciente->dentista_Paciente }}</span>
                                 <td> <a href="{{ route('Pacientes.show', $paciente->id_Paciente) }}"><span
-                                            class="btn btn-secondary">Expediente </span></a>
+                                          ><i style="color: gray" class="far fa-clipboard  fa-2x ml-3"></i> </span></a>
                                 </td>
                                 </form>
 

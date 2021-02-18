@@ -19,7 +19,7 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="usuario" class="inputAddress">{{ 'Usuario' }}</label>
-                            <input type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario"
+                            <input  type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario"
                                 id="usuario" value="{{ $users->usuario }}" required autocomplete="usuario" autofocus>
 
                             @error('usuario')
@@ -48,9 +48,8 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="apellido" class="inputAddress">{{ 'Apellido del usuario' }}</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="apellido"
+                            <input type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido"
                                 id="apellido" value="{{ $users->apellido }}" required autocomplete="apellido" autofocus>
-
                             @error('apellido')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -62,7 +61,7 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="cedula" class="inputAddress">{{ 'Cedula del usuario' }}</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="cedula"
+                            <input type="text" class="form-control @error('cedula') is-invalid @enderror" name="cedula"
                                 id="cedula" value="{{ $users->cedula }}" required autocomplete="cedula" autofocus>
 
                             @error('cedula')
@@ -79,7 +78,7 @@
                             <label for="imagen" class="inputAddress">{{ 'imagen del usuario' }}</label>
 
 
-                            <input type="file" class="form-control @error('name') is-invalid @enderror" name="imagen"
+                            <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen"
                                 id="imagen" value="" autocomplete="imagen" autofocus>
 
                             @error('imagen')
@@ -93,7 +92,7 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="telefono" class="inputAddress">{{ 'Telefono del usuario' }}</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="telefono"
+                            <input type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono"
                                 id="telefono" value="{{ $users->telefono }}" required autocomplete="telefono" autofocus>
 
                             @error('telefono')
@@ -110,7 +109,7 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="email" class="inputAddress">{{ 'Email del usuario' }}</label>
-                            <input type="email" class="form-control @error('name') is-invalid @enderror" name="email"
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                                 id="email" value="{{ $users->email }}" required autocomplete="email" autofocus>
 
                             @error('email')
@@ -125,7 +124,7 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="password" class="inputAddress">{{ 'Contraseña del usuario' }}</label>
-                            <input type="password" class="form-control @error('name') is-invalid @enderror" name="password"
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
                                 id="password" value="{{ $users->password }}" required autocomplete="password" autofocus>
 
                             @error('password')
@@ -140,7 +139,7 @@
 
                     <div class="form-group col-md-12">
                         <button type="submit" value="Editar" class="btn btn-secondary btn-block">
-                            {{ __('Editar') }}
+                            {{ __('Guardar Cambios') }}
                         </button>
 
                     </div>

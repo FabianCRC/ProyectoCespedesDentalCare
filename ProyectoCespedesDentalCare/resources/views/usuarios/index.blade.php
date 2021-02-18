@@ -43,15 +43,17 @@
                             <td>
                                 <div class="row">
 
-                                    <a class="btn btn-secondary" href="{{ route('Usuarios.edit', $registro->id) }}">
-                                        Editar
+
+
+                                    <a href="{{ route('Usuarios.edit', $registro->id) }}" title="show">
+                                        <i style="color:gray" class="far fa-edit fa-lg fa-2x "></i>
                                     </a>
 
                                     <form method="post" action="{{ route('Usuarios.destroy', $registro->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('¿Desea borrar este usuario?');">Borrar</button>
+                                        <button  type="submit" 
+                                            onclick="return confirm('¿Desea borrar este usuario?');"><i style="color: red" class="far fa-trash-alt fa-2x"></i></button>
 
                                     </form>
                                 </div>

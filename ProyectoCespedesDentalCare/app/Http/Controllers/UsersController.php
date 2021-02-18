@@ -44,15 +44,16 @@ class UsersController extends Controller
     {
       
      $request->validate([
-            'usuario' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
+            'usuario' => ['required', 'string','min:3', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:255','min:3'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
-            'apellido' => ['required', 'string'],
-            'cedula' => ['required', 'string'],
+            'apellido' => ['required', 'string','min:3'],
+            'cedula' => ['required', 'string','min:8'],
             'telefono' => ['required', 'string'],
             'imagen' => ['required'],
             'idRol' => ['required', 'string'],
+
             ]);
          
             $request->request->add(['password'=> Hash::make($request->input('password'))
@@ -108,15 +109,15 @@ class UsersController extends Controller
    {
 
     $request->validate([
-        'usuario' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
+        'usuario' => ['required', 'string', 'max:255','unique:users,usuario,' .$id],
+            'name' => ['required', 'string', 'max:255','min:5'],
             'password' => ['required', 'string', 'min:8'],
-            'apellido' => ['required', 'string'],
-           //'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'cedula' => ['required', 'string'],
-            'telefono' => ['required', 'string'],
+            'apellido' => ['required', 'string','min:5'],
+           'email' => ['required', 'string', 'email', 'max:255','unique:users,email,' .$id],
+            'cedula' => ['required', 'string','min:8'],
+            'telefono' => ['required', 'string','min:5'],
             ]);
-         
+
      
     $request->request->add(['password'=> Hash::make($request->input('password'))
     ]);

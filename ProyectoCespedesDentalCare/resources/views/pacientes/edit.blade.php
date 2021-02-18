@@ -79,7 +79,7 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-12">
-                            <button type="submit" class="btn btn-secondary btn-block">Editar</button>
+                            <button type="submit" class="btn btn-secondary btn-block">Guardar Cambios</button>
                         </div>
                 </form>
             @endforeach

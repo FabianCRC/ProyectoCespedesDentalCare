@@ -32,14 +32,15 @@
                             <td>{{ $servicio->precio_Servicio }}</td>
                             <td>
                                 <div class="row">
-                                    <a class="btn btn-secondary "
+                                    <a
                                         href="{{ route('Servicios.edit', $servicio->id_Servicio) }}">
-                                        <i class="far fa-edit"></i>
+                                        <i style="color:gray" class="far fa-edit fa-lg fa-2x ml-5 "></i>
                                     </a>
                                     <form action="{{ route('Servicios.destroy', $servicio->id_Servicio) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="far fa-trash-alt" type="submit" title="delete">
+                                        <button  type="submit" title="delete"   onclick="return confirm('¿Desea borrar este servicio?');">
+                                            <i style="color: red" class="far fa-trash-alt fa-2x"></i>
                                         </button>
                                     </form>
 
