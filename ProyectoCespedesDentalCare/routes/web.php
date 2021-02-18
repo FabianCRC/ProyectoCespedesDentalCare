@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,3 +43,5 @@ Route::resource('/Pacientes', 'App\Http\Controllers\PacienteController')->middle
 
 
 Route::resource('/Servicios', 'App\Http\Controllers\ServicioController')->middleware('auth');
+
+Route::resource('/Usuarios','\App\Http\Controllers\UsersController')->middleware('auth');

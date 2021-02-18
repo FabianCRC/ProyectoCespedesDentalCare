@@ -77,6 +77,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Servicios
                         </a>
+                        <a class="nav-link" href="{{ route('Usuarios.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Usuarios
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -129,6 +133,9 @@
     <script>
        $('#servicios').DataTable();
     </script>
+    <script>
+        $('#usuarios').DataTable();
+     </script>
 </body>
 
 </html>

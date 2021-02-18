@@ -22,7 +22,6 @@
                         </div>
                         
                         <div class="modal-body">
-
                             <div class="card mb-5 shadow-sm border-0 shadow-hover">
                                 <div class="card-header bg-light border-0 pt-3 pb-0">
                                     <form action="{{ route('Pacientes.store') }}" method="POST"
@@ -36,8 +35,6 @@
                                                         placeholder="305390002" minlength="7" maxlength="20" required
                                                         pattern="[0-9]+"
                                                         title="Números. Tamaño mínimo: 7. Tamaño máximo: 20">
-
-
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
