@@ -44,13 +44,13 @@ class UsersController extends Controller
     {
       
      $request->validate([
-            'usuario' => ['required', 'string','min:3', 'max:255', 'unique:users'],
+            'usuario' => ['required', 'string','min:6', 'max:255', 'unique:users'],
             'name' => ['required', 'string', 'max:255','min:3'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
             'apellido' => ['required', 'string','min:3'],
             'cedula' => ['required', 'string','min:8'],
-            'telefono' => ['required', 'string'],
+            'telefono' => ['required', 'string','min:8'],
             'imagen' => ['required'],
             'idRol' => ['required', 'string'],
 
@@ -109,13 +109,13 @@ class UsersController extends Controller
    {
 
     $request->validate([
-        'usuario' => ['required', 'string', 'max:255','unique:users,usuario,' .$id],
-            'name' => ['required', 'string', 'max:255','min:5'],
+        'usuario' => ['required','min:6', 'string', 'max:255','unique:users,usuario,' .$id],
+            'name' => ['required', 'string', 'max:255','min:3'],
             'password' => ['required', 'string', 'min:8'],
-            'apellido' => ['required', 'string','min:5'],
+            'apellido' => ['required', 'string','min:3'],
            'email' => ['required', 'string', 'email', 'max:255','unique:users,email,' .$id],
             'cedula' => ['required', 'string','min:8'],
-            'telefono' => ['required', 'string','min:5'],
+            'telefono' => ['required', 'string','min:8'],
             ]);
 
      

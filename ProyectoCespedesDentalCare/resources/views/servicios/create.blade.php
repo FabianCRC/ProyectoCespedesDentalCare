@@ -16,9 +16,9 @@
                                 <input type="text" class="form-control" autocomplete="off" name="nombre_Servicio"
                                     placeholder="Calza...">
                                 @error('nombre_Servicio')
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $message }}
-                                    </div>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -29,9 +29,9 @@
                                 <input type="text" class="form-control" name="precio_Servicio" autocomplete="off"
                                     placeholder="35.000">
                                 @error('precio_Servicio')
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $message }}
-                                    </div>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -40,9 +40,9 @@
                             <textarea type="text" class="form-control" name="descripcion_Servicio" autocomplete="off"
                                 placeholder="Descripción..."></textarea>
                             @error('descripcion_Servicio')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                     </div>
