@@ -65,9 +65,9 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Inicio
                         </a>
-                        <a class="nav-link" href="{{ route('AgendarCita') }}">
+                        <a class="nav-link" href="{{ route('Citas.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Agendar Cita
+                            Citas
                         </a>
                         <a class="nav-link" href="{{ route('Pacientes.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -128,6 +128,9 @@
     <script src="<?php echo URL::asset('static/assets/demo/chart-bar-demo.js')?>"></script> 
     <script src="<?php echo URL::asset ('assets/demo/datatables-demo.js')?>"></script>
     <script>
+        $('#citas').DataTable();
+     </script>
+    <script>
        $('#pacientes').DataTable();
     </script>
     <script>
@@ -136,6 +139,8 @@
     <script>
         $('#usuarios').DataTable();
      </script>
+     
+     
 </body>
 
 </html>

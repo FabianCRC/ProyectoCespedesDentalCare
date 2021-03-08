@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cita;
 
 class CitaController extends Controller
 {
@@ -13,7 +14,9 @@ class CitaController extends Controller
      */
     public function index()
     {
-        //
+         $citas = Cita::latest()->paginate(5);
+         //return $citas;
+         return view('citas.index', compact('citas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

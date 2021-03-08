@@ -2,6 +2,10 @@
 <!--Hereda la navegacion-->
 @section('Contenido')
     <div class="container">
+        <div class="form-group text-center">
+            <h1>Lista de Usuarios</h1>
+        </div>
+        
         <div class="form-group ml-3">
             <a class="btn btn-secondary " href="{{ route('Usuarios.create') }}">
                 Agregar Usuario

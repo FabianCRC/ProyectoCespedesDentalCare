@@ -22,8 +22,6 @@ Route::view('/agendarCita','agendarCita')->name('AgendarCita')->middleware('auth
 
 Route::view('/layout','layout')->name('Layout');
 
-Route::view('/citas','citas')->name('Citas')->middleware('auth');
-
 Route::view('/servicios','servicios')->name('Servicios')->middleware('auth');
 
 Route::view('/miPerfil','miPerfil')->name('MiPerfil')->middleware('auth');
@@ -45,3 +43,5 @@ Route::resource('/Pacientes', 'App\Http\Controllers\PacienteController')->middle
 Route::resource('/Servicios', 'App\Http\Controllers\ServicioController')->middleware('auth');
 
 Route::resource('/Usuarios','\App\Http\Controllers\UsersController')->middleware('auth');
+
+Route::resource('/Citas','\App\Http\Controllers\CitaController')->middleware('auth');
