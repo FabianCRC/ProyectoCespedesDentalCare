@@ -38,7 +38,7 @@
                             <td><span class="d-block">{{ $cita->id_Paciente }}</span></td>
                             <td><span class="d-block">{{ $cita->descripcion_Cita }}</span></td>
                             <td><span class="d-block">{{ $cita->inicio_Cita }}</span></td>
-                            <td><span class="d-block">{{ $cita->final_CIta }}</span></td>
+                            <td><span class="d-block">{{ $cita->final_Cita }}</span></td>
                             <td><span class="d-block">{{ $cita->id_Usuario }}</span></td>
                             <td><span class="d-block">{{ $cita->monto }}</span></td>
                             <td><span class="d-block">{{ $cita->abono }}</span></td>

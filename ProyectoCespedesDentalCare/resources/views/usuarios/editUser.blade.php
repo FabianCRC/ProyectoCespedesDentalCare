@@ -4,7 +4,6 @@
     <div class="card mb-5 shadow-sm border-0 shadow-hover">
         <div class="card-header bg-light border-0 pt-3 pb-0">
             <form action="{{ route('Usuarios.update', $users->id) }}" method="post" enctype="multipart/form-data">
-                @csrf
                 @method('PATCH')
                 @csrf
                 <div class="text-center mt-3">

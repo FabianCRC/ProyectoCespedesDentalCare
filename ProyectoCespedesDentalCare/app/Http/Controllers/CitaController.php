@@ -26,7 +26,7 @@ class CitaController extends Controller
      */
     public function create()
     {
-        //
+        return view('citas/create');
     }
 
     /**
@@ -37,7 +37,16 @@ class CitaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cita::create([
+            'id_Paciente' => request('paciente'),
+            'descripcion_Cita' => request('tipo'),
+            'inicio_Cita' => request('inicio'),
+            'final_cita' => request('final'),
+            'id_Usuario' => request('dentista'),
+            'procedimiento' => request('procedimiento')
+            ]);
+
+            return redirect()->route('Citas.index');
     }
 
     /**
