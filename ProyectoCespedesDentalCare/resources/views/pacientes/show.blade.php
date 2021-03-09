@@ -48,8 +48,12 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Dentista</label>
-                            <input disabled="true" type="text" class="form-control" name="dentistaP"
-                                value="{{ $paciente->dentista_Paciente }}" required>
+                            @foreach ($odontologos as $odontologo)
+                                @if ($odontologo->id == $paciente->dentista_Paciente)
+                                    <input disabled="true" type="text" class="form-control" name="dentistaP"
+                                        value="{{ $odontologo->id." - ".$odontologo->name }}" required>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Fecha de Nacimiento</label>
@@ -84,7 +88,8 @@
                         <div class="form-group col-6 btn-md">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger btn-block" type="submit" title="delete"   onclick="return confirm('¿Desea borrar este Paciente?');">
+                            <button class="btn btn-danger btn-block" type="submit" title="delete"
+                                onclick="return confirm('¿Desea borrar este Paciente?');">
                                 Eliminar
                             </button>
                         </div>

@@ -15,8 +15,12 @@ class CitaController extends Controller
     public function index()
     {
          $citas = Cita::latest()->paginate(5);
+         $odontologos = \DB::table('users')
+        ->where('idRol', '2')
+        ->orderBy('name', 'Desc')
+        ->get();
          //return $citas;
-         return view('citas.index', compact('citas'))->with('i', (request()->input('page', 1) - 1) * 5);
+         return view('citas.index', compact('citas'))->with('i', (request()->input('page', 1) - 1) * 5)->with('odontologos',$odontologos);
     }
 
     /**
@@ -26,7 +30,18 @@ class CitaController extends Controller
      */
     public function create()
     {
-        return view('citas/create');
+        $odontologos = \DB::table('users')
+        ->where('idRol', '2')
+        ->orderBy('name', 'Desc')
+        ->get();
+        $pacientes = \DB::table('pacientes')
+        ->orderBy('nombre_Paciente', 'Desc')
+        ->get();
+        
+        //1 es administradior
+        //2 es odontologo
+        //3 es secretaria
+        return view('citas.create')->with('odontologos',$odontologos)->with('pacientes',$pacientes);
     }
 
     /**
@@ -37,13 +52,23 @@ class CitaController extends Controller
      */
     public function store(Request $request)
     {
+              
+        $request->validate([
+            'id_Paciente' => 'required',
+            'descripcion_Cita' => 'required|min:3',
+            'inicio_Cita' => 'required',
+            'final_cita' => 'required',
+            'id_Usuario' => 'required',
+            'descripcion_Cita' => 'required'
+        ]);
+
         Cita::create([
             'id_Paciente' => request('paciente'),
             'descripcion_Cita' => request('tipo'),
             'inicio_Cita' => request('inicio'),
             'final_cita' => request('final'),
             'id_Usuario' => request('dentista'),
-            'procedimiento' => request('procedimiento')
+            'descripcion_Cita' => request('descripcion_Cita')
             ]);
 
             return redirect()->route('Citas.index');
@@ -91,6 +116,8 @@ class CitaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Servicios=\DB::delete('delete from citas where id_Cita = ?',[$id]);
+
+        return view('citas.index');
     }
 }

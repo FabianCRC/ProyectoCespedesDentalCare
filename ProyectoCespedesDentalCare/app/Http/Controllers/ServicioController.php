@@ -105,8 +105,7 @@ class ServicioController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $users_Servicios=\DB::delete('delete from users_servicios where id_Servicio = ?',[$id]);
-
+      
         //Borra el Paciente de la base de datos
         $Servicios=\DB::delete('delete from servicios where id_Servicio = ?',[$id]);
 

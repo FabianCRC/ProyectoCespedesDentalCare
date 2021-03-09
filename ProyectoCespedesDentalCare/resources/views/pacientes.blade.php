@@ -83,11 +83,20 @@
                                                 <input type="text" class="form-control" name="observacionesP"
                                                     placeholder="Observaciones sobre el paciente" required>
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputPassword4">Dentista</label>
-                                                <input type="text" class="form-control" name="dentistaP"
-                                                    placeholder="Dentista del paciente" required title="Texto">
+                                            <div class="form-group col-md-12 col-lg-6">
+                                                <label for="title">Seleccione un Dentista</label>
+                                                <select class="form-control" required>
+                                                    <option disabled="true">No hay registros</option>
+                                                    @if($odontologos==null)
+                                                    <option disabled="true">Seleccione un Dentista</option>
+                                                    @else
+                                                    @foreach($odontologos as $odontologo)
+                                                    <option name="dentistaP" id="dentistaP" value="{{$odontologo->id}}" >{{$odontologo->usuario}} - {{$odontologo->name}} {{$odontologo->apellido}}</option>
+                                                    @endforeach
+                                                    @endif
+                                                </select>
                                             </div>
+                                            
                                             <div class="form-group col-md-6">
                                                 <label for="inputPassword4">Fecha de Nacimiento</label>
                                                 <input type="date" class="form-control datepicker entrada" name="fechanaciP"
@@ -150,7 +159,6 @@
                             <th scope="col"><small class="font-weight-bold">Fecha Ingreso</small></th>
                             <th scope="col"><small class="font-weight-bold">Enfermedades</small></th>
                             <th scope="col"><small class="font-weight-bold">Alergias</small></th>
-                            <th scope="col"><small class="font-weight-bold">Dentista</small></th>
                             <th scope="col"><small class="font-weight-bold">Acciones<small></th>
                         </tr>
                     </thead>
@@ -194,7 +202,6 @@
                                         @endforeach
                                     @endif
                                 @endforeach
-                                <td><span class="d-block">{{ $paciente->dentista_Paciente }}</span>
                                 <td> <a href="{{ route('Pacientes.show', $paciente->id_Paciente) }}"><span
                                           ><i style="color: gray" class="far fa-clipboard  fa-2x ml-3"></i> </span></a>
                                 </td>

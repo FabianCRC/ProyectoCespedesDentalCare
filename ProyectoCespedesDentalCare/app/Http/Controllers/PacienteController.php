@@ -49,11 +49,18 @@ class PacienteController extends Controller
         ->select('pacientes_enfermedades.*')
         ->orderBy('id_Paciente_Enfermedad', 'Desc')
         ->get();
+
+        $odontologos = \DB::table('users')
+        ->where('idRol', '2')
+        ->orderBy('name', 'Desc')
+        ->get();
         
         
 
 
-        return view('pacientes')->with('alergias',$alergias)->with('enfermedades',$enfermedades)->with('pacientes',$pacientes)->with('pacientes_alergias',$pacientes_alergias)->with('pacientes_enfermedades',$pacientes_enfermedades);
+        return view('pacientes')->with('alergias',$alergias)->with('enfermedades',$enfermedades)
+        ->with('pacientes',$pacientes)->with('pacientes_alergias',$pacientes_alergias)
+        ->with('pacientes_enfermedades',$pacientes_enfermedades) ->with('odontologos',$odontologos);
     }
 
     /**
@@ -74,11 +81,7 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'img' => 'required|image|max:2048'
-            
-
-        ]);
+     
 
         $imagenes = $request->file('img')->store('public/imagenes');
 
@@ -142,8 +145,14 @@ class PacienteController extends Controller
         ->orderBy('id_Alergia','DESC')
         ->get();
 
+        $odontologos = \DB::table('users')
+        ->where('idRol', '2')
+        ->orderBy('name', 'Desc')
+        ->get();
 
-return view('pacientes.show')->with('pacientes',$pacientes)->with('alergias',$alergias)->with('enfermedades',$enfermedades);
+
+return view('pacientes.show')->with('pacientes',$pacientes)->with('alergias',$alergias)->with('enfermedades',$enfermedades)
+->with('odontologos',$odontologos);
 
        
     }
@@ -173,9 +182,14 @@ return view('pacientes.show')->with('pacientes',$pacientes)->with('alergias',$al
         ->select('alergias.*')
         ->orderBy('id_Alergia','DESC')
         ->get();
+        $odontologos = \DB::table('users')
+        ->where('idRol', '2')
+        ->orderBy('name', 'Desc')
+        ->get();
 
 
-return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$alergias)->with('enfermedades',$enfermedades);
+return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$alergias)->with('enfermedades',$enfermedades)
+->with('odontologos',$odontologos);
 
     }
 
@@ -188,11 +202,23 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
      */
     public function update (Request $request, $id)
     {
+       // $request->validate([
+      //      'numeroP' => 'required',
+       //     'nombreP' => 'required|min:3',
+      //      'correoP' => 'required|email',
+      //      'observacionesP' => 'required',
+      //      'dentistaP' => 'required',
+      //      'fechanaciP' => 'required',
+      //      'fechaingrP' => 'required',
+      //      'datosP' => 'required',
+      //      'idP' => 'required',
+      //  ]);
        //Actualiza el paciente en la base de datos
        if($request->file('img') != null){
         $request->validate([
-            'img' => 'image|max:2048'
+            'img' => 'required|image|max:2048',
         ]);
+    
         $imagenes = $request->file('img')->store('public/imagenes');
 
         $url = Storage::url($imagenes);

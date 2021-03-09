@@ -15,14 +15,14 @@
                         <div class="form-group col-md-12 col-lg-5">
                             <label for="from">Inicio Cita</label>
                             <div class='input-group date' id='from'>
-                                <input type='date' id="from" name="inicio" class="form-control"  />
+                                <input type='date' id="from" name="inicio" class="form-control" required />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                             </div>
                         </div>
                         <div class="form-group col-md-12 col-lg-5">
                             <label for="from">Fin Cita</label>
                             <div class='input-group date' id='to'>
-                                <input type='date' id="to" name="final" class="form-control"  />
+                                <input type='date' id="to" name="final" class="form-control"  required/>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                             </div>
                         </div>
@@ -37,20 +37,35 @@
 
                     <div class="row">
                         <div class="form-group col-md-12 col-lg-6">
-                            <label for="title">Paciente</label>
-                            <input type="text" required autocomplete="off" name="paciente" class="form-control" id="title"
-                                placeholder="Introduce un título" />
+                            <label for="title">Seleccione un Paciente</label>
+                            <select class="form-control"  name="paciente" id="paciente"  required>  
+                                @if(!$pacientes->isEmpty())
+                                @foreach($pacientes as $paciente)
+                                <option value="{{$paciente->id_Paciente}}" >{{$paciente->id_Paciente}} - {{$paciente->nombre_Paciente}}</option>
+                                @endforeach
+                                @else
+                                <option disabled="true">No hay registros</option>
+                                @endif
+                            </select>
                         </div>
                         <div class="form-group col-md-12 col-lg-6">
-                            <label for="title">Dentista</label>
-                            <input type="text" required autocomplete="off" name="dentista" class="form-control"
-                                id="dentista" placeholder="Introduce un título" />
+                            <label for="title">Seleccione un dentista</label>
+                            <select class="form-control" name="dentista" id="dentista" required>
+                                <option disabled="true">Seleccione un dentista</option>
+                                @if(!$pacientes->isEmpty())
+                                @foreach($odontologos as $odontologo)
+                                <option  value="{{$odontologo->id}}" >{{$odontologo->name}}</option>
+                                @endforeach
+                                @else
+                                <option disabled="true">No hay registros</option>
+                                @endif
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-12">
                             <label for="body">Procedimiento</label>
-                            <textarea id="body" name="procedimiento" required class="form-control" rows="3"></textarea>
+                            <textarea id="body" name="descripcion_Cita" required class="form-control" rows="3" required></textarea>
                         </div>
                     </div>
                     <br>
