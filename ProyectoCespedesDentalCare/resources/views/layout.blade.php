@@ -36,7 +36,7 @@
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="{{ route('MiPerfil') }}">Mi Perfil</a>
+                    <a class="dropdown-item" href="{{ route('Perfil.index') }}">Mi Perfil</a>
                     <div class="dropdown-divider"></div>
                    
                     <!--Aqui va el logout-->
@@ -77,10 +77,12 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Servicios
                         </a>
+                        @if(Auth::user()->idRol==1)
                         <a class="nav-link" href="{{ route('Usuarios.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Usuarios
                         </a>
+                        @endif
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">

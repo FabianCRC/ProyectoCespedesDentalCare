@@ -3,7 +3,7 @@
 @section('Contenido')
     <div class="card mb-5 shadow-sm border-0 shadow-hover">
         <div class="card-header bg-light border-0 pt-3 pb-0">
-            <form action="{{ route('Usuarios.update', Auth::user()->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('Perfil.update', Auth::user()->id) }}" method="post" enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf
                 <div class="text-center mt-3">

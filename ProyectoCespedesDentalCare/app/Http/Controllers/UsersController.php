@@ -119,6 +119,7 @@ class UsersController extends Controller
 
      
     $request->request->add(['password'=> Hash::make($request->input('password'))
+    
     ]);
 
        $datosUsuario=request()->except(['_token','_method']);
@@ -136,9 +137,11 @@ class UsersController extends Controller
        users::where('id','=',$id)->update($datosUsuario);
 
        $users= users::findOrFail($id);
-       return redirect('/Usuarios');
+
+        return redirect('/Usuarios');
    }
 
+   
    /**
     * Remove the specified resource from storage.
     *

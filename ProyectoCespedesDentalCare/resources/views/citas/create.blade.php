@@ -8,6 +8,13 @@
             <div class="text-center mt-3">
                 <h2 class="text-center" id="myModalLabel">Agregar una nueva cita</h2>
             </div>
+
+            @if($errors->any())
+                {{$errors}}
+            @endif
+
+
+
             <div class="modal-body ">
                 <form action="{{ route('Citas.store') }}" method="post">
                 @csrf

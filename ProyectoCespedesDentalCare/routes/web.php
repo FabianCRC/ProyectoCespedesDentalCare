@@ -24,7 +24,6 @@ Route::view('/layout','layout')->name('Layout');
 
 Route::view('/servicios','servicios')->name('Servicios')->middleware('auth');
 
-Route::view('/miPerfil','miPerfil')->name('MiPerfil')->middleware('auth');
 
 Route::view('/index','index')->name('Index')->middleware('auth');
 
@@ -45,3 +44,5 @@ Route::resource('/Servicios', 'App\Http\Controllers\ServicioController')->middle
 Route::resource('/Usuarios','\App\Http\Controllers\UsersController')->middleware('auth');
 
 Route::resource('/Citas','\App\Http\Controllers\CitaController')->middleware('auth');
+
+Route::resource('/Perfil','\App\Http\Controllers\PerfilController')->middleware('auth');

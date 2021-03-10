@@ -19,8 +19,11 @@ class CitaController extends Controller
         ->where('idRol', '2')
         ->orderBy('name', 'Desc')
         ->get();
+        $pacientes = \DB::table('pacientes')
+        ->get();
          //return $citas;
-         return view('citas.index', compact('citas'))->with('i', (request()->input('page', 1) - 1) * 5)->with('odontologos',$odontologos);
+         return view('citas.index', compact('citas'))->with('i', (request()->input('page', 1) - 1) * 5)->with('odontologos',$odontologos)
+         ->with('pacientes',$pacientes);
     }
 
     /**
@@ -30,6 +33,9 @@ class CitaController extends Controller
      */
     public function create()
     {
+        //1 es administradior
+        //2 es odontologo
+        //3 es secretaria
         $odontologos = \DB::table('users')
         ->where('idRol', '2')
         ->orderBy('name', 'Desc')
@@ -37,10 +43,7 @@ class CitaController extends Controller
         $pacientes = \DB::table('pacientes')
         ->orderBy('nombre_Paciente', 'Desc')
         ->get();
-        
-        //1 es administradior
-        //2 es odontologo
-        //3 es secretaria
+      
         return view('citas.create')->with('odontologos',$odontologos)->with('pacientes',$pacientes);
     }
 
@@ -54,12 +57,12 @@ class CitaController extends Controller
     {
               
         $request->validate([
-            'id_Paciente' => 'required',
+            'paciente' => 'required',
             'descripcion_Cita' => 'required|min:3',
-            'inicio_Cita' => 'required',
-            'final_cita' => 'required',
-            'id_Usuario' => 'required',
-            'descripcion_Cita' => 'required'
+            'inicio' => 'required',
+            'final' => 'required',
+            'dentista' => 'required',
+            'descripcion_Cita' => 'required|min:4'
         ]);
 
         Cita::create([

@@ -36,14 +36,20 @@
                         <tr class="shadow-sm">
                             <td class="d-block"><span class="d-block">{{ $loop->iteration }}</span></td>
                             <td><span class="d-block">{{ $cita->id_Paciente }}</span></td>
-                            <td><span class="d-block">{{ $cita->nombre_Paciente }}</span></td>
+                            <td><span class="d-block">
+                                    @foreach ($pacientes as $paciente)
+                                        @if ($cita->id_Paciente == $paciente->id_Paciente)
+                                            {{ $paciente->nombre_Paciente }}
+                                        @endif
+                                    @endforeach
+                                </span></td>
                             <td><span class="d-block">{{ $cita->descripcion_Cita }}</span></td>
                             <td><span class="d-block">{{ $cita->inicio_Cita }}</span></td>
                             <td><span class="d-block">{{ $cita->final_Cita }}</span></td>
                             <td><span class="d-block">
                                     @foreach ($odontologos as $odontologo)
-                                        @if($cita->id_Usuario==$odontologo->id)
-                                            {{$odontologo->name}} {{$odontologo->apellido}}
+                                        @if ($cita->id_Usuario == $odontologo->id)
+                                            {{ $odontologo->name }} {{ $odontologo->apellido }}
                                         @endif
                                     @endforeach
                                 </span></td>
