@@ -58,7 +58,7 @@ class PacienteController extends Controller
         
 
 
-        return view('pacientes')->with('alergias',$alergias)->with('enfermedades',$enfermedades)
+        return view('pacientes.index')->with('alergias',$alergias)->with('enfermedades',$enfermedades)
         ->with('pacientes',$pacientes)->with('pacientes_alergias',$pacientes_alergias)
         ->with('pacientes_enfermedades',$pacientes_enfermedades) ->with('odontologos',$odontologos);
     }

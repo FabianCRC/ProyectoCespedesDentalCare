@@ -5,14 +5,16 @@
         <div class="form-group text-center">
             <h1>Lista de Citas</h1>
         </div>
-        <div class="form-group ml-3">
-            <a class="btn btn-secondary " href="{{ route('Citas.create') }}">
-                Agregar Cita
-            </a>
-        </div>
+        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+            <div class="form-group ml-3">
+                <a class="btn btn-secondary " href="{{ route('Citas.create') }}">
+                    Agregar Cita
+                </a>
+            </div>
+        @endif
         <div class="col-xl-15 col-lg-12">
 
-            <table class="table table-responsive table-striped table-inverse" id="citas">
+            <table class="table table-responsive-xl table-striped table-inverse" id="citas">
 
                 <thead>
                     <tr>
@@ -26,6 +28,10 @@
                         <th scope="col"><small class="font-weight-bold">Monto</small></th>
                         <th scope="col"><small class="font-weight-bold">Abono</small></th>
                         <th scope="col"><small class="font-weight-bold">Saldo</small></th>
+                        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+                            <th scope="col"><small class="font-weight-bold">Editar</small></th>
+                            <th scope="col"><small class="font-weight-bold">Eliminar</small></th>
+                        @endif
 
 
                     </tr>
@@ -56,20 +62,28 @@
                             <td><span class="d-block">{{ $cita->monto }}</span></td>
                             <td><span class="d-block">{{ $cita->abono }}</span></td>
                             <td><span class="d-block">{{ $cita->saldo }}</span></td>
-                            <td>
-                                <a href="{{ route('Citas.edit', $cita->id_Cita) }}" title="show">
-                                    <i style="color:gray" class="far fa-edit fa-lg fa-2x "></i>
-                                </a>
-                            </td>
-                            <td>
-                                <form method="post" action="{{ route('Citas.destroy', $cita->id_Cita) }}">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit" onclick="return confirm('¿Desea borrar esta Cita?');"><i
-                                            style="color: red" class="far fa-trash-alt fa-2x"></i></button>
+                            @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+                                <td>
+                                    <div class="row justify-content-center">
 
-                                </form>
-                            </td>
+                                        <a href="{{ route('Citas.edit', $cita->id_Cita) }}" title="show">
+                                            <i style="color:gray" class="far fa-edit fa-lg fa-2x "></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row justify-content-center">
+
+                                        <form method="post" action="{{ route('Citas.destroy', $cita->id_Cita) }}">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit" onclick="return confirm('¿Desea borrar esta Cita?');"><i
+                                                    style="color: red" class="far fa-trash-alt fa-2x"></i></button>
+
+                                        </form>
+                                    </div>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

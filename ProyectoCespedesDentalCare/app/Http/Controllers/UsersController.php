@@ -31,7 +31,7 @@ class UsersController extends Controller
                ->select('roles.*')
                ->orderBy('id_Rol','DESC')
                ->get();
-       return view('usuarios/createUser')->with('roles',$roles);
+       return view('usuarios/create')->with('roles',$roles);
    }
 
    /**
@@ -95,7 +95,7 @@ class UsersController extends Controller
    public function edit($id)
    {
        $users= users::findOrFail($id);
-       return view('usuarios.editUser',compact('users'));
+       return view('usuarios.edit',compact('users'));
    }
 
    /**

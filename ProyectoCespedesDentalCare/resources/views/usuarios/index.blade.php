@@ -13,7 +13,7 @@
         </div>
         <div class="col-xl-15 col-lg-12">
 
-            <table class="table table-responsive table-striped table-inverse" id="usuarios">
+            <table class="table table-responsive-xl table-striped table-inverse" id="usuarios">
 
                 <thead >
                     <tr>

@@ -51,7 +51,7 @@
                             @foreach ($odontologos as $odontologo)
                                 @if ($odontologo->id == $paciente->dentista_Paciente)
                                     <input disabled="true" type="text" class="form-control" name="dentistaP"
-                                        value="{{ $odontologo->id." - ".$odontologo->name }}" required>
+                                        value="{{ $odontologo->id . ' - ' . $odontologo->name }}" required>
                                 @endif
                             @endforeach
                         </div>
@@ -79,20 +79,22 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        <div class="form-group col-6 btn-md">
-                            <a class="btn btn-secondary btn-block"
-                                href="{{ route('Pacientes.edit', $paciente->id_Paciente) }}">
-                                Editar
-                            </a>
-                        </div>
-                        <div class="form-group col-6 btn-md">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger btn-block" type="submit" title="delete"
-                                onclick="return confirm('¿Desea borrar este Paciente?');">
-                                Eliminar
-                            </button>
-                        </div>
+                        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+                            <div class="form-group col-6 btn-md">
+                                <a class="btn btn-secondary btn-block"
+                                    href="{{ route('Pacientes.edit', $paciente->id_Paciente) }}">
+                                    Editar
+                                </a>
+                            </div>
+                            <div class="form-group col-6 btn-md">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-block" type="submit" title="delete"
+                                    onclick="return confirm('¿Desea borrar este Paciente?');">
+                                    Eliminar
+                                </button>
+                            </div>
+                        @endif
                 </form>
             @endforeach
         </div>
