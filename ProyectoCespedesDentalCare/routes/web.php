@@ -27,6 +27,8 @@ Route::view('/servicios','servicios')->name('Servicios')->middleware('auth');
 
 Route::view('/index','index')->name('Index')->middleware('auth');
 
+Route::view('/Pagina','Pagina')->name('Pagina');
+
 
 //Ruta post para el logout
 Route::post('/','LoginController@logout')->name('logout');

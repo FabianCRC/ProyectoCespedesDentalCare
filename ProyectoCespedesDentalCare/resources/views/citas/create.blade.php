@@ -19,26 +19,19 @@
                 <form action="{{ route('Citas.store') }}" method="post">
                 @csrf
                     <div class="row">
-                        <div class="form-group col-md-12 col-lg-5">
+                        <div class="form-group col-md-12 col-lg-6">
                             <label for="from">Inicio Cita</label>
                             <div class='input-group date' id='from'>
-                                <input type='date' id="from" name="inicio" class="form-control" required />
+                                <input type="datetime-local" id="from" name="inicio" class="form-control" required />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                             </div>
                         </div>
-                        <div class="form-group col-md-12 col-lg-5">
+                        <div class="form-group col-md-12 col-lg-6">
                             <label for="from">Fin Cita</label>
                             <div class='input-group date' id='to'>
-                                <input type='date' id="to" name="final" class="form-control"  required/>
+                                <input type="datetime-local" id="to" name="final" class="form-control"  required/>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                             </div>
-                        </div>
-                        <div class="form-group col-md-12 col-lg-2">
-                            <label for="tipo">Tipo de cita</label>
-                            <select class="form-control" name="tipo" id="tipo">
-                                <option value="General">Cita General</option>
-                                <option value="Ortodoncia">Cita Ortodoncia</option>
-                            </select>
                         </div>
                     </div>
 
