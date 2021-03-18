@@ -96,7 +96,19 @@ class CitaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $citas  = \DB::table('citas')
+        ->select('*')
+        ->where('id_Cita' , $id)
+        ->get();
+        $odontologos = \DB::table('users')
+        ->where('idRol', '2')
+        ->orderBy('name', 'Desc')
+        ->get();
+        $pacientes = \DB::table('pacientes')
+        ->orderBy('nombre_Paciente', 'Desc')
+        ->get();
+      
+        return view('citas.edit')->with('odontologos',$odontologos)->with('pacientes',$pacientes)->with('citas',$citas);   
     }
 
     /**
@@ -108,9 +120,25 @@ class CitaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'dentista' => 'required',
+            'paciente' => 'required',
+            'final' => 'required',
+            'inicio' => 'required',
+            'descripcion_Cita' => 'required',
+           // 'monto' => 'required',
+           // 'abono' => 'required',
+           // 'saldo' => 'required'
+        ]);
+       //$servicio->update($request->all());
+       $servicio=\DB::update('update citas set id_Paciente = ?,id_Usuario = ?,inicio_Cita = ?,final_Cita = ?,descripcion_Cita=?
+       ,monto = ?,abono = ?,saldo = ?  where id_Cita=?',
+       [request('paciente'),request('dentista'),request('final'),
+       request('inicio'),request('descripcion_Cita'),request('monto'),request('abono'),(request('monto')-request('abono')),$id]);
+        return redirect()->route('Citas.index')
+            ->with('success', 'Product updated successfully');
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *

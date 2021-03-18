@@ -62,7 +62,7 @@
                                                         <label for="inputPassword4">Enfermedades</label>
 
                                                         <select name="enfermedadesP" class="form-control" required>
-                                                            <option value="" disabled selected>Seleccione una opción
+                                                            <option value="" selected>Seleccione una opción
                                                             </option>
                                                             @foreach ($enfermedades as $enfermedad)
                                                                 <option value="{{ $enfermedad->id_Enfermedad }}">
@@ -74,7 +74,7 @@
                                                 <div class="form-group col-md-6">
                                                     <label for="inputPassword4">Alergias</label>
                                                     <select name="alergiasP" class="form-control" required>
-                                                        <option value="" disabled selected>Seleccione una opción</option>
+                                                        <option value="" selected>Seleccione una opción</option>
                                                         @foreach ($alergias as $alergia)
                                                             <option value="{{ $alergia->id_Alergia }}">
                                                                 {{ $alergia->nombre_Alergia }}</option>
@@ -90,14 +90,14 @@
                                                 <div class="form-group col-md-12 col-lg-6">
                                                     <label for="title">Seleccione un Dentista</label>
                                                     <select class="form-control" required>
-                                                        <option disabled="true">No hay registros</option>
+                                                        <option selected>Seleccione un dentista</option>
                                                         @if ($odontologos == null)
                                                             <option disabled="true">Seleccione un Dentista</option>
                                                         @else
                                                             @foreach ($odontologos as $odontologo)
                                                                 <option name="dentistaP" id="dentistaP"
                                                                     value="{{ $odontologo->id }}">
-                                                                    {{ $odontologo->usuario }}
+                                                                    {{ $odontologo->id }}
                                                                     - {{ $odontologo->name }}
                                                                     {{ $odontologo->apellido }}
                                                                 </option>
@@ -116,10 +116,12 @@
                                                     <input type="date" class="form-control datepicker entrada"
                                                         name="fechaingrP" required min="2021-01-01">
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group col-md-12">
                                                     <label for="inputAddress">Datos importantes</label>
                                                     <input type="text" class="form-control" name="datosP"
                                                         placeholder="Tipo de tratamiento..." required>
+                                                </div>
+                                                <div class="form-group col-md-12">
                                                     <label>Foto de paciente</label>
                                                     <input type="file" class="form-control" name="img" accept="image/*"
                                                         required />

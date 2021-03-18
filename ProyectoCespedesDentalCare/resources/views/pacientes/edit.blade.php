@@ -80,7 +80,7 @@
                                 @if (!$odontologos->isEmpty())
                                     @foreach ($odontologos as $odontologo)
                                         @if ($paciente->dentista_Paciente == $odontologo->id)
-                                            <option value="{{ $odontologo->id }}" selected>{{ $odontologo->name }}
+                                            <option value="{{ $odontologo->id }}" selected>{{ $odontologo->id }} - {{ $odontologo->name }} {{ $odontologo->apellido }} 
                                             </option>
                                         @else
                                             <option value="{{ $odontologo->id }}">{{ $odontologo->name }}</option>
