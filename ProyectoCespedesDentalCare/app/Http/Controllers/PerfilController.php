@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 
+
 class PerfilController extends Controller
 {
     /**
@@ -80,13 +81,16 @@ class PerfilController extends Controller
              'cedula' => ['required', 'string','min:8'],
              'telefono' => ['required', 'string','min:8'],
              ]);
+
  
+  if(request('password') != request('passwordO')){
+    $request->request->add(['password'=> Hash::make($request->input('password'))
+    ]);
+ }
       
-     $request->request->add(['password'=> Hash::make($request->input('password'))
-     
-     ]);
+
  
-        $datosUsuario=request()->except(['_token','_method']);
+        $datosUsuario=request()->except(['_token','_method','passwordO']);
  
  
         if($request->hasFile('imagen')){

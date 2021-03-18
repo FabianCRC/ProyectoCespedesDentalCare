@@ -125,6 +125,8 @@
                             <label for="password" class="inputAddress">{{ 'Contraseña del usuario' }}</label>
                             <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
                                 id="password" value="{{ Auth::user()->password }}" required autocomplete="password" autofocus>
+                                <input hidden="" type="password" class="form-control @error('password') is-invalid @enderror" name="passwordO"
+                                id="passwordO" value="{{ Auth::user()->password }}" required autocomplete="password" autofocus>
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
