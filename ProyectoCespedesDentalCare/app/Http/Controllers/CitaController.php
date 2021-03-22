@@ -59,8 +59,8 @@ class CitaController extends Controller
         $request->validate([
             'paciente' => 'required',
             'descripcion_Cita' => 'required|min:3',
-            'inicio' => 'required',
-            'final' => 'required',
+            'inicio' => 'required|date|after:yesterday',
+            'final' => 'required||after:yesterday',
             'dentista' => 'required',
             'descripcion_Cita' => 'required|min:4'
         ]);
@@ -123,9 +123,9 @@ class CitaController extends Controller
         $request->validate([
             'dentista' => 'required',
             'paciente' => 'required',
-            'final' => 'required',
-            'inicio' => 'required',
-            'descripcion_Cita' => 'required',
+            'final' => 'required|after:yesterday',
+            'inicio' => 'required|after:yesterday',
+            'descripcion_Cita' => 'required|min:4'
            // 'monto' => 'required',
            // 'abono' => 'required',
            // 'saldo' => 'required'

@@ -15,7 +15,7 @@ return [
 
     'accepted' => 'The :attribute must be accepted.',
     'active_url' => 'The :attribute is not a valid URL.',
-    'after' => 'The :attribute must be a date after :date.',
+    'after' => 'La :attribute debe ser una fecha posterior a :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
     'alpha' => 'The :attribute may only contain letters.',
     'alpha_dash' => 'The :attribute may only contain letters, numbers, dashes and underscores.',
@@ -31,7 +31,7 @@ return [
     ],
     'boolean' => 'The :attribute field must be true or false.',
     'confirmed' => 'The :attribute confirmation does not match.',
-    'date' => 'The :attribute is not a valid date.',
+    'date' => 'La :attribute no es una fecha valida.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
     'different' => 'The :attribute and :other must be different.',

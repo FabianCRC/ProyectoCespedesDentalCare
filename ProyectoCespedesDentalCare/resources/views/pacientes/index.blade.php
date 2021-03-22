@@ -181,7 +181,7 @@
 
                             <tr class="shadow-sm">
                                 <td><img src='{{ $paciente->imagen_Paciente }}' class="img-fluid rounded-circle avatar"
-                                        alt="Imagen" /></td>
+                                        alt="Imagen" style="height: 80px;width: 80px"/></td>
                                 <td><span class="d-block">{{ $paciente->nombre_Paciente }}</span><small
                                         class="text-muted">{{ $paciente->correo_Paciente }}</small>
                                 </td>

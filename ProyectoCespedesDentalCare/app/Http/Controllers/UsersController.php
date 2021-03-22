@@ -118,9 +118,10 @@ class UsersController extends Controller
             ]);
 
      
-    $request->request->add(['password'=> Hash::make($request->input('password'))
-    
-    ]);
+            if(request('password') != request('passwordO')){
+                $request->request->add(['password'=> Hash::make($request->input('password'))
+                ]);
+             }
 
        $datosUsuario=request()->except(['_token','_method']);
 
