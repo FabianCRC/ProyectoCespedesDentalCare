@@ -17,6 +17,7 @@
             <table class="table table-responsive-xl table-striped table-inverse" id="servicios">
                 <thead class="thead-inverse">
                     <tr>
+                        <th scope="col"><small class="font-weight-bold">#</small></th>
                         <th>Nombre del Servicio</th>
                         <th>Descripcion</th>
                         <th>Valor</th>
@@ -28,12 +29,12 @@
                 </thead>
                 <tbody>
                     @foreach ($servicios as $servicio)
-
                         @csrf
                         <tr>
+                            <td class="d-block"><span class="d-block">{{ $loop->iteration }}</span></td>
                             <td>{{ $servicio->nombre_Servicio }}</td>
                             <td>{{ $servicio->descripcion_Servicio }}</td>
-                            <td>{{ $servicio->precio_Servicio }}</td>
+                            <td>₡{{ $servicio->precio_Servicio }}</td>
 
                             @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
                                 <td>

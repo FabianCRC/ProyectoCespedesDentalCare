@@ -41,12 +41,11 @@ class UsersController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function store(Request $request)
-    {
-      
+    { 
      $request->validate([
             'usuario' => ['required', 'string','min:6', 'max:255', 'unique:users'],
             'name' => ['required', 'string', 'max:255','min:3'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
             'apellido' => ['required', 'string','min:3'],
             'cedula' => ['required', 'string','min:8'],

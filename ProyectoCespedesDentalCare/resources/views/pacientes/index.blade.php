@@ -161,7 +161,7 @@
                 <table class=" table table-responsive-xl table-striped table-inverse" id="pacientes">
                     <thead>
                         <tr>
-
+                            <th scope="col"><small class="font-weight-bold">#</small></th>
                             <th scope="col"><small class="font-weight-bold">Paciente</small></th>
                             <th scope="col"><small class="font-weight-bold">Contacto</small></th>
                             <th scope="col"><small class="font-weight-bold">Numero</small></th>
@@ -180,8 +180,9 @@
                         @foreach ($pacientes as $paciente)
 
                             <tr class="shadow-sm">
+                                <td class="d-block"><span class="d-block">{{ $loop->iteration }}</span></td>
                                 <td><img src='{{ $paciente->imagen_Paciente }}' class="img-fluid rounded-circle avatar"
-                                        alt="Imagen" style="height: 80px;width: 80px"/></td>
+                                        alt="Imagen" style="height: 80px;width: 80px" /></td>
                                 <td><span class="d-block">{{ $paciente->nombre_Paciente }}</span><small
                                         class="text-muted">{{ $paciente->correo_Paciente }}</small>
                                 </td>

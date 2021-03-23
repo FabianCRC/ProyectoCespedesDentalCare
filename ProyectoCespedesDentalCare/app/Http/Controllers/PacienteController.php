@@ -82,6 +82,17 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
      
+        $request->validate([
+            'numeroP' => 'required',
+           'nombreP' => 'required|min:3',
+            'correoP' => 'required|email',
+            'observacionesP' => 'required',
+            'dentistaP' => 'required',
+            'fechanaciP' => 'required|date',
+            'fechaingrP' => 'required|date',
+            'datosP' => 'required',
+            'idP' => 'required|numeric',
+        ]);
 
         $imagenes = $request->file('img')->store('public/imagenes');
 
@@ -202,17 +213,17 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
      */
     public function update (Request $request, $id)
     {
-       // $request->validate([
-      //      'numeroP' => 'required',
-       //     'nombreP' => 'required|min:3',
-      //      'correoP' => 'required|email',
-      //      'observacionesP' => 'required',
-      //      'dentistaP' => 'required',
-      //      'fechanaciP' => 'required',
-      //      'fechaingrP' => 'required',
-      //      'datosP' => 'required',
-      //      'idP' => 'required',
-      //  ]);
+         $request->validate([
+            'numeroP' => 'required|min:8|max:20',
+           'nombreP' => 'required|min:3',
+            'correoP' => 'required|email',
+            'observacionesP' => 'required|min:3',
+            'dentistaP' => 'required|numeric',
+            'fechanaciP' => 'required|date',
+            'fechaingrP' => 'required|date',
+            'datosP' => 'required|min:3',
+            'idP' => 'required|numeric',
+        ]);
        //Actualiza el paciente en la base de datos
        if($request->file('img') != null){
         $request->validate([

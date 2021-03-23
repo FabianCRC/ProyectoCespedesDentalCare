@@ -14,7 +14,7 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        $servicios = Servicio::latest()->paginate(5);
+        $servicios = Servicio::All();
        // return $servicios;
         return view('servicios.index', compact('servicios'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -41,7 +41,7 @@ class ServicioController extends Controller
         $request->validate([
             'nombre_Servicio' => 'required|min:3',
             'descripcion_Servicio' => 'required|min:3',
-            'precio_Servicio' => 'required|numeric'
+            'precio_Servicio' => 'required|numeric|min:500|max:15000000'
         ]);
 
         Servicio::create($request->all());  
@@ -88,7 +88,7 @@ class ServicioController extends Controller
         $request->validate([
             'nombre_Servicio' => 'required|min:3',
             'descripcion_Servicio' => 'required|min:3',
-            'precio_Servicio' => 'required|numeric'
+            'precio_Servicio' => 'required|numeric|min:500|max:15000000'
         ]);
        //$servicio->update($request->all());
        $servicio=\DB::update('update servicios set nombre_servicio = ?,descripcion_servicio = ?,precio_servicio = ? where id_servicio=?',

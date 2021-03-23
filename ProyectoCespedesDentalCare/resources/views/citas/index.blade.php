@@ -59,9 +59,9 @@
                                         @endif
                                     @endforeach
                                 </span></td>
-                            <td><span class="d-block">{{ $cita->monto }}</span></td>
-                            <td><span class="d-block">{{ $cita->abono }}</span></td>
-                            <td><span class="d-block">{{ $cita->saldo }}</span></td>
+                            <td><span class="d-block">₡{{ $cita->monto }}</span></td>
+                            <td><span class="d-block">₡{{ $cita->abono }}</span></td>
+                            <td><span class="d-block">₡{{ $cita->saldo }}</span></td>
                             @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
                                 <td>
                                     <div class="row justify-content-center">

@@ -61,25 +61,25 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Menu</div>
-                        <a class="nav-link" href="/index">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <a class="nav-link" href="/calendario">
+                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             Inicio
                         </a>
                         <a class="nav-link" href="{{ route('Citas.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar-week"></i></div>
                             Citas
                         </a>
                         <a class="nav-link" href="{{ route('Pacientes.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                             Pacientes
                         </a>
                         <a class="nav-link" href="{{ route('Servicios.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
                             Servicios
                         </a>
                         @if(Auth::user()->idRol==1)
                         <a class="nav-link" href="{{ route('Usuarios.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                             Usuarios
                         </a>
                         @endif

@@ -17,35 +17,41 @@
                                     <label for="inputAddress">Nombre de servicio</label>
                                     <input type="text" class="form-control" autocomplete="off" name="nombre_Servicio"
                                         placeholder="Calza..." value="{{ $servicio->nombre_Servicio }}">
-                                    @error('nombre_Servicio')
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    @if ($errors->any())
+                                        @if ($errors->has('nombre_Servicio'))
+                                            <div class="alert alert-danger mt-1" role="alert">
+                                                {{ $errors->first('nombre_Servicio') }}
+                                            </div>
+                                        @endif
+                                    @endif
                                 </div>
                             </div>
-                        
+
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="inputAddress">Precio</label>
                                     <input type="text" class="form-control" name="precio_Servicio" autocomplete="off"
                                         placeholder="35.000" value="{{ $servicio->precio_Servicio }}">
-                                    @error('precio_Servicio')
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    @if ($errors->any())
+                                        @if ($errors->has('precio_Servicio'))
+                                            <div class="alert alert-danger mt-1" role="alert">
+                                                {{ $errors->first('precio_Servicio') }}
+                                            </div>
+                                        @endif
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="inputAddress">Descripción</label>
                                 <textarea type="text" class="form-control" name="descripcion_Servicio" autocomplete="off"
-                                    placeholder="Descripción..." value="{{ $servicio->descripcion_Servicio }}"></textarea>
-                                @error('descripcion_Servicio')
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                    placeholder="Descripción...">{{ $servicio->descripcion_Servicio }}</textarea>
+                                @if ($errors->any())
+                                    @if ($errors->has('descripcion_Servicio'))
+                                        <div class="alert alert-danger mt-1" role="alert">
+                                            {{ $errors->first('descripcion_Servicio') }}
+                                        </div>
+                                    @endif
+                                @endif
                             </div>
                         </div>
                         <div class="text-center">

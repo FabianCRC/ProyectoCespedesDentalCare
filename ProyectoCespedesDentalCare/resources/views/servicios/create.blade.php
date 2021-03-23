@@ -15,11 +15,13 @@
                                 <label for="inputAddress">Nombre de servicio</label>
                                 <input type="text" class="form-control" autocomplete="off" name="nombre_Servicio"
                                     placeholder="Calza...">
-                                @error('nombre_Servicio')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                @if ($errors->any())
+                                    @if ($errors->has('nombre_Servicio'))
+                                        <div class="alert alert-danger mt-1" role="alert">
+                                            {{ $errors->first('nombre_Servicio') }}
+                                        </div>
+                                    @endif
+                                @endif
                             </div>
                         </div>
 
@@ -28,22 +30,26 @@
                                 <label for="inputAddress">Precio</label>
                                 <input type="text" class="form-control" name="precio_Servicio" autocomplete="off"
                                     placeholder="35.000">
-                                @error('precio_Servicio')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                @if ($errors->any())
+                                    @if ($errors->has('precio_Servicio'))
+                                        <div class="alert alert-danger mt-1" role="alert">
+                                            {{ $errors->first('precio_Servicio') }}
+                                        </div>
+                                    @endif
+                                @endif
                             </div>
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputAddress">Descripción</label>
                             <textarea type="text" class="form-control" name="descripcion_Servicio" autocomplete="off"
                                 placeholder="Descripción..."></textarea>
-                            @error('descripcion_Servicio')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            @if ($errors->any())
+                                @if ($errors->has('descripcion_Servicio'))
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ $errors->first('descripcion_Servicio') }}
+                                    </div>
+                                @endif
+                            @endif
                         </div>
                     </div>
                     <div class="text-center">

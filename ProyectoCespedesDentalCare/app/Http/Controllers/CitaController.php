@@ -60,7 +60,7 @@ class CitaController extends Controller
             'paciente' => 'required',
             'descripcion_Cita' => 'required|min:3',
             'inicio' => 'required|date|after:yesterday',
-            'final' => 'required||after:yesterday',
+            'final' => 'required|date|after:yesterday',
             'dentista' => 'required',
             'descripcion_Cita' => 'required|min:4'
         ]);
@@ -123,12 +123,12 @@ class CitaController extends Controller
         $request->validate([
             'dentista' => 'required',
             'paciente' => 'required',
-            'final' => 'required|after:yesterday',
-            'inicio' => 'required|after:yesterday',
-            'descripcion_Cita' => 'required|min:4'
-           // 'monto' => 'required',
-           // 'abono' => 'required',
-           // 'saldo' => 'required'
+            'final' => 'required|date|after:yesterday',
+            'inicio' => 'required|date|after:yesterday',
+            'descripcion_Cita' => 'required|min:4',
+            'monto' => 'numeric|min:500|max:15000000',
+            'abono' => 'numeric|min:100|max:15000000',
+            'saldo' => 'numeric|min:500|max:15000000'
         ]);
        //$servicio->update($request->all());
        $servicio=\DB::update('update citas set id_Paciente = ?,id_Usuario = ?,inicio_Cita = ?,final_Cita = ?,descripcion_Cita=?

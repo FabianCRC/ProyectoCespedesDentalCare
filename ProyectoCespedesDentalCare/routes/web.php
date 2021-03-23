@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Auth;
 //Ruta de raiz que envia al login
 //El middleware('auth') lo que hace es redireccionar al login si no se encuentra autenticada la sesion
 
-Route::view('/','auth.login');
+
+Route::view('/','Index')->name('Index');
+
+
+Route::view('/login','auth.login')->name('Login');
 
 Route::view('/agendarCita','agendarCita')->name('AgendarCita')->middleware('auth');
 
@@ -25,9 +29,9 @@ Route::view('/layout','layout')->name('Layout');
 Route::view('/servicios','servicios')->name('Servicios')->middleware('auth');
 
 
-Route::view('/index','index')->name('Index')->middleware('auth');
+Route::view('/calendario','calendario')->name('calendario')->middleware('auth');
 
-Route::view('/Pagina','Pagina')->name('Pagina');
+
 
 
 //Ruta post para el logout

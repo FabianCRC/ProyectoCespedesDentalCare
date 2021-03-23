@@ -18,14 +18,16 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="usuario" class="inputAddress">{{ 'Usuario' }}</label>
-                            <input  type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario"
+                            <input type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario"
                                 id="usuario" value="{{ $users->usuario }}" required autocomplete="usuario" autofocus>
 
-                            @error('usuario')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            @if ($errors->any())
+                                @if ($errors->has('usuario'))
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ $errors->first('usuario') }}
+                                    </div>
+                                @endif
+                            @endif
                         </div>
                     </div>
 
@@ -36,11 +38,13 @@
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                                 id="name" value="{{ $users->name }}" required autocomplete="name" autofocus>
 
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            @if ($errors->any())
+                                @if ($errors->has('name'))
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ $errors->first('name') }}
+                                    </div>
+                                @endif
+                            @endif
                         </div>
                     </div>
 
@@ -49,11 +53,13 @@
                             <label for="apellido" class="inputAddress">{{ 'Apellido del usuario' }}</label>
                             <input type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido"
                                 id="apellido" value="{{ $users->apellido }}" required autocomplete="apellido" autofocus>
-                            @error('apellido')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            @if ($errors->any())
+                                @if ($errors->has('apellido'))
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ $errors->first('apellido') }}
+                                    </div>
+                                @endif
+                            @endif
                         </div>
                     </div>
 
@@ -62,29 +68,30 @@
                             <label for="cedula" class="inputAddress">{{ 'Cedula del usuario' }}</label>
                             <input type="text" class="form-control @error('cedula') is-invalid @enderror" name="cedula"
                                 id="cedula" value="{{ $users->cedula }}" required autocomplete="cedula" autofocus>
-
-                            @error('cedula')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            @if ($errors->any())
+                                @if ($errors->has('cedula'))
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ $errors->first('cedula') }}
+                                    </div>
+                                @endif
+                            @endif
                         </div>
                     </div>
 
 
                     <div class="form-group col-md-6">
                         <div class="form-group">
-                            <label for="imagen" class="inputAddress">{{ 'imagen del usuario' }}</label>
-
-
+                            <label for="imagen" class="inputAddress">{{ 'Imagen del usuario' }}</label>
                             <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen"
                                 id="imagen" value="" autocomplete="imagen" autofocus>
 
-                            @error('imagen')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            @if ($errors->any())
+                                @if ($errors->has('imagen'))
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ $errors->first('imagen') }}
+                                    </div>
+                                @endif
+                            @endif
                         </div>
                     </div>
 
@@ -94,11 +101,13 @@
                             <input type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono"
                                 id="telefono" value="{{ $users->telefono }}" required autocomplete="telefono" autofocus>
 
-                            @error('telefono')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            @if ($errors->any())
+                                @if ($errors->has('telefono'))
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ $errors->first('telefono') }}
+                                    </div>
+                                @endif
+                            @endif
                         </div>
                     </div>
 
@@ -111,11 +120,13 @@
                             <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                                 id="email" value="{{ $users->email }}" required autocomplete="email" autofocus>
 
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            @if ($errors->any())
+                                @if ($errors->has('email'))
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ $errors->first('email') }}
+                                    </div>
+                                @endif
+                            @endif
                         </div>
                     </div>
 
@@ -123,14 +134,17 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="password" class="inputAddress">{{ 'Contraseña del usuario' }}</label>
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
-                                id="password" value="{{ $users->password }}" required autocomplete="password" autofocus>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                name="password" id="password" value="{{ $users->password }}" required
+                                autocomplete="password" autofocus>
 
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            @if ($errors->any())
+                                @if ($errors->has('password'))
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ $errors->first('password') }}
+                                    </div>
+                                @endif
+                            @endif
                         </div>
                     </div>
 
