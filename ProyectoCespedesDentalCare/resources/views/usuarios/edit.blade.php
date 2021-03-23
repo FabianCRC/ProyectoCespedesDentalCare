@@ -151,7 +151,7 @@
 
 
                     <div class="form-group col-md-12">
-                        <button type="submit" value="Editar" class="btn btn-secondary btn-block">
+                        <button type="submit" value="Editar" onclick="return confirm('¿Desea modificar el usuario?');" class="btn btn-secondary btn-block">
                             {{ __('Guardar Cambios') }}
                         </button>
 

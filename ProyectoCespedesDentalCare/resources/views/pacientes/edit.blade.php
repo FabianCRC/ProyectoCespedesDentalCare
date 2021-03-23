@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <label for="inputAddress">Numero de cedula</label>
                                 <input type="text" class="form-control" name="idP" value="{{ $paciente->id_Paciente }} "
-                                    readonly=»readonly required>
+                                     required>
                                 @if ($errors->any())
                                     @if ($errors->has('idP'))
                                         <div class="alert alert-danger mt-1" role="alert">
@@ -158,7 +158,7 @@
                             @endif
                         </div>
                         <div class="form-group col-md-12">
-                            <button type="submit" class="btn btn-secondary btn-block">Guardar Cambios</button>
+                            <button type="submit" onclick="return confirm('¿Desea modificar el paciente?');" class="btn btn-secondary btn-block">Guardar Cambios</button>
                         </div>
                 </form>
             @endforeach

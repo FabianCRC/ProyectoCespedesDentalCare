@@ -214,6 +214,7 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
     public function update (Request $request, $id)
     {
          $request->validate([
+            'idP' => 'required|min:8',
             'numeroP' => 'required|min:8|max:20',
            'nombreP' => 'required|min:3',
             'correoP' => 'required|email',
@@ -221,8 +222,7 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
             'dentistaP' => 'required|numeric',
             'fechanaciP' => 'required|date',
             'fechaingrP' => 'required|date',
-            'datosP' => 'required|min:3',
-            'idP' => 'required|numeric',
+            'datosP' => 'required|min:3'
         ]);
        //Actualiza el paciente en la base de datos
        if($request->file('img') != null){
@@ -233,13 +233,13 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
         $imagenes = $request->file('img')->store('public/imagenes');
 
         $url = Storage::url($imagenes);
-    $paciente=\DB::update('update pacientes set numero_Paciente = ?,nombre_Paciente = ?,correo_Paciente = ?,observaciones_Paciente = ?,dentista_Paciente = ?,fecha_Nacimiento = ?,fecha_Ingreso = ?,datos_Paciente	= ?,imagen_Paciente = ?  where  id_Paciente= ?', 
-                  [request('numeroP'),request('nombreP'),request('correoP'),request('observacionesP'),request('dentistaP'), request('fechanaciP'),request('fechaingrP'),request('datosP'), $url ,request('idP')]);
+    $paciente=\DB::update('update pacientes set numero_Paciente = ?,nombre_Paciente = ?,correo_Paciente = ?,observaciones_Paciente = ?,dentista_Paciente = ?,fecha_Nacimiento = ?,fecha_Ingreso = ?,datos_Paciente	= ?,imagen_Paciente = ?,id_Paciente = ?  where  id_Paciente= ?', 
+                  [request('numeroP'),request('nombreP'),request('correoP'),request('observacionesP'),request('dentistaP'), request('fechanaciP'),request('fechaingrP'),request('datosP'), $url ,request('idP'),$id]);
             
        }else{
 
-    $paciente=\DB::update('update pacientes set numero_Paciente = ?,nombre_Paciente = ?,correo_Paciente = ?,observaciones_Paciente = ?,dentista_Paciente = ?,fecha_Nacimiento = ?,fecha_Ingreso = ?,datos_Paciente	= ?  where  id_Paciente= ?', 
-                  [request('numeroP'),request('nombreP'),request('correoP'),request('observacionesP'),request('dentistaP'), request('fechanaciP'),request('fechaingrP'),request('datosP') ,request('idP')]);
+    $paciente=\DB::update('update pacientes set numero_Paciente = ?,nombre_Paciente = ?,correo_Paciente = ?,observaciones_Paciente = ?,dentista_Paciente = ?,fecha_Nacimiento = ?,fecha_Ingreso = ?,datos_Paciente	= ?,id_Paciente = ?  where  id_Paciente= ?', 
+                  [request('numeroP'),request('nombreP'),request('correoP'),request('observacionesP'),request('dentistaP'), request('fechanaciP'),request('fechaingrP'),request('datosP') ,request('idP'),$id]);
                   
        }
 

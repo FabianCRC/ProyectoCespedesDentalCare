@@ -194,8 +194,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-secondary text-center  btn-block"></i>
-                            Actualizar Cita</button>
+                        <button type="submit" onclick="return confirm('¿Desea modificar esta?');" class="btn btn-secondary text-center  btn-block"></i>
+                            Modificar Cita</button>
                     </div>
                 </form>
             @endforeach

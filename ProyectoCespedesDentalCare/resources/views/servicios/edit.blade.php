@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button style="text-align: " type="submit" class="btn btn-secondary btn-block">Guardar
+                            <button style="text-align: " type="submit" onclick="return confirm('¿Desea modificar el servicio?');" class="btn btn-secondary btn-block">Guardar
                                 Cambios</button>
                         </div>
                     </form>
