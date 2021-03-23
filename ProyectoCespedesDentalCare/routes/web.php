@@ -19,9 +19,6 @@ use Illuminate\Support\Facades\Auth;
 
 Route::view('/','Index')->name('Index');
 
-
-Route::view('/login','auth.login')->name('Login');
-
 Route::view('/agendarCita','agendarCita')->name('AgendarCita')->middleware('auth');
 
 Route::view('/layout','layout')->name('Layout');
@@ -35,7 +32,7 @@ Route::view('/calendario','calendario')->name('calendario')->middleware('auth');
 
 
 //Ruta post para el logout
-Route::post('/','LoginController@logout')->name('logout');
+Route::post('/','App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 
 //Rutas de auth para el inicio de sesion y registro de nuevos usuarios, en los controladores esta el de registro de usuarios
@@ -52,3 +49,6 @@ Route::resource('/Usuarios','\App\Http\Controllers\UsersController')->middleware
 Route::resource('/Citas','\App\Http\Controllers\CitaController')->middleware('auth');
 
 Route::resource('/Perfil','\App\Http\Controllers\PerfilController')->middleware('auth');
+
+Route::view('/login','auth.login')->name('login');
+
