@@ -89,14 +89,13 @@
                                                 </div>
                                                 <div class="form-group col-md-12 col-lg-6">
                                                     <label for="title">Seleccione un Dentista</label>
-                                                    <select class="form-control" required>
+                                                    <select class="form-control" name="dentistaP" id="dentistaP" required>
                                                         <option selected>Seleccione un dentista</option>
                                                         @if ($odontologos == null)
                                                             <option disabled="true">Seleccione un Dentista</option>
                                                         @else
                                                             @foreach ($odontologos as $odontologo)
-                                                                <option name="dentistaP" id="dentistaP"
-                                                                    value="{{ $odontologo->id }}">
+                                                                <option  value="{{ $odontologo->id }}">
                                                                     {{ $odontologo->id }}
                                                                     - {{ $odontologo->name }}
                                                                     {{ $odontologo->apellido }}

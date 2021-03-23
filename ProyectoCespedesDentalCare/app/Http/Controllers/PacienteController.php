@@ -81,18 +81,6 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-     
-        $request->validate([
-            'numeroP' => 'required',
-           'nombreP' => 'required|min:3',
-            'correoP' => 'required|email',
-            'observacionesP' => 'required',
-            'dentistaP' => 'required',
-            'fechanaciP' => 'required|date',
-            'fechaingrP' => 'required|date',
-            'datosP' => 'required',
-            'idP' => 'required|numeric',
-        ]);
 
         $imagenes = $request->file('img')->store('public/imagenes');
 
