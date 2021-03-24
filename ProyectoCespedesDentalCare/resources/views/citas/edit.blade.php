@@ -155,7 +155,7 @@
                         </div>
                         <div class="form-group col-md-12 col-lg-4">
                             <div class="col-12">
-                                <label for="from">Saldo restante</label>
+                                <label for="from">Saldo</label>
                                 <div class='input-group date' id='to'>
                                     <input value="{{ $cita->saldo }}" type="text" id="to" name="saldo"
                                         class="form-control" required />

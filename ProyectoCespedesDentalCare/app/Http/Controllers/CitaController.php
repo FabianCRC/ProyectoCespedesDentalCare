@@ -123,18 +123,23 @@ class CitaController extends Controller
         $request->validate([
             'dentista' => 'required',
             'paciente' => 'required',
-            'final' => 'required|date|after:yesterday',
-            'inicio' => 'required|date|after:yesterday',
+            'final' => 'required|date',
+            'inicio' => 'required|date',
             'descripcion_Cita' => 'required|min:4',
             'monto' => 'numeric|min:500|max:15000000',
             'abono' => 'numeric|min:100|max:15000000',
-            'saldo' => 'numeric|min:500|max:15000000'
+            'saldo' => 'numeric|min:0|max:15000000'
         ]);
        //$servicio->update($request->all());
+       if(request('monto')-request('abono')<=0){
+        $saldo=0;
+       }else{
+        $saldo=request('monto')-request('abono');
+       }
        $servicio=\DB::update('update citas set id_Paciente = ?,id_Usuario = ?,inicio_Cita = ?,final_Cita = ?,descripcion_Cita=?
        ,monto = ?,abono = ?,saldo = ?  where id_Cita=?',
        [request('paciente'),request('dentista'),request('final'),
-       request('inicio'),request('descripcion_Cita'),request('monto'),request('abono'),(request('monto')-request('abono')),$id]);
+       request('inicio'),request('descripcion_Cita'),request('monto'),request('abono'),$saldo,$id]);
         return redirect()->route('Citas.index')
             ->with('success', 'Product updated successfully');
         //
