@@ -26,8 +26,8 @@
                         <th scope="col"><small class="font-weight-bold">Fin Cita</small></th>
                         <th scope="col"><small class="font-weight-bold">Agendado por</small></th>
                         <th scope="col"><small class="font-weight-bold">Monto</small></th>
-                        <th scope="col"><small class="font-weight-bold">Saldo</small></th>
                         <th scope="col"><small class="font-weight-bold">Abono</small></th>
+                        <th scope="col"><small class="font-weight-bold">Saldo</small></th>
                         @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
                             <th scope="col"><small class="font-weight-bold">Editar</small></th>
                             <th scope="col"><small class="font-weight-bold">Eliminar</small></th>
@@ -60,8 +60,8 @@
                                     @endforeach
                                 </span></td>
                             <td><span class="d-block">₡{{ $cita->monto }}</span></td>
-                            <td><span class="d-block">₡{{ $cita->saldo }}</span></td>
                             <td><span class="d-block">₡{{ $cita->abono }}</span></td>
+                            <td><span class="d-block">₡{{ $cita->saldo }}</span></td>
                             @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
                                 <td>
                                     <div class="row justify-content-center">
