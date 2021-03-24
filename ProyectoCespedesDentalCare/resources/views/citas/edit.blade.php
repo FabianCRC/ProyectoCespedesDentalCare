@@ -153,25 +153,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group col-md-12 col-lg-4">
-                            <div class="col-12">
-                                <label for="from">Saldo</label>
-                                <div class='input-group date' id='to'>
-                                    <input value="{{ $cita->saldo }}" type="text" id="to" name="saldo"
-                                        class="form-control" required />
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                @if ($errors->any())
-                                    @if ($errors->has('saldo'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('saldo') }}
-                                        </div>
-                                    @endif
-                                @endif
-                            </div>
-                        </div>
+
                         <div class="form-group col-md-12 col-lg-4">
                             <div class="col-12">
                                 <label for="from">Abono</label>

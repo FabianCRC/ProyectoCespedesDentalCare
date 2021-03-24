@@ -128,7 +128,6 @@ class CitaController extends Controller
             'descripcion_Cita' => 'required|min:4',
             'monto' => 'numeric|min:500|max:15000000',
             'abono' => 'numeric|min:100|max:15000000',
-            'saldo' => 'numeric|min:0|max:15000000'
         ]);
        //$servicio->update($request->all());
        if(request('monto')-request('abono')<=0){
