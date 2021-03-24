@@ -94,10 +94,12 @@
                                     @if (!$odontologos->isEmpty())
                                         @foreach ($odontologos as $odontologo)
                                             @if ($cita->id_Usuario == $odontologo->id){
-                                                <option value="{{ $odontologo->id }}" selected>{{ $odontologo->name }}  {{ $odontologo->apellido }}
+                                                <option value="{{ $odontologo->id }}" selected>{{ $odontologo->name }}
+                                                    {{ $odontologo->apellido }}
                                                 </option>
                                             }@else{
-                                                <option value="{{ $odontologo->id }}">{{ $odontologo->name }}  {{ $odontologo->apellido }}</option>
+                                                <option value="{{ $odontologo->id }}">{{ $odontologo->name }}
+                                                    {{ $odontologo->apellido }}</option>
                                                 }
                                             @endif
                                         @endforeach
@@ -134,7 +136,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-12 col-lg-4">
+                        <div class="form-group col-md-12 col-lg-6">
                             <div class="col-12">
                                 <label for="from">Monto</label>
                                 <div class='input-group date' id='from'>
@@ -154,7 +156,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-md-12 col-lg-4">
+                        <div class="form-group col-md-12 col-lg-6">
                             <div class="col-12">
                                 <label for="from">Abono</label>
                                 <div class='input-group date' id='to'>
@@ -176,7 +178,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" onclick="return confirm('¿Desea modificar esta?');" class="btn btn-secondary text-center  btn-block"></i>
+                        <button type="submit" onclick="return confirm('¿Desea modificar esta?');"
+                            class="btn btn-secondary text-center  btn-block"></i>
                             Modificar Cita</button>
                     </div>
                 </form>
