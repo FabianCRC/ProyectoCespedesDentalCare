@@ -21,14 +21,14 @@ Route::view('/','Index')->name('Index');
 
 Route::view('/agendarCita','agendarCita')->name('AgendarCita')->middleware('auth');
 
-Route::view('/layout','layout')->name('Layout');
+Route::view('/layout','layout')->name('Layout')->middleware('auth');
 
 Route::view('/servicios','servicios')->name('Servicios')->middleware('auth');
 
 
 Route::view('/calendario','calendario')->name('calendario')->middleware('auth');
 
-
+Route::view('/login','auth.login')->name('login')->middleware('auth');
 
 
 //Ruta post para el logout
@@ -50,5 +50,5 @@ Route::resource('/Citas','\App\Http\Controllers\CitaController')->middleware('au
 
 Route::resource('/Perfil','\App\Http\Controllers\PerfilController')->middleware('auth');
 
-Route::view('/login','auth.login')->name('login');
+
 

@@ -30,7 +30,7 @@ class LoginController extends Controller
      */
 
      //redireccion despues de iniciar sesion
-    protected $redirectTo = '/calendario';
+    protected $redirectTo = 'calendario';
 
     /**
      * Create a new controller instance.
