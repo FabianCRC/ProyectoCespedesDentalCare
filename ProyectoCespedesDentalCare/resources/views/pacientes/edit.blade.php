@@ -112,7 +112,10 @@
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Fecha de Nacimiento</label>
                             <input type="date"  required class="form-control datepicker entrada" name="fechanaciP"
-                                value="{{ $paciente->fecha_Nacimiento }}">
+                                value="{{ $paciente->fecha_Nacimiento }}" max="<?php
+                                $hoy = date('Y-m-d');
+                                echo $hoy;
+                                ?>">
                             @if ($errors->any())
                                 @if ($errors->has('fechanaciP'))
                                     <div class="alert alert-danger mt-1" role="alert">
@@ -124,7 +127,10 @@
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Fecha de ingreso</label>
                             <input type="date" required class="form-control datepicker entrada" name="fechaingrP"
-                                value="{{ $paciente->fecha_Ingreso }}">
+                                value="{{ $paciente->fecha_Ingreso }}" max="<?php
+                                $hoy = date('Y-m-d');
+                                echo $hoy;
+                                ?>">
                             @if ($errors->any())
                                 @if ($errors->has('fechaingrP'))
                                     <div class="alert alert-danger mt-1" role="alert">

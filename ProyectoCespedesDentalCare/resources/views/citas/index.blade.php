@@ -24,7 +24,7 @@
                         <th scope="col"><small class="font-weight-bold">Descripcion Cita</small></th>
                         <th scope="col"><small class="font-weight-bold">Inicio Cita</small></th>
                         <th scope="col"><small class="font-weight-bold">Fin Cita</small></th>
-                        <th scope="col"><small class="font-weight-bold">Agendado por</small></th>
+                        <th scope="col"><small class="font-weight-bold">Odontologo asignado</small></th>
                         <th scope="col"><small class="font-weight-bold">Monto</small></th>
                         <th scope="col"><small class="font-weight-bold">Saldo</small></th>
                         <th scope="col"><small class="font-weight-bold">Abono</small></th>
@@ -50,8 +50,16 @@
                                     @endforeach
                                 </span></td>
                             <td><span class="d-block">{{ $cita->descripcion_Cita }}</span></td>
-                            <td><span class="d-block">{{ $cita->inicio_Cita }}</span></td>
-                            <td><span class="d-block">{{ $cita->final_Cita }}</span></td>
+                            <td><span class="d-block">
+                                    <?php
+                                    $date = new DateTime($cita->inicio_Cita);
+                                    echo $date->format('d/m/Y H:m');
+                                    ?></span></td>
+                            <td><span class="d-block">
+                                <?php
+                                    $date = new DateTime($cita->final_Cita);
+                                    echo $date->format('d/m/Y H:m');
+                                    ?></span></td></span></td>
                             <td><span class="d-block">
                                     @foreach ($odontologos as $odontologo)
                                         @if ($cita->id_Usuario == $odontologo->id)

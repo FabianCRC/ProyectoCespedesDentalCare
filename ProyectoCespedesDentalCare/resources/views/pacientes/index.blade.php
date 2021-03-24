@@ -95,7 +95,7 @@
                                                             <option disabled="true">Seleccione un Dentista</option>
                                                         @else
                                                             @foreach ($odontologos as $odontologo)
-                                                                <option  value="{{ $odontologo->id }}">
+                                                                <option value="{{ $odontologo->id }}">
                                                                     {{ $odontologo->id }}
                                                                     - {{ $odontologo->name }}
                                                                     {{ $odontologo->apellido }}
@@ -108,12 +108,18 @@
                                                 <div class="form-group col-md-6">
                                                     <label for="inputPassword4">Fecha de Nacimiento</label>
                                                     <input type="date" class="form-control datepicker entrada"
-                                                        name="fechanaciP" required min="1930-01-01" min="2020-01-01">
+                                                        name="fechanaciP" required min="1900-01-01" max="<?php
+                                                            $hoy = date('Y-m-d');
+                                                            echo $hoy;
+                                                            ?>">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="inputPassword4">Fecha de ingreso</label>
                                                     <input type="date" class="form-control datepicker entrada"
-                                                        name="fechaingrP" required min="2021-01-01">
+                                                        name="fechaingrP" required max="<?php
+                                                            $hoy = date('Y-m-d');
+                                                            echo $hoy;
+                                                            ?>">
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     <label for="inputAddress">Datos importantes</label>

@@ -16,7 +16,8 @@
                             <div class="col-12">
                                 <label for="from">Inicio Cita</label>
                                 <div class='input-group date' id='from'>
-                                    <input value="{{ old('inicio') }}" type="datetime-local" id="from" name="inicio" class="form-control"/>
+                                    <input value="{{ old('inicio') }}" type="datetime-local" id="from" name="inicio" class="form-control"
+                                    min="<?php $hoy=date("Y-m-d")."T".date("h:m"); echo $hoy;?>" max="2080-12-31"/>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </div>
                             </div>
@@ -34,7 +35,8 @@
                             <div class="col-12">
                                 <label for="from">Fin Cita</label>
                                 <div class='input-group date' id='to'>
-                                    <input value="{{ old('final') }}" type="datetime-local" id="to" name="final" class="form-control" />
+                                    <input value="{{ old('final') }}" type="datetime-local" id="to" name="final" class="form-control"
+                                    min="<?php $hoy=date("Y-m-d")."T".date("h:m"); echo $hoy;?>" max="2080-12-31" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 
                                 </div>
@@ -84,7 +86,7 @@
                                     <option disabled="true" selected>Seleccione un dentista</option>
                                     @if (!$pacientes->isEmpty())
                                         @foreach ($odontologos as $odontologo)
-                                            <option value="{{ $odontologo->id }}">{{ $odontologo->name }}</option>
+                                            <option value="{{ $odontologo->id }}">{{ $odontologo->name }}  {{ $odontologo->apellido }}</option>
                                         @endforeach
                                     @else
                                         <option disabled="true">No hay registros</option>

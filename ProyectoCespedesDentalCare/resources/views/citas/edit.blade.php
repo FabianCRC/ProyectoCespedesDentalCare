@@ -94,10 +94,10 @@
                                     @if (!$odontologos->isEmpty())
                                         @foreach ($odontologos as $odontologo)
                                             @if ($cita->id_Usuario == $odontologo->id){
-                                                <option value="{{ $odontologo->id }}" selected>{{ $odontologo->name }}
+                                                <option value="{{ $odontologo->id }}" selected>{{ $odontologo->name }}  {{ $odontologo->apellido }}
                                                 </option>
                                             }@else{
-                                                <option value="{{ $odontologo->id }}">{{ $odontologo->name }}</option>
+                                                <option value="{{ $odontologo->id }}">{{ $odontologo->name }}  {{ $odontologo->apellido }}</option>
                                                 }
                                             @endif
                                         @endforeach
