@@ -162,7 +162,7 @@ class CitaController extends Controller
     public function destroy($id)
     {
         $Servicios=\DB::delete('delete from citas where id_Cita = ?',[$id]);
-
-        return view('citas.index');
+ 
+        return redirect()->route('Citas.index');
     }
 }
