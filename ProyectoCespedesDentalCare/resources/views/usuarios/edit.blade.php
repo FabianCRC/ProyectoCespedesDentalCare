@@ -137,6 +137,9 @@
                             <input type="password" class="form-control @error('password') is-invalid @enderror"
                                 name="password" id="password" value="{{ $users->password }}" required
                                 autocomplete="password" autofocus>
+                                <input type="password"
+                                name="passwordO" id="passwordO" value="{{ $users->password }}" hidden
+                               >
 
                             @if ($errors->any())
                                 @if ($errors->has('password'))

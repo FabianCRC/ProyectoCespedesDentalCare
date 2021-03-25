@@ -122,7 +122,7 @@ class UsersController extends Controller
                 ]);
              }
 
-       $datosUsuario=request()->except(['_token','_method']);
+       $datosUsuario=request()->except(['_token','_method','passwordO']);
 
 
        if($request->hasFile('imagen')){
