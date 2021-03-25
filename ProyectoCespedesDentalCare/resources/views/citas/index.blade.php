@@ -53,12 +53,12 @@
                             <td><span class="d-block">
                                     <?php
                                     $date = new DateTime($cita->inicio_Cita);
-                                    echo $date->format('d/m/Y H:m');
+                                    echo $date->format('d/m/Y H:i');
                                     ?></span></td>
                             <td><span class="d-block">
                                 <?php
                                     $date = new DateTime($cita->final_Cita);
-                                    echo $date->format('d/m/Y H:m');
+                                    echo $date->format('d/m/Y H:i');
                                     ?></span></td></span></td>
                             <td><span class="d-block">
                                     @foreach ($odontologos as $odontologo)

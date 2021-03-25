@@ -14,7 +14,7 @@ class CitaController extends Controller
      */
     public function index()
     {
-         $citas = Cita::latest()->paginate(5);
+         $citas = Cita::latest()->paginate(1000);
          $odontologos = \DB::table('users')
         ->where('idRol', '2')
         ->orderBy('name', 'Desc')
@@ -55,7 +55,15 @@ class CitaController extends Controller
      */
     public function store(Request $request)
     {
+       // $cita = \DB::table('citas')
+       //  ->where('inicio_Cita', request('inicio'))
+       //  ->where('final_cita', request('final'))
+       //  ->where('id_Paciente', request('paciente'))
+       //  ->where('id_Usuario', request('dentista'))
+       //  ->get();
               
+      //   return $cita;
+
         $request->validate([
             'paciente' => 'required',
             'descripcion_Cita' => 'required|min:3',
@@ -64,6 +72,7 @@ class CitaController extends Controller
             'dentista' => 'required',
             'descripcion_Cita' => 'required|min:4'
         ]);
+
 
         Cita::create([
             'id_Paciente' => request('paciente'),
@@ -120,6 +129,7 @@ class CitaController extends Controller
      */
     public function update(Request $request, $id)
     {
+     
         $request->validate([
             'dentista' => 'required',
             'paciente' => 'required',
@@ -137,8 +147,8 @@ class CitaController extends Controller
        }
        $servicio=\DB::update('update citas set id_Paciente = ?,id_Usuario = ?,inicio_Cita = ?,final_Cita = ?,descripcion_Cita=?
        ,monto = ?,abono = ?,saldo = ?  where id_Cita=?',
-       [request('paciente'),request('dentista'),request('final'),
-       request('inicio'),request('descripcion_Cita'),request('monto'),request('abono'),$saldo,$id]);
+       [request('paciente'),request('dentista'),
+       request('inicio'),request('final'),request('descripcion_Cita'),request('monto'),request('abono'),$saldo,$id]);
         return redirect()->route('Citas.index')
             ->with('success', 'Product updated successfully');
         //
