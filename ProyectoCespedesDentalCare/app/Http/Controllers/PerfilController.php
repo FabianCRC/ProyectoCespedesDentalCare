@@ -106,7 +106,7 @@ class PerfilController extends Controller
  
         $users= users::findOrFail($id);
  
-         return redirect('/index');
+         return redirect('/calendario');
     }
  
 
