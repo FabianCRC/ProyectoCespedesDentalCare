@@ -17,7 +17,7 @@
                                 <label for="from">Inicio Cita</label>
                                 <div class='input-group date' id='from'>
                                     <input type="datetime-local" id="from" name="inicio" class="form-control"
-                                        value="{{ $cita->inicio_Cita }}" required />
+                                        value="{{ $cita->inicio_Cita }}" required readonly />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                 <label for="from">Fin Cita</label>
                                 <div class='input-group date' id='to'>
                                     <input value="{{ $cita->final_Cita }}" type="datetime-local" id="to" name="final"
-                                        class="form-control" required />
+                                        class="form-control" required readonly/>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                         <div class="form-group col-md-12 col-lg-6">
                             <div class="col-12">
                                 <label for="title">Seleccione un Paciente</label>
-                                <select class="form-control" name="paciente" id="paciente" required>
+                                <select class="form-control" name="paciente" id="paciente" required readonly>
                                     <option disabled="true">Seleccione un paciente</option>
                                     @if (!$pacientes->isEmpty())
                                         @foreach ($pacientes as $paciente)
@@ -89,7 +89,7 @@
                         <div class="form-group col-md-12 col-lg-6">
                             <div class="col-12">
                                 <label for="title">Seleccione un dentista</label>
-                                <select class="form-control" name="dentista" id="dentista" required>
+                                <select class="form-control" name="dentista" id="dentista" required readonly>
                                     <option disabled="true">Seleccione un dentista</option>
                                     @if (!$odontologos->isEmpty())
                                         @foreach ($odontologos as $odontologo)

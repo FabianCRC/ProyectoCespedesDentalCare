@@ -117,6 +117,13 @@
                             @endif
                         </div>
                     </div>
+                    <div class="col-12">
+                        @if ($errors->has('msj'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ $errors->first('msj') }}
+                        </div>
+                    @endif
+                    </div>
                     <br>
                     <div class="text-center">
                         <button type="submit" class="btn btn-secondary text-center  btn-block"></i>

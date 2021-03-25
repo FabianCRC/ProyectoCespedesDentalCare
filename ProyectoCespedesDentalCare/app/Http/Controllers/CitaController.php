@@ -74,6 +74,36 @@ class CitaController extends Controller
         ]);
 
 
+        $citaPacienteOdontologo=\DB::select('select count(*) as "num" from citas 
+        WHERE inicio_Cita <= ? and final_Cita >= ? and id_Usuario = ? and id_Paciente = ?',[request('inicio'),request('final'),request('dentista'),request('paciente')]);
+
+      
+        $citaOdontologo=\DB::select('select count(*) as "num" from citas 
+        WHERE inicio_Cita <= ? and final_Cita >= ? and id_Usuario = ?',[request('inicio'),request('final'),request('dentista')]);
+
+        $citaPaciente=\DB::select('select count(*) as "num" from citas 
+        WHERE inicio_Cita <= ? and final_Cita >= ? and id_Paciente = ?',[request('inicio'),request('final'),request('paciente')]);
+     
+        $a;$b;$c;
+        foreach ($citaPacienteOdontologo as $a) {
+           $a= $a->num;
+        }
+        foreach ($citaOdontologo as  $b) {
+            $b=$b->num;
+        }
+        foreach ($citaPaciente as $c) {
+            $c= $c->num;
+        }
+
+
+        if($a>0){
+            return redirect()->back()->WithInput()->withErrors(['msj'=> 'Este paciente y odontologo ya tienen una cita agendada en este horario' ]);
+        }else if($b>0){
+            return redirect()->back()->WithInput()->withErrors(['msj'=> 'Este odontologo ya tienen una cita agendada en este horario' ]);
+        }else if($c>0){
+            return redirect()->back()->WithInput()->withErrors(['msj'=> 'Este paciente  ya tienen una cita agendada en este horario' ]);
+        }
+      
         Cita::create([
             'id_Paciente' => request('paciente'),
             'descripcion_Cita' => request('tipo'),
