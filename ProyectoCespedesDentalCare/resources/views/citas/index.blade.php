@@ -85,7 +85,7 @@
                                         <form method="post" action="{{ route('Citas.destroy', $cita->id_Cita) }}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
-                                            <button type="submit" onclick="return confirm('¿Desea borrar esta Cita?');"><i
+                                            <button  style="background: transparent; border: none" type="submit" onclick="return confirm('¿Desea borrar esta Cita?');"><i
                                                     style="color: red" class="far fa-trash-alt fa-2x"></i></button>
 
                                         </form>

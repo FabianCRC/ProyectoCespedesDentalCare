@@ -52,7 +52,7 @@
                                             method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" title="delete"
+                                            <button style="background: transparent; border: none" type="submit" title="delete"
                                                 onclick="return confirm('¿Desea borrar este servicio?');">
                                                 <i style="color: red" class="far fa-trash-alt fa-2x"></i>
                                             </button>
