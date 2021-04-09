@@ -19,14 +19,12 @@ use Illuminate\Support\Facades\Auth;
 
 Route::view('/','Index')->name('Index');
 
-Route::view('/agendarCita','agendarCita')->name('AgendarCita')->middleware('auth');
-
 Route::view('/layout','layout')->name('Layout')->middleware('auth');
 
-Route::view('/servicios','servicios')->name('Servicios')->middleware('auth');
-
-
 Route::view('/calendario','calendario')->name('calendario')->middleware('auth');
+
+
+//Route::view('/calendario','calendario')->name('calendario')->middleware('auth');
 
 Route::view('/login','auth.login')->name('login')->middleware('auth');
 
@@ -49,6 +47,9 @@ Route::resource('/Usuarios','\App\Http\Controllers\UsersController')->middleware
 Route::resource('/Citas','\App\Http\Controllers\CitaController')->middleware('auth');
 
 Route::resource('/Perfil','\App\Http\Controllers\PerfilController')->middleware('auth');
+
+Route::resource('/Calendario','App\Http\Controllers\CalendarioController')->middleware('auth');
+
 
 
 

@@ -54,7 +54,7 @@
                     @if (Auth::check() == false)
                         <li class="get-started"><a href="{{ route('login') }}">Iniciar Sesión </a></li>
                     @else
-                    <li class="get-started"><a href="{{ route('calendario') }}">Reanudar Sesión</a></li>
+                    <li class="get-started"><a href="{{ route('Calendario.index') }}">Reanudar Sesión</a></li>
                     @endif
                 </ul>
 

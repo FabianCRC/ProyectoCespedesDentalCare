@@ -162,7 +162,7 @@
         <!--Tabla que muestra los pacientes-->
         <div class="col-xl-15 col-lg-12">
 
-            <div class="">
+            <div class="col-12">
                 <table class=" table table-responsive-xl table-striped table-inverse" id="pacientes">
                     <thead>
                         <tr>
