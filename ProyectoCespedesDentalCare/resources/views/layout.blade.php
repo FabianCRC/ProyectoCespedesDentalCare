@@ -9,7 +9,7 @@
     <meta name="author" content="" />
     <title>Cespedes Dental Care</title>
     <link href="static/css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo URL::asset('static/css/styles.css')?>">
+    <link rel="stylesheet" href="<?php echo URL::asset('static/css/styles.css'); ?>">
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous">
@@ -22,8 +22,8 @@
         <a class="navbar-brand" href="">Cespedes Dental Care</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
                 class="fas fa-bars"></i></button>
- 
-        <!-- CSRF Token --> 
+
+        <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Navbar Search-->
@@ -38,19 +38,18 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="{{ route('Perfil.index') }}">Mi Perfil</a>
                     <div class="dropdown-divider"></div>
-                   
+
                     <!--Aqui va el logout-->
 
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">
-                          {{ __('Cerrar Sesión') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                        {{ __('Cerrar Sesión') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
 
-                    
+
                 </div>
             </li>
         </ul>
@@ -77,12 +76,46 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
                             Servicios
                         </a>
-                        @if(Auth::user()->idRol==1)
-                        <a class="nav-link" href="{{ route('Usuarios.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
-                            Usuarios
-                        </a>
+                        @if (Auth::user()->idRol == 1)
+                            <a class="nav-link" href="{{ route('Usuarios.index') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
+                                Usuarios
+                            </a>
                         @endif
+                        @if (Auth::user()->idRol == 1)
+                            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseLayouts"
+                                aria-expanded="true" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><svg class="svg-inline--fa fa-columns fa-w-16"
+                                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="columns"
+                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                        data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64V160h160v256zm224 0H288V160h160v256z">
+                                        </path>
+                                    </svg><!-- <i class="fas fa-columns"></i> Font Awesome fontawesome.com -->
+                                </div>
+                                Auditoria
+                                <div class="sb-sidenav-collapse-arrow"><svg class="svg-inline--fa fa-angle-down fa-w-10"
+                                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down"
+                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                        data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+                                        </path>
+                                    </svg><!-- <i class="fas fa-angle-down"></i> Font Awesome fontawesome.com -->
+                                </div>
+                            </a>
+                            <div class="collapse show" id="collapseLayouts" aria-labelledby="headingOne"
+                                data-parent="#sidenavAccordion" style="">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('AuditoriaCitas.index') }}">Citas</a>
+                                    <a class="nav-link" href="{{ route('AuditoriaPacientes.index') }}">Pacientes</a>
+                                    <a class="nav-link" href="{{ route('AuditoriaUsuarios.index') }}">Usuarios</a>
+                                </nav>
+                            </div>
+                        @endif
+
+
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -96,7 +129,7 @@
                 <div class="container mt-5">
                     <!--Aqui va el Contenido-->
                     @yield('Contenido')
-                    
+
 
                 </div>
             </main>
@@ -126,26 +159,32 @@
     <script src="assets/demo/datatables-demo.js"></script>
 
 
-    <script src="<?php echo URL::asset('static/assets/demo/chart-area-demo.js')?>"></script>
-    <script src="<?php echo URL::asset('static/assets/demo/chart-bar-demo.js')?>"></script> 
-    <script src="<?php echo URL::asset ('assets/demo/datatables-demo.js')?>"></script>
+    <script src="<?php echo URL::asset('static/assets/demo/chart-area-demo.js'); ?>">
+    </script>
+    <script src="<?php echo URL::asset('static/assets/demo/chart-bar-demo.js'); ?>">
+    </script>
+    <script src="<?php echo URL::asset('assets/demo/datatables-demo.js'); ?>"></script>
     <script>
         $('#citas').DataTable();
-     </script>
-    <script>
-       $('#pacientes').DataTable();
+
     </script>
     <script>
-       $('#servicios').DataTable();
+        $('#pacientes').DataTable();
+
+    </script>
+    <script>
+        $('#servicios').DataTable();
+
     </script>
     <script>
         $('#usuarios').DataTable();
-     </script>
+
+    </script>
 
 
-     
-     
-     
+
+
+
 </body>
 
 </html>

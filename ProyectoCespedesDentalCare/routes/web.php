@@ -50,6 +50,12 @@ Route::resource('/Perfil','\App\Http\Controllers\PerfilController')->middleware(
 
 Route::resource('/Calendario','App\Http\Controllers\CalendarioController')->middleware('auth');
 
+Route::resource('/AuditoriaUsuarios','App\Http\Controllers\AuditoriaUsuariosController')->middleware('auth');
+
+Route::resource('/AuditoriaPacientes','App\Http\Controllers\AuditoriaPacientesController')->middleware('auth');
+
+Route::resource('/AuditoriaCitas','App\Http\Controllers\AuditoriaCitasController')->middleware('auth');
+
 
 
 
