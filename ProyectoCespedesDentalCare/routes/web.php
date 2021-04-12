@@ -56,6 +56,8 @@ Route::resource('/AuditoriaPacientes','App\Http\Controllers\AuditoriaPacientesCo
 
 Route::resource('/AuditoriaCitas','App\Http\Controllers\AuditoriaCitasController')->middleware('auth');
 
+Route::resource('/CitasPagina','App\Http\Controllers\CitasPaginaController');
+
 
 
 
