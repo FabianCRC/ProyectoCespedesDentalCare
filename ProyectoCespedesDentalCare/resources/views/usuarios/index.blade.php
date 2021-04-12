@@ -55,7 +55,7 @@
                                 <form method="post" action="{{ route('Usuarios.destroy', $registro->id) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit" onclick="return confirm('¿Desea borrar este usuario?');"><i
+                                    <button style="background: transparent; border: none" type="submit" onclick="return confirm('¿Desea borrar este usuario?');"><i
                                             style="color: red" class="far fa-trash-alt fa-2x"></i></button>
 
                                 </form>

@@ -658,7 +658,8 @@
                     </div>
 
                     <div class="col-lg-6 mt-4 mt-lg-0">
-                        <form action="" method="post" role="form" class="php-email-form w-100" data-aos="fade-up">
+                        <form action="{{ route('CitasPagina.store') }}" method="post" role="form" class="php-email-form w-100" data-aos="fade-up">
+                        @csrf
                             <div class="form-row">
                                 <div class="col-md-6 form-group">
                                     <input type="text" name="nombre" class="form-control" id="nombre"
@@ -667,31 +668,35 @@
                                     <div class="validate"></div>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <input type="Numero" class="form-control" name="Numero" id="Numero"
+                                    <input type="Numero" class="form-control" name="numero" id="Numero"
                                         placeholder="Numero célular" data-rule="Numero"
                                         data-msg="Please enter a valid Numero" />
                                     <div class="validate"></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="datetime-local" class="form-control" name="Fecha" id="Fecha"
+                                <input type="datetime-local" class="form-control" name="fecha" id="Fecha"
                                     data-msg="Please enter at least 8 chars of Fecha" />
                                 <div class="validate"></div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="Descripción" rows="5" data-rule="required"
+                                <textarea class="form-control" name="descripcion" rows="5" data-rule="required"
                                     data-msg="Please write something for us" placeholder="Descripción"></textarea>
                                 <div class="validate"></div>
+                                </div>
+                                <div class="form-group">
+                                <select  class="form-control" name="tipoPaciente" id="tipoPaciente">
+                                    <option selected disabled="true">Tipo de paciente</option>
+
+                                            <option value="Regular">Regular</option>
+                                            <option value="Nuevo">Nuevo</option>           </select>
+                                <div class="validate"></div>
                             </div>
-                            <div class="mb-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
+                            <p style="color: green" class="agendada"></p>
                             <div class="text-center"><button type="submit">Agendar Cita</button></div>
                         </form>
                     </div>
-
+                   
                 </div>
 
             </div>

@@ -78,6 +78,12 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar-week"></i></div>
                             Citas
                         </a>
+                        @if (Auth::user()->idRol == 1)
+                            <a class="nav-link" href="{{ route('CitasPagina.index') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-calendar-week"></i></div>
+                                Citas en línea 
+                            </a>
+                        @endif
                         <a class="nav-link" href="{{ route('Pacientes.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                             Pacientes
