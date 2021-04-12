@@ -6,7 +6,7 @@
                 <h1>Auditoria de citas</h1>
             </div>
             <div class="col-xl-15 col-lg-12">
-                <table class="table table-responsive-xl table-striped table-inverse" id="citas">
+                <table class="table table-responsive-xl table-striped table-inverse" id="audicitas">
                     <thead>
                         <tr>
                             <th scope="col"><small class="font-weight-bold">#</small></th>
@@ -63,13 +63,13 @@
                                         @if ($registro->final_Cita_nuevo == $registro->final_Cita_viejo)
                                             No hubo cambio
                                         @else
-                                        <?php
-                                        $date = new DateTime($registro->final_Cita_nuevo);
-                                        echo $date->format('d/m/Y H:i');
-                                        ?> -> <?php
-                                        $date = new DateTime($registro->final_Cita_viejo);
-                                        echo $date->format('d/m/Y H:i');
-                                        ?>
+                                            <?php
+                                            $date = new DateTime($registro->final_Cita_nuevo);
+                                            echo $date->format('d/m/Y H:i');
+                                            ?> -> <?php
+                                            $date = new DateTime($registro->final_Cita_viejo);
+                                            echo $date->format('d/m/Y H:i');
+                                            ?>
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
@@ -86,7 +86,6 @@
                                             {{ $registro->abono_nuevo }} ->{{ $registro->abono_viejo }}
                                         @endif
                                     </span></td>
-                                <td><span class="d-block">
                                 <td><span class="d-block">
                                         @if ($registro->saldo_nuevo == $registro->saldo_viejo)
                                             No hubo cambio
