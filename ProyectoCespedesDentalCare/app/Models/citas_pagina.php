@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class citas_pagina extends Model
 {
-    protected $fillable = ['id','nombre','numero','fecha','descripcion'];
+    protected $fillable = ['id','nombre','numero','fecha','descripcion','tipoPaciente'];
     use HasFactory;
 }

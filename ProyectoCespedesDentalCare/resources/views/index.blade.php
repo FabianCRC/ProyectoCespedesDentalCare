@@ -683,6 +683,14 @@
                                 <textarea class="form-control" name="descripcion" rows="5" data-rule="required"
                                     data-msg="Please write something for us" placeholder="Descripción"></textarea>
                                 <div class="validate"></div>
+                                </div>
+                                <div class="form-group">
+                                <select  class="form-control" name="tipoPaciente" id="tipoPaciente">
+                                    <option selected disabled="true">Tipo de paciente</option>
+
+                                            <option value="Regular">Regular</option>
+                                            <option value="Nuevo">Nuevo</option>           </select>
+                                <div class="validate"></div>
                             </div>
                             <p style="color: green" class="agendada"></p>
                             <div class="text-center"><button type="submit">Agendar Cita</button></div>

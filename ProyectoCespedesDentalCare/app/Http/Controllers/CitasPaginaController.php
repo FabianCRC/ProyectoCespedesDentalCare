@@ -15,7 +15,10 @@ class CitasPaginaController extends Controller
      */
     public function index()
     {
-        //
+        $citas = \DB::table('citas_paginas')
+        ->get();
+
+        return view('citasPagina.index')->with('citas',$citas);
     }
 
     /**
@@ -85,6 +88,8 @@ class CitasPaginaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Servicios=\DB::delete('delete from citas_paginas where id = ?',[$id]);
+ 
+        return redirect()->route('CitasPagina.index');
     }
 }
