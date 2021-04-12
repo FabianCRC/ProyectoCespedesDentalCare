@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 
+use App\Mail\ActualizacionDatosMailable;
+use Illuminate\Support\Facades\Mail;
+
 class UsersController extends Controller
 { /**
     * Display a listing of the resource.
@@ -137,6 +140,9 @@ class UsersController extends Controller
        users::where('id','=',$id)->update($datosUsuario);
 
        $users= users::findOrFail($id);
+
+       $correo=new ActualizacionDatosMailable(request('usuario'),request('email'),request('password'));
+       Mail::to(request('email'))->send($correo);
 
         return redirect('/Usuarios');
    }

@@ -11,7 +11,7 @@
     <script src='fullcalendar/daygrid/main.js'></script>
     <script src='fullcalendar/list/main.js'></script>
     <script src='fullcalendar/timegrid/main.js'></script>
-
+   
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -19,23 +19,30 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 defaultDate: Date.now(),
                 allDaySlot: false,
-                plugins: ['dayGrid', 'interaction', 'timeGrid', 'list'],
+                plugins: ['interaction', 'dayGrid', 'timeGrid', 'list', 'bootstrap'],
+                themeSystem: 'bootstrap',
 
+                locales: ['esLocale', 'frLocale'],
+                locale: 'es',
                 header: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    right: 'dayGridMonth,agendaWeek,agendaDay,listWeek'
                 },
+                defaultView: 'dayGridMonth',
+                navLinks: true, // can click day/week names to navigate views
                 dateClick: function(info) {
                     $('#exampleModal').modal();
                     console.log(info);
                 },
-              /* events: [{
-                    title: 'titulo',
-                    start: '2021-04-04 11:00:00',
-                    end: '2021-04-04 12:00:00'
-                }],*/
-               events:'{{route('Calendario.show',Auth::user()->id)}}',
+                /* events: [{
+                      title: 'titulo',
+                      start: '2021-04-04 11:00:00',
+                      end: '2021-04-04 12:00:00'
+                  }],*/
+                events: '{{ route('Calendario.show', Auth::user()->id) }}',
+                eventColor: '#808080',
+
             });
             calendar.setOption('locale', 'es');
             calendar.render();
@@ -44,9 +51,9 @@
     </script>
 </head>
 @section('Contenido')
-<div class="form-group text-center">
-    <h1>Calendario de citas</h1>
-</div>
+    <div class="form-group text-center">
+        <h1>Calendario de citas</h1>
+    </div>
     <div class="container">
         <div id='calendar'></div>
     </div>
