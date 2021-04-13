@@ -692,7 +692,12 @@
                                             <option value="Nuevo">Nuevo</option>           </select>
                                 <div class="validate"></div>
                             </div>
-                            <p style="color: green" class="agendada"></p>
+                        
+                           @if(Session::has('notice'))
+                           <p style="color:green">{{ Session::get('notice') }}</p>
+                           @endif
+
+    
                             <div class="text-center"><button type="submit">Agendar Cita</button></div>
                         </form>
                     </div>
