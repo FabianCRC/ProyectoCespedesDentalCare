@@ -21,11 +21,11 @@
                             <div class="form-group">
                                 <label for="inputAddress">Numero de cedula</label>
                                 <input type="text" class="form-control" name="idP" value="{{ $paciente->id_Paciente }} "
-                                     required>
+                                    required>
                                 @if ($errors->any())
                                     @if ($errors->has('idP'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('idP') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('idP') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -37,8 +37,8 @@
                                 value="{{ $paciente->numero_Paciente }}">
                             @if ($errors->any())
                                 @if ($errors->has('numeroP'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('numeroP') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('numeroP') }}</p>
                                     </div>
                                 @endif
                             @endif
@@ -47,11 +47,11 @@
                             <div class="form-group">
                                 <label for="inputAddress">Nombre completo</label>
                                 <input type="text" class="form-control" name="nombreP" required
-                                    value="{{ $paciente->nombre_Paciente }}"  >
+                                    value="{{ $paciente->nombre_Paciente }}">
                                 @if ($errors->any())
                                     @if ($errors->has('nombreP'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('nombreP') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('nombreP') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -63,8 +63,8 @@
                                 value="{{ $paciente->correo_Paciente }}">
                             @if ($errors->any())
                                 @if ($errors->has('correoP'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('correoP') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('correoP') }}</p>
                                     </div>
                                 @endif
                             @endif
@@ -77,8 +77,8 @@
                                 required>
                             @if ($errors->any())
                                 @if ($errors->has('datosP'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('datosP') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('datosP') }}</p>
                                     </div>
                                 @endif
                             @endif
@@ -103,23 +103,23 @@
                             </select>
                             @if ($errors->any())
                                 @if ($errors->has('dentistaP'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('dentistaP') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('dentistaP') }}</p>
                                     </div>
                                 @endif
                             @endif
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Fecha de Nacimiento</label>
-                            <input type="date"  required class="form-control datepicker entrada" name="fechanaciP"
+                            <input type="date" required class="form-control datepicker entrada" name="fechanaciP"
                                 value="{{ $paciente->fecha_Nacimiento }}" max="<?php
-                                $hoy = date('Y-m-d');
-                                echo $hoy;
-                                ?>">
+                                    $hoy = date('Y-m-d');
+                                    echo $hoy;
+                                    ?>">
                             @if ($errors->any())
                                 @if ($errors->has('fechanaciP'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('fechanaciP') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('fechanaciP') }}</p>
                                     </div>
                                 @endif
                             @endif
@@ -128,13 +128,13 @@
                             <label for="inputPassword4">Fecha de ingreso</label>
                             <input type="date" required class="form-control datepicker entrada" name="fechaingrP"
                                 value="{{ $paciente->fecha_Ingreso }}" max="<?php
-                                $hoy = date('Y-m-d');
-                                echo $hoy;
-                                ?>">
+                                    $hoy = date('Y-m-d');
+                                    echo $hoy;
+                                    ?>">
                             @if ($errors->any())
                                 @if ($errors->has('fechaingrP'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('fechaingrP') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('fechaingrP') }}</p>
                                     </div>
                                 @endif
                             @endif
@@ -145,8 +145,8 @@
                                 required>{{ $paciente->observaciones_Paciente }}</textarea>
                             @if ($errors->any())
                                 @if ($errors->has('observacionesP'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('observacionesP') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('observacionesP') }}</p>
                                     </div>
                                 @endif
                             @endif
@@ -157,14 +157,15 @@
                                 value="{{ $paciente->imagen_Paciente }}">
                             @if ($errors->any())
                                 @if ($errors->has('img'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('img') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('img') }}</p>
                                     </div>
                                 @endif
                             @endif
                         </div>
                         <div class="form-group col-md-12">
-                            <button type="submit" onclick="return confirm('¿Desea modificar el paciente?');" class="btn btn-secondary btn-block">Guardar Cambios</button>
+                            <button type="submit" onclick="return confirm('¿Desea modificar el paciente?');"
+                                class="btn btn-secondary btn-block">Guardar Cambios</button>
                         </div>
                 </form>
             @endforeach

@@ -55,21 +55,32 @@
                                     @if ($registro->imagen_nuevo == $registro->imagen_viejo)
                                         No hubo cambio
                                     @else
-                                        {{ $registro->imagen_nuevo }} ->{{ $registro->imagen_viejo }}
+                                        Se actualizó la imagen
+                                    @endif
+                                </span></td>
+
+                            <td><span class="d-block">
+                                    @if ($registro->email_nuevo == $registro->email_viejo)
+                                        No hubo cambio
+                                    @else
+                                        {{ $registro->email_nuevo }} ->{{ $registro->email_viejo }}
                                     @endif
                                 </span></td>
                             <td><span class="d-block">
                                     @if ($registro->idRol_nuevo == $registro->idRol_viejo)
                                         No hubo cambio
                                     @else
-                                        {{ $registro->idRol_nuevo }} ->{{ $registro->idRol_viejo }}
-                                    @endif
-                                </span></td>
-                            <td><span class="d-block">
-                                    @if ($registro->email_nuevo == $registro->email_viejo)
-                                        No hubo cambio
-                                    @else
-                                        {{ $registro->email_nuevo }} ->{{ $registro->email_viejo }}
+                                        @foreach ($roles as $rol)
+                                            @if ($rol->id_Rol == $registro->idRol_nuevo)
+                                                {{ $rol->nombre_Rol }} ->
+                                            @endif
+                                        @endforeach
+                                        @foreach ($roles as $rol)
+                                            @if ($rol->id_Rol == $registro->idRol_viejo)
+                                                {{ $rol->nombre_Rol }}
+                                            @endif
+                                        @endforeach
+
                                     @endif
                                 </span></td>
                             <td><span class="d-block">

@@ -23,9 +23,10 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('inicio'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('inicio') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('inicio') }}</p>
                                         </div>
+
                                     @endif
                                 @endif
                             </div>
@@ -41,9 +42,10 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('final'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('final') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('final') }}</p>
                                         </div>
+
                                     @endif
                                 @endif
                             </div>
@@ -77,9 +79,10 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('paciente'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('paciente') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('paciente') }}</p>
                                         </div>
+
                                     @endif
                                 @endif
                             </div>
@@ -109,9 +112,10 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('dentista'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('dentista') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('dentista') }}</p>
                                         </div>
+
                                     @endif
                                 @endif
                             </div>
@@ -126,9 +130,10 @@
                         <div class="col-12">
                             @if ($errors->any())
                                 @if ($errors->has('descripcion_Cita'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $errors->first('descripcion_Cita') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('descripcion_Cita') }}</p>
                                     </div>
+
                                 @endif
                             @endif
                         </div>
@@ -145,9 +150,10 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('monto'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('monto') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('monto') }}</p>
                                         </div>
+
                                     @endif
                                 @endif
                             </div>
@@ -164,9 +170,10 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('abono'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('abono') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('abono') }}</p>
                                         </div>
+
                                     @endif
                                 @endif
                             </div>

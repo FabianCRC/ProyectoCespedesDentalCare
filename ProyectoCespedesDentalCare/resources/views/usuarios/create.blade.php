@@ -21,8 +21,8 @@
                                     value="{{ old('usuario') }}" required autocomplete="usuario" autofocus>
                                 @if ($errors->any())
                                     @if ($errors->has('usuario'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('usuario') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('usuario') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -32,13 +32,13 @@
                         <div class="form-group col-md-6">
                             <div class="form-group">
                                 <label for="email" class="inputAddress">{{ 'Email del usuario' }}</label>
-                                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required
-                                    autocomplete="email" autofocus>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @if ($errors->any())
                                     @if ($errors->has('email'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('email') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('email') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -48,13 +48,13 @@
                         <div class="form-group col-md-6">
                             <div class="form-group"> <label for="name"
                                     class="inputAddress">{{ 'Nombre del usuario' }}</label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required
-                                    autocomplete="name" autofocus>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}"
+                                    required autocomplete="name" autofocus>
 
                                 @if ($errors->any())
                                     @if ($errors->has('name'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('name') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('name') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -70,8 +70,8 @@
 
                                 @if ($errors->any())
                                     @if ($errors->has('apellido'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('apellido') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('apellido') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -87,8 +87,8 @@
 
                                 @if ($errors->any())
                                     @if ($errors->has('cedula'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('cedula') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('cedula') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -102,8 +102,8 @@
 
                                 @if ($errors->any())
                                     @if ($errors->has('telefono'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('telefono') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('telefono') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -119,8 +119,8 @@
 
                                 @if ($errors->any())
                                     @if ($errors->has('imagen'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('imagen') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('imagen') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -138,8 +138,8 @@
                             </select>
                             @if ($errors->any())
                                 @if ($errors->has('idRol'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('idRol') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('idRol') }}</p>
                                     </div>
                                 @endif
                             @endif
@@ -154,8 +154,8 @@
 
                                 @if ($errors->any())
                                     @if ($errors->has('password'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('password') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('password') }}</p>
                                         </div>
                                     @endif
                                 @endif

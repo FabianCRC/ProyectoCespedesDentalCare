@@ -20,7 +20,11 @@ class UsersController extends Controller
    public function index()
    {
        $datos['registros']=users::all();
-       return view('usuarios/index',$datos);
+       $roles = \DB::table('roles')
+       ->select('roles.*')
+       ->orderBy('id_Rol','DESC')
+       ->get();
+       return view('usuarios/index',$datos)->with('roles',$roles);
    }
 
    /**
@@ -98,7 +102,11 @@ class UsersController extends Controller
    public function edit($id)
    {
        $users= users::findOrFail($id);
-       return view('usuarios.edit',compact('users'));
+       $roles = \DB::table('roles')
+       ->select('roles.*')
+       ->orderBy('id_Rol','DESC')
+       ->get();
+       return view('usuarios.edit',compact('users'))->with('roles',$roles);
    }
 
    /**
@@ -114,6 +122,7 @@ class UsersController extends Controller
         'usuario' => ['required','min:6', 'string', 'max:255','unique:users,usuario,' .$id],
             'name' => ['required', 'string', 'max:255','min:3'],
             'password' => ['required',new isValidPassword(),],
+            'idRol' => ['required', 'string'],
             'apellido' => ['required', 'string','min:3'],
            'email' => ['required', 'string', 'email', 'max:255','unique:users,email,' .$id],
             'cedula' => ['required', 'string','min:8'],

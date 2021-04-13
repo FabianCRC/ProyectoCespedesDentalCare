@@ -15,8 +15,11 @@ class AuditoriaUsuariosController extends Controller
     {
         $registros = \DB::table('audiusers')
         ->get();
-
-        return view('auditoria.usuarios.index')->with('registros',$registros);
+        $roles = \DB::table('roles')
+        ->select('roles.*')
+        ->orderBy('id_Rol','DESC')
+        ->get();
+        return view('auditoria.usuarios.index')->with('registros',$registros)->with('roles',$roles);
     }
 
     /**

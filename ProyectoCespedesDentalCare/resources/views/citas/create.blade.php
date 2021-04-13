@@ -28,8 +28,9 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('inicio'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('inicio') }}
+
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('inicio') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -50,8 +51,9 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('final'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('final') }}
+
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('final') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -79,8 +81,8 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('paciente'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('paciente') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('paciente') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -90,8 +92,8 @@
                             <div class="col-12">
                                 <label for="title">Seleccione un dentista</label>
                                 <select class="form-control selector" data-show-subtext="true" data-live-search="true"
-                                     name="dentista" id="dentista">
-                                    <option selected disabled="true" >Seleccione un dentista</option>
+                                    name="dentista" id="dentista">
+                                    <option selected disabled="true">Seleccione un dentista</option>
                                     @if (!$pacientes->isEmpty())
                                         @foreach ($odontologos as $odontologo)
                                             <option value="{{ $odontologo->id }}">{{ $odontologo->cedula }} -
@@ -105,8 +107,9 @@
                             <div class="col-12">
                                 @if ($errors->any())
                                     @if ($errors->has('dentista'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $errors->first('dentista') }}
+
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('dentista') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -120,8 +123,8 @@
                                 rows="3">{{ old('descripcion_Cita') }}</textarea>
                             @if ($errors->any())
                                 @if ($errors->has('descripcion_Cita'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('descripcion_Cita') }}
+                                    <div class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('descripcion_Cita') }}</p>
                                     </div>
                                 @endif
                             @endif
@@ -129,8 +132,8 @@
                     </div>
                     <div class="col-12">
                         @if ($errors->has('msj'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ $errors->first('msj') }}
+                            <div class="form-group">
+                                <p style="color:red;"> {{ $errors->first('msj') }}</p>
                             </div>
                         @endif
                     </div>
@@ -147,5 +150,6 @@
         $('.selector').select2({
             language: "es"
         });
+
     </script>
 @endsection

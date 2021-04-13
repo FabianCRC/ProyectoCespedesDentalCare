@@ -18,13 +18,14 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="usuario" class="inputAddress">{{ 'Usuario' }}</label>
-                            <input  type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario"
-                                id="usuario" value="{{ Auth::user()->usuario }}" required autocomplete="usuario" autofocus>
+                            <input type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario"
+                                id="usuario" value="{{ Auth::user()->usuario }}" required autocomplete="usuario"
+                                autofocus>
 
                             @error('usuario')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <div class="form-group">
+                                    <p style="color:red;"> {{ $message }}</p>
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -37,9 +38,9 @@
                                 id="name" value="{{ Auth::user()->name }}" required autocomplete="name" autofocus>
 
                             @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <div class="form-group">
+                                    <p style="color:red;"> {{ $message }}</p>
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -48,11 +49,12 @@
                         <div class="form-group">
                             <label for="apellido" class="inputAddress">{{ 'Apellido del usuario' }}</label>
                             <input type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido"
-                                id="apellido" value="{{ Auth::user()->apellido }}" required autocomplete="apellido" autofocus>
+                                id="apellido" value="{{ Auth::user()->apellido }}" required autocomplete="apellido"
+                                autofocus>
                             @error('apellido')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <div class="form-group">
+                                    <p style="color:red;"> {{ $message }}</p>
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -64,9 +66,9 @@
                                 id="cedula" value="{{ Auth::user()->cedula }}" required autocomplete="cedula" autofocus>
 
                             @error('cedula')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <div class="form-group">
+                                    <p style="color:red;"> {{ $message }}</p>
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -74,16 +76,16 @@
 
                     <div class="form-group col-md-6">
                         <div class="form-group">
-                            <label for="imagen" class="inputAddress">{{ 'imagen del usuario' }}</label>
+                            <label for="imagen" class="inputAddress">{{ 'Imagen del usuario' }}</label>
 
 
                             <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen"
                                 id="imagen" value="" autocomplete="imagen" autofocus>
 
                             @error('imagen')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <div class="form-group">
+                                    <p style="color:red;"> {{ $message }}</p>
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -92,12 +94,13 @@
                         <div class="form-group">
                             <label for="telefono" class="inputAddress">{{ 'Telefono del usuario' }}</label>
                             <input type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono"
-                                id="telefono" value="{{ Auth::user()->telefono }}" required autocomplete="telefono" autofocus>
+                                id="telefono" value="{{ Auth::user()->telefono }}" required autocomplete="telefono"
+                                autofocus>
 
                             @error('telefono')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <div class="form-group">
+                                    <p style="color:red;"> {{ $message }}</p>
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -112,9 +115,9 @@
                                 id="email" value="{{ Auth::user()->email }}" required autocomplete="email" autofocus>
 
                             @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <div class="form-group">
+                                    <p style="color:red;"> {{ $message }}</p>
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -123,20 +126,23 @@
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="password" class="inputAddress">{{ 'Contraseña del usuario' }}</label>
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
-                                id="password" value="{{ Auth::user()->password }}" required autocomplete="password" autofocus>
-                                <input hidden="" type="password" class="form-control @error('password') is-invalid @enderror" name="passwordO"
-                                id="passwordO" value="{{ Auth::user()->password }}" required autocomplete="password" autofocus>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                name="password" id="password" value="{{ Auth::user()->password }}" required
+                                autocomplete="password" autofocus>
+                            <input hidden="" type="password" class="form-control @error('password') is-invalid @enderror"
+                                name="passwordO" id="passwordO" value="{{ Auth::user()->password }}" required
+                                autocomplete="password" autofocus>
 
                             @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <div class="form-group">
+                                    <p style="color:red;"> {{ $message }}</p>
+                                </div>
                             @enderror
                         </div>
                     </div>
                     <div class="form-group col-md-12">
-                        <button type="submit" value="Editar" onclick="return confirm('¿Desea modificar su perfil?');"  class="btn btn-secondary btn-block">
+                        <button type="submit" value="Editar" onclick="return confirm('¿Desea modificar su perfil?');"
+                            class="btn btn-secondary btn-block">
                             {{ __('Guardar Cambios') }}
                         </button>
 
