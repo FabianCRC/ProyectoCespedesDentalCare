@@ -39,10 +39,13 @@ class CitasPaginaController extends Controller
      */
     public function store(Request $request)
     {
+
+        
         citas_pagina::create($request->all());
         
-        $mensaje = "Tu cita fue agendada. ¡Pronto te contactaremos para confirmarla!";
-        return redirect()->route('Index')->with('agendada', 'Tu cita fue agendada. ¡Pronto te contactaremos para confirmarla!');
+  
+
+        return redirect()->route('Index')->with('notice', 'Tu cita fue agendada. ¡Pronto te contactaremos para confirmarla!');
       
     }
 
