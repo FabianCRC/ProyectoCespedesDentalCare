@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
 </head>
 
 <body>
@@ -15,24 +16,13 @@
         usuario,
         aqui te adjuntamos las credenciasles para tu acceso al sistema</p>
     <br />
-    <table class="default">
-        <tr>
-            <th scope="row">Datos de inicio de sesión</th>
-        </tr>
-        <tr>
-            <th>Usuario</th>
-            <td>{{ $usuario }}</td>
-        </tr>
-        <tr>
-            <th>Correo electronico</th>
-            <td>{{ $email }}</td>
-        </tr>
-        <tr>
-            <th>Contraseña</th>
-            <td>{{ $password }}</td>
-        </tr>
-        <p>Por favor, cuando inicies sesión cambia la contraseña por una nueva</p>
-    </table>
+    <h3>Credenciales de inicio de sesión</h3>
+    <p>Usuario: {{$usuario}}</p>
+    <p>Email: {{$email}}</p>
+    <p>Contraseña: {{$password}}</p>
+    <br />
+    <b>Por favor, cuando inicies sesión cambia la contraseña por una nueva</b>
+
 </body>
 
 </html>

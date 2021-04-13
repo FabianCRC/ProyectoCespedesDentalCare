@@ -35,6 +35,6 @@ class ActualizacionDatosMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.olvidocontrasena');
+        return $this->view('emails.actualizaciondatos');
     }
 }

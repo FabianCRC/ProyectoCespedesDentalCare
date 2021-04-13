@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\users;
+use App\Rules\IsValidPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
@@ -49,7 +50,7 @@ class UsersController extends Controller
             'usuario' => ['required', 'string','min:6', 'max:255', 'unique:users'],
             'name' => ['required', 'string', 'max:255','min:3'],
             'email' => ['required', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required',new isValidPassword(),],
             'apellido' => ['required', 'string','min:3'],
             'cedula' => ['required', 'string','min:8'],
             'telefono' => ['required', 'string','min:8'],
@@ -112,7 +113,7 @@ class UsersController extends Controller
     $request->validate([
         'usuario' => ['required','min:6', 'string', 'max:255','unique:users,usuario,' .$id],
             'name' => ['required', 'string', 'max:255','min:3'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required',new isValidPassword(),],
             'apellido' => ['required', 'string','min:3'],
            'email' => ['required', 'string', 'email', 'max:255','unique:users,email,' .$id],
             'cedula' => ['required', 'string','min:8'],

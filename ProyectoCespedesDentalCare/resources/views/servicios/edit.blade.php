@@ -19,8 +19,8 @@
                                         placeholder="Calza..." value="{{ $servicio->nombre_Servicio }}">
                                     @if ($errors->any())
                                         @if ($errors->has('nombre_Servicio'))
-                                            <div class="alert alert-danger mt-1" role="alert">
-                                                {{ $errors->first('nombre_Servicio') }}
+                                            <div class="form-group">
+                                                <p style="color:red;"> {{ $errors->first('nombre_Servicio') }}</p>
                                             </div>
                                         @endif
                                     @endif
@@ -34,8 +34,8 @@
                                         placeholder="35.000" value="{{ $servicio->precio_Servicio }}">
                                     @if ($errors->any())
                                         @if ($errors->has('precio_Servicio'))
-                                            <div class="alert alert-danger mt-1" role="alert">
-                                                {{ $errors->first('precio_Servicio') }}
+                                            <div class="form-group">
+                                                <p style="color:red;"> {{ $errors->first('precio_Servicio') }}</p>
                                             </div>
                                         @endif
                                     @endif
@@ -47,15 +47,17 @@
                                     placeholder="Descripción...">{{ $servicio->descripcion_Servicio }}</textarea>
                                 @if ($errors->any())
                                     @if ($errors->has('descripcion_Servicio'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('descripcion_Servicio') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('descripcion_Servicio') }}</p>
                                         </div>
                                     @endif
                                 @endif
                             </div>
                         </div>
                         <div class="text-center">
-                            <button style="text-align: " type="submit" onclick="return confirm('¿Desea modificar el servicio?');" class="btn btn-secondary btn-block">Guardar
+                            <button style="text-align: " type="submit"
+                                onclick="return confirm('¿Desea modificar el servicio?');"
+                                class="btn btn-secondary btn-block">Guardar
                                 Cambios</button>
                         </div>
                     </form>

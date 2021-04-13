@@ -17,8 +17,8 @@
                                     placeholder="Calza...">
                                 @if ($errors->any())
                                     @if ($errors->has('nombre_Servicio'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('nombre_Servicio') }}
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('nombre_Servicio') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -32,8 +32,8 @@
                                     placeholder="35.000">
                                 @if ($errors->any())
                                     @if ($errors->has('precio_Servicio'))
-                                        <div class="alert alert-danger mt-1" role="alert">
-                                            {{ $errors->first('precio_Servicio') }}
+                                        <div  class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('precio_Servicio') }}</p>
                                         </div>
                                     @endif
                                 @endif
@@ -45,8 +45,8 @@
                                 placeholder="Descripción..."></textarea>
                             @if ($errors->any())
                                 @if ($errors->has('descripcion_Servicio'))
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ $errors->first('descripcion_Servicio') }}
+                                    <div  class="form-group">
+                                        <p style="color:red;"> {{ $errors->first('descripcion_Servicio') }}</p>
                                     </div>
                                 @endif
                             @endif
