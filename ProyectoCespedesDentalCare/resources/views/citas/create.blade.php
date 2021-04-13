@@ -90,8 +90,8 @@
                             <div class="col-12">
                                 <label for="title">Seleccione un dentista</label>
                                 <select class="form-control selector" data-show-subtext="true" data-live-search="true"
-                                    name="paciente" name="dentista" id="dentista">
-                                    <option disabled="true" selected>Seleccione un dentista</option>
+                                     name="dentista" id="dentista">
+                                    <option selected disabled="true" >Seleccione un dentista</option>
                                     @if (!$pacientes->isEmpty())
                                         @foreach ($odontologos as $odontologo)
                                             <option value="{{ $odontologo->id }}">{{ $odontologo->cedula }} -
