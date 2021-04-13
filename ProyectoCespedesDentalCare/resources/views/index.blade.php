@@ -685,7 +685,7 @@
                                 <div class="validate"></div>
                                 </div>
                                 <div class="form-group">
-                                <select  class="form-control" name="tipoPaciente" id="tipoPaciente">
+                                <select required  class="form-control" name="tipoPaciente" id="tipoPaciente">
                                     <option selected disabled="true">Tipo de paciente</option>
 
                                             <option value="Regular">Regular</option>
