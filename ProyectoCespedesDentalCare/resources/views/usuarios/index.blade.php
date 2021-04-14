@@ -11,6 +11,13 @@
                 Agregar Usuario
             </a>
         </div>
+        <div class="col-12">
+            @if ($errors->has('msj'))
+                <div class="form-group">
+                    <p style="color:red;"> {{ $errors->first('msj') }}</p>
+                </div>
+            @endif
+        </div>
         <div class="col-xl-15 col-lg-12">
 
             <table class="table table-responsive-xl table-striped table-inverse datatable" id="usuarios">

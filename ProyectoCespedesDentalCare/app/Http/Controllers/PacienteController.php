@@ -256,6 +256,16 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
      */
     public function destroy(Request $request, $id)
     {
+        $citaPaciente=\DB::select('select count(*) as num from citas a, pacientes b 
+        where a.id_Paciente=b.id_Paciente 
+        and b.id_Paciente = ?',[$id] );
+        foreach ($citaPaciente as $c) {
+            $c= $c->num;
+        } 
+        if($c>0){
+            return redirect()->back()->WithInput()->withErrors(['msj'=> 'Este paciente no se puede eliminar ya que cuenta con citas agendadas,
+            elimine primero las citas del paciente y posteriormente vuelva a eliminarlo' ]);
+        }
        //Borra la alergia del paciente de la base de datos
        $pacientes_alergias=\DB::delete('delete from pacientes_alergias where id_Paciente = ?',[$id]);
      

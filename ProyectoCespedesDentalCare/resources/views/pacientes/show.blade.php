@@ -12,6 +12,13 @@
                         <h2 class="text-center">Expediente de {{ $paciente->nombre_Paciente }}</h2>
                         <br />
                     </div>
+                    <div class="col-12">
+                        @if ($errors->has('msj'))
+                            <div class="form-group">
+                                <p style="color:red;"> {{ $errors->first('msj') }}</p>
+                            </div>
+                        @endif
+                    </div>
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">

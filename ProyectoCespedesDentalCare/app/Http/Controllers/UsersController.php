@@ -177,6 +177,15 @@ class UsersController extends Controller
     */
    public function destroy($id)
    {
+    $citaOdontologo=\DB::select('select count(*) as num from citas a, users b 
+    where a.id_Usuario=b.id and b.id = ?',[$id] );
+    foreach ($citaOdontologo as $c) {
+        $c= $c->num;
+    } 
+    if($c>0){
+        return redirect()->back()->WithInput()->withErrors(['msj'=> 'Este odontologo no se puede eliminar ya que cuenta con citas agendadas,
+        elimine primero las citas del odontologo y posteriormente vuelva a eliminarlo' ]);
+    }
        users::destroy($id);
 
        return redirect('Usuarios');
