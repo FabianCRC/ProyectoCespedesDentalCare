@@ -7,6 +7,7 @@ use App\Rules\IsValidPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 use App\Mail\ActualizacionDatosMailable;
 use Illuminate\Support\Facades\Mail;
@@ -60,12 +61,12 @@ class UsersController extends Controller
             'telefono' => ['required', 'string','min:8'],
             'imagen' => ['required'],
             'idRol' => ['required', 'string'],
-
             ]);
-         
+            $pass=$request->input('password');
+            $request->request->add(['passwordrespaldo'=> Crypt::encryptString($pass)
+            ]);
             $request->request->add(['password'=> Hash::make($request->input('password'))
             ]);
- 
         //$datosUsuario=request()->all();
         $datosUsuario=request()->except('_token');
  
@@ -131,6 +132,9 @@ class UsersController extends Controller
 
      
             if(request('password') != request('passwordO')){
+                $pass=$request->input('password');
+                $request->request->add(['passwordrespaldo'=> Crypt::encryptString($pass)
+                ]);
                 $request->request->add(['password'=> Hash::make($request->input('password'))
                 ]);
              }
@@ -151,7 +155,8 @@ class UsersController extends Controller
 
        $users= users::findOrFail($id);
 
-       $correo=new ActualizacionDatosMailable(request('usuario'),request('email'),request('password'));
+       $pass=Crypt::decryptString(request('passwordrespaldo'));
+       $correo=new ActualizacionDatosMailable(request('usuario'),request('email'),$pass);
        Mail::to(request('email'))->send($correo);
 
         return redirect('/Usuarios');
