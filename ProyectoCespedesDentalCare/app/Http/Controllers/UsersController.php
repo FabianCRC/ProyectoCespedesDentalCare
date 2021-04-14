@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 
 use App\Mail\ActualizacionDatosMailable;
+use App\Mail\RegistroNuevoUsuarioMailable;
 use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
@@ -62,6 +63,7 @@ class UsersController extends Controller
             'imagen' => ['required'],
             'idRol' => ['required', 'string'],
             ]);
+            $passSinEncriptar=$request->input('password');
             $pass=$request->input('password');
             $request->request->add(['passwordrespaldo'=> Crypt::encryptString($pass)
             ]);
@@ -79,6 +81,10 @@ class UsersController extends Controller
        // return response()->json($datosUsuario);
         //return $datosUsuario;
  $request->password = bcrypt($request->password);
+
+ $correo=new RegistroNuevoUsuarioMailable(request('usuario'),request('email'),$passSinEncriptar);
+ Mail::to(request('email'))->send($correo);
+
         return redirect('Usuarios');
     }
  
