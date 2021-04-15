@@ -35,31 +35,31 @@
                                         @if ($registro->id_Paciente_nuevo == $registro->id_Paciente_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->id_Paciente_nuevo }} ->{{ $registro->id_Paciente_viejo }}
+                                            {{ $registro->id_Paciente_viejo }} -> {{ $registro->id_Paciente_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
                                         @if ($registro->nombre_Paciente_nuevo == $registro->nombre_Paciente_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->nombre_Paciente_nuevo }}
-                                            ->{{ $registro->nombre_Paciente_viejo }}
+                                            {{ $registro->nombre_Paciente_viejo }}
+                                            ->{{ $registro->nombre_Paciente_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
                                         @if ($registro->observaciones_Paciente_nuevo == $registro->observaciones_Paciente_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->observaciones_Paciente_nuevo }}
-                                            ->{{ $registro->observaciones_Paciente_viejo }}
+                                            {{ $registro->observaciones_Paciente_viejo }}
+                                            ->{{ $registro->observaciones_Paciente_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
                                         @if ($registro->datos_Paciente_nuevo == $registro->datos_Paciente_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->datos_Paciente_nuevo }}
-                                            ->{{ $registro->datos_Paciente_viejo }}
+                                            {{ $registro->datos_Paciente_viejo }}
+                                            ->{{ $registro->datos_Paciente_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
@@ -73,8 +73,8 @@
                                         @if ($registro->dentista_Paciente_nuevo == $registro->dentista_Paciente_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->dentista_Paciente_nuevo }}
-                                            ->{{ $registro->dentista_Paciente_viejo }}
+                                            {{ $registro->dentista_Paciente_viejo }}
+                                            ->{{ $registro->dentista_Paciente_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">

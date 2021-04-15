@@ -34,21 +34,21 @@
                                     @if ($registro->id_nuevo == $registro->id_viejo)
                                         No hubo cambio
                                     @else
-                                        {{ $registro->id_nuevo }} ->{{ $registro->id_viejo }}
+                                        {{ $registro->id_viejo }} ->{{ $registro->id_nuevo }}
                                     @endif
                                 </span></td>
                             <td><span class="d-block">
                                     @if ($registro->usuario_nuevo == $registro->usuario_viejo)
                                         No hubo cambio
                                     @else
-                                        {{ $registro->usuario_nuevo }} ->{{ $registro->usuario_viejo }}
+                                        {{ $registro->usuario_viejo }} ->{{ $registro->usuario_nuevo }}
                                     @endif
                                 </span></td>
                             <td><span class="d-block">
                                     @if ($registro->cedula_nuevo == $registro->cedula_viejo)
                                         No hubo cambio
                                     @else
-                                        {{ $registro->cedula_nuevo }} ->{{ $registro->cedula_viejo }}
+                                        {{ $registro->cedula_viejo }} ->{{ $registro->cedula_nuevo }}
                                     @endif
                                 </span></td>
                             <td><span class="d-block">
@@ -63,23 +63,24 @@
                                     @if ($registro->email_nuevo == $registro->email_viejo)
                                         No hubo cambio
                                     @else
-                                        {{ $registro->email_nuevo }} ->{{ $registro->email_viejo }}
+                                        {{ $registro->email_viejo }} ->{{ $registro->email_nuevo }}
                                     @endif
                                 </span></td>
                             <td><span class="d-block">
                                     @if ($registro->idRol_nuevo == $registro->idRol_viejo)
                                         No hubo cambio
                                     @else
+                                     
                                         @foreach ($roles as $rol)
-                                            @if ($rol->id_Rol == $registro->idRol_nuevo)
+                                            @if ($rol->id_Rol == $registro->idRol_viejo)
                                                 {{ $rol->nombre_Rol }} ->
                                             @endif
                                         @endforeach
                                         @foreach ($roles as $rol)
-                                            @if ($rol->id_Rol == $registro->idRol_viejo)
-                                                {{ $rol->nombre_Rol }}
-                                            @endif
-                                        @endforeach
+                                        @if ($rol->id_Rol == $registro->idRol_nuevo)
+                                            {{ $rol->nombre_Rol }}
+                                        @endif
+                                    @endforeach
 
                                     @endif
                                 </span></td>
