@@ -10,10 +10,9 @@
 </head>
 
 <body>
-    <h1>Actualizacion de datos</h1>
+    <h1>Registro de usuario</h1>
     <br />
-    <p>Un saludo {{ $usuario }} te enviamos este correo para informarte que se han actualizado tus datos de
-        usuario,
+    <p>Un saludo {{ $usuario }} te enviamos este correo para informarte que se te ha registrado como usuario en el sistema Cespedes Dental Care,
         aqui te adjuntamos las credenciasles para tu acceso al sistema</p>
     <br />
     <h3>Credenciales de inicio de sesión</h3>

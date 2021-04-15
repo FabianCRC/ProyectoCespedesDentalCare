@@ -163,7 +163,7 @@
         <div class="col-xl-15 col-lg-12">
 
             <div class="col-12">
-                <table class=" table table-responsive-xl table-striped table-inverse" id="pacientes">
+                <table class=" table table-responsive-xl table-striped table-inverse datatable" id="pacientes">
                     <thead>
                         <tr>
                             <th scope="col"><small class="font-weight-bold">#</small></th>

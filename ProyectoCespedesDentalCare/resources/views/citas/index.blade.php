@@ -14,7 +14,7 @@
         @endif
         <div class="col-xl-15 col-lg-12">
 
-            <table class="table table-responsive-xl table-striped table-inverse" id="citas">
+            <table class="table table-responsive-xl table-striped table-inverse datatable" id="citas">
 
                 <thead>
                     <tr>

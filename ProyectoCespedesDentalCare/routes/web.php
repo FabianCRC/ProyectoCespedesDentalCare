@@ -58,6 +58,8 @@ Route::resource('/AuditoriaCitas','App\Http\Controllers\AuditoriaCitasController
 
 Route::resource('/CitasPagina','App\Http\Controllers\CitasPaginaController');
 
+Route::resource('/RestablecerContrasena','App\Http\Controllers\RestablecerContrasenaController');
+
 
 
 

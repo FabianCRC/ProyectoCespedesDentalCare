@@ -5,7 +5,7 @@
             <h1>Auditoria de usuarios</h1>
         </div>
         <div class="col-xl-15 col-lg-12">
-            <table class="table table-responsive-xl table-striped table-inverse" id="citas">
+            <table class="table table-responsive-xl table-striped table-inverse datatable" id="">
                 <thead>
                     <tr>
                         <th scope="col"><small class="font-weight-bold">#</small></th>

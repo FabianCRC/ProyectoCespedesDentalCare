@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\Rules\IsValidPassword;
+use Illuminate\Support\Facades\Crypt;
 
 
 class PerfilController extends Controller
@@ -85,6 +86,9 @@ class PerfilController extends Controller
 
  
   if(request('password') != request('passwordO')){
+    $pass=$request->input('password');
+    $request->request->add(['passwordrespaldo'=> Crypt::encryptString($pass)
+    ]);
     $request->request->add(['password'=> Hash::make($request->input('password'))
     ]);
  }

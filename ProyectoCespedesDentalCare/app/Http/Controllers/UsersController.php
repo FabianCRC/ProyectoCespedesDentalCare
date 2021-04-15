@@ -7,8 +7,10 @@ use App\Rules\IsValidPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 use App\Mail\ActualizacionDatosMailable;
+use App\Mail\RegistroNuevoUsuarioMailable;
 use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
@@ -60,12 +62,13 @@ class UsersController extends Controller
             'telefono' => ['required', 'string','min:8'],
             'imagen' => ['required'],
             'idRol' => ['required', 'string'],
-
             ]);
-         
+            $passSinEncriptar=$request->input('password');
+            $pass=$request->input('password');
+            $request->request->add(['passwordrespaldo'=> Crypt::encryptString($pass)
+            ]);
             $request->request->add(['password'=> Hash::make($request->input('password'))
             ]);
- 
         //$datosUsuario=request()->all();
         $datosUsuario=request()->except('_token');
  
@@ -78,6 +81,10 @@ class UsersController extends Controller
        // return response()->json($datosUsuario);
         //return $datosUsuario;
  $request->password = bcrypt($request->password);
+
+ $correo=new RegistroNuevoUsuarioMailable(request('usuario'),request('email'),$passSinEncriptar);
+ Mail::to(request('email'))->send($correo);
+
         return redirect('Usuarios');
     }
  
@@ -131,6 +138,9 @@ class UsersController extends Controller
 
      
             if(request('password') != request('passwordO')){
+                $pass=$request->input('password');
+                $request->request->add(['passwordrespaldo'=> Crypt::encryptString($pass)
+                ]);
                 $request->request->add(['password'=> Hash::make($request->input('password'))
                 ]);
              }
@@ -151,7 +161,8 @@ class UsersController extends Controller
 
        $users= users::findOrFail($id);
 
-       $correo=new ActualizacionDatosMailable(request('usuario'),request('email'),request('password'));
+       $pass=Crypt::decryptString(request('passwordrespaldo'));
+       $correo=new ActualizacionDatosMailable(request('usuario'),request('email'),$pass);
        Mail::to(request('email'))->send($correo);
 
         return redirect('/Usuarios');
@@ -166,6 +177,15 @@ class UsersController extends Controller
     */
    public function destroy($id)
    {
+    $citaOdontologo=\DB::select('select count(*) as num from citas a, users b 
+    where a.id_Usuario=b.id and b.id = ?',[$id] );
+    foreach ($citaOdontologo as $c) {
+        $c= $c->num;
+    } 
+    if($c>0){
+        return redirect()->back()->WithInput()->withErrors(['msj'=> 'Este odontologo no se puede eliminar ya que cuenta con citas agendadas,
+        elimine primero las citas del odontologo y posteriormente vuelva a eliminarlo' ]);
+    }
        users::destroy($id);
 
        return redirect('Usuarios');

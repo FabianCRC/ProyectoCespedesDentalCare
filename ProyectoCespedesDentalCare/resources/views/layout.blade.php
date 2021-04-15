@@ -81,7 +81,7 @@
                         @if (Auth::user()->idRol == 1)
                             <a class="nav-link" href="{{ route('CitasPagina.index') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar-week"></i></div>
-                                Citas en línea 
+                                Citas en línea
                             </a>
                         @endif
                         <a class="nav-link" href="{{ route('Pacientes.index') }}">
@@ -181,11 +181,34 @@
     </script>
     <script src="<?php echo URL::asset('assets/demo/datatables-demo.js'); ?>"></script>
     <script>
-        $('#citas').DataTable();
-        $('#pacientes').DataTable();
-        $('#servicios').DataTable();
-        $('#usuarios').DataTable();
-        $('#audicitas').DataTable();
+        $('.datatable').DataTable({
+                "language": {
+                    "decimal": ".",
+                    "emptyTable": "No hay datos para mostrar",
+                    "info": "del _START_ al _END_ (_TOTAL_ total)",
+                    "infoEmpty": "del 0 al 0 (0 total)",
+                    "infoFiltered": "(filtrado de todas las _MAX_ entradas)",
+                    "infoPostFix": "",
+                    "thousands": "'",
+                    "lengthMenu": "Mostrar _MENU_ entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "No hay resultados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    },
+                    "aria": {
+                        "sortAscending": ": ordenar de manera Ascendente",
+                        "sortDescending": ": ordenar de manera Descendente ",
+                    }
+                }
+            }
+
+        );
 
     </script>
 </body>
