@@ -125,7 +125,7 @@ class UsersController extends Controller
     */
    public function update(Request $request, $id)
    {
-    $request->validate([
+        $request->validate([
         'usuario' => ['required','min:6', 'string', 'max:255','unique:users,usuario,' .$id],
             'name' => ['required', 'string', 'max:255','min:3'],
             'password' => ['required',new isValidPassword(),],

@@ -162,6 +162,8 @@
                                 autocomplete="password" autofocus>
                             <input type="password" name="passwordO" id="passwordO" value="{{ $users->password }}" hidden>
 
+                            <input type="password" name="passwordrespaldo" id="passwordrespaldo" value="{{ $users->passwordrespaldo }}" hidden>
+
                             @if ($errors->any())
                                 @if ($errors->has('password'))
                                     <div class="form-group">
