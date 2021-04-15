@@ -36,14 +36,14 @@
                                         @if ($registro->id_Paciente_nuevo == $registro->id_Paciente_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->id_Paciente_nuevo }} ->{{ $registro->id_Paciente_viejo }}
+                                            {{ $registro->id_Paciente_viejo }} ->{{ $registro->id_Paciente_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
                                         @if ($registro->id_Usuario_nuevo == $registro->id_Usuario_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->id_Usuario_nuevo }} ->{{ $registro->id_Usuario_viejo }}
+                                            {{ $registro->id_Usuario_viejo }} ->{{ $registro->id_Usuario_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
@@ -51,10 +51,10 @@
                                             No hubo cambio
                                         @else
                                             <?php
-                                            $date = new DateTime($registro->inicio_Cita_nuevo);
+                                            $date = new DateTime($registro->inicio_Cita_viejo);
                                             echo $date->format('d/m/Y H:i');
                                             ?> -> <?php
-                                            $date = new DateTime($registro->inicio_Cita_viejo);
+                                            $date = new DateTime($registro->inicio_Cita_nuevo);
                                             echo $date->format('d/m/Y H:i');
                                             ?>
                                         @endif
@@ -64,10 +64,10 @@
                                             No hubo cambio
                                         @else
                                             <?php
-                                            $date = new DateTime($registro->final_Cita_nuevo);
+                                            $date = new DateTime($registro->final_Cita_viejo);
                                             echo $date->format('d/m/Y H:i');
                                             ?> -> <?php
-                                            $date = new DateTime($registro->final_Cita_viejo);
+                                            $date = new DateTime($registro->final_Cita_nuevo);
                                             echo $date->format('d/m/Y H:i');
                                             ?>
                                         @endif
@@ -76,21 +76,21 @@
                                         @if ($registro->monto_nuevo == $registro->monto_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->monto_nuevo }} ->{{ $registro->monto_viejo }}
+                                            {{ $registro->monto_viejo }} ->{{ $registro->monto_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
                                         @if ($registro->abono_nuevo == $registro->abono_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->abono_nuevo }} ->{{ $registro->abono_viejo }}
+                                            {{ $registro->abono_viejo }} ->{{ $registro->abono_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
                                         @if ($registro->saldo_nuevo == $registro->saldo_viejo)
                                             No hubo cambio
                                         @else
-                                            {{ $registro->saldo_nuevo }} ->{{ $registro->saldo_viejo }}
+                                            {{ $registro->saldo_viejo }} ->{{ $registro->saldo_nuevo }}
                                         @endif
                                     </span></td>
                                 <td><span class="d-block">
