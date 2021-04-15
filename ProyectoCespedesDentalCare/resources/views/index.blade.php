@@ -663,7 +663,7 @@
                             <div class="form-row">
                                 <div class="col-md-6 form-group">
                                     <input type="text" name="nombre" class="form-control" id="nombre"
-                                        placeholder="Nombre" data-rule="minlen:4"
+                                        placeholder="Nombre Completo" data-rule="minlen:4"
                                         data-msg="Please enter at least 4 chars" />
                                         @if ($errors->any())
                                     @if ($errors->has('nombre'))
@@ -674,7 +674,7 @@
                                 @endif
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <input type="Numero" class="form-control" name="numero" id="Numero"
+                                    <input type="Numero Telefónico" class="form-control" name="numero" id="Numero"
                                         placeholder="Numero célular" data-rule="Numero"
                                         data-msg="Please enter a valid Numero" />
                                         @if ($errors->any())
