@@ -687,8 +687,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="datetime-local" class="form-control" name="fecha" id="Fecha"
-                                    data-msg="Please enter at least 8 chars of Fecha" />
+                            <input value="{{ old('inicio') }}" type="datetime-local" id="from" name="fecha"
+                                        class="form-control" min="<?php
+                                            $hoy = date('Y-m-d') . 'T' . date('h:m');
+                                            echo $hoy;
+                                            ?>" max="2080-12-31" />
                                     @if ($errors->any())
                                     @if ($errors->has('fecha'))
                                         <div class="form-group">
