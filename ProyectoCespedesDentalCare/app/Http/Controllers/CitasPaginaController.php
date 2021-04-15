@@ -45,7 +45,6 @@ class CitasPaginaController extends Controller
            'nombre' => 'required|min:3',
            'numero' => 'required|min:8|max:20',
             'fecha' => 'required|date',
-            'fechaingrP' => 'required|date',
             'descripcion' => 'required|min:2',
             'tipoPaciente' => 'required'
         ]);

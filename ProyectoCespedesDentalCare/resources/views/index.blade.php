@@ -687,7 +687,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                            <input value="{{ old('inicio') }}" type="datetime-local" id="from" name="fecha"
+                            <input value="{{ old('inicio') }}" type="datetime-local" id="fecha" name="fecha"
                                         class="form-control" min="<?php
                                             $hoy = date('Y-m-d') . 'T' . date('h:m');
                                             echo $hoy;
