@@ -665,24 +665,48 @@
                                     <input type="text" name="nombre" class="form-control" id="nombre"
                                         placeholder="Nombre" data-rule="minlen:4"
                                         data-msg="Please enter at least 4 chars" />
-                                    <div class="validate"></div>
+                                        @if ($errors->any())
+                                    @if ($errors->has('nombre'))
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('nombre') }}</p>
+                                        </div>
+                                    @endif
+                                @endif
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <input type="Numero" class="form-control" name="numero" id="Numero"
                                         placeholder="Numero célular" data-rule="Numero"
                                         data-msg="Please enter a valid Numero" />
-                                    <div class="validate"></div>
+                                        @if ($errors->any())
+                                    @if ($errors->has('numero'))
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('numero') }}</p>
+                                        </div>
+                                    @endif
+                                @endif
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input type="datetime-local" class="form-control" name="fecha" id="Fecha"
                                     data-msg="Please enter at least 8 chars of Fecha" />
-                                <div class="validate"></div>
+                                    @if ($errors->any())
+                                    @if ($errors->has('fecha'))
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('fecha') }}</p>
+                                        </div>
+                                    @endif
+                                @endif
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="descripcion" rows="5" data-rule="required"
                                     data-msg="Please write something for us" placeholder="Descripción"></textarea>
-                                <div class="validate"></div>
+                                    @if ($errors->any())
+                                    @if ($errors->has('descripcion'))
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('descripcion') }}</p>
+                                        </div>
+                                    @endif
+                                @endif
                                 </div>
                                 <div class="form-group">
                                 <select required  class="form-control" name="tipoPaciente" id="tipoPaciente">
@@ -690,7 +714,13 @@
 
                                             <option value="Regular">Regular</option>
                                             <option value="Nuevo">Nuevo</option>           </select>
-                                <div class="validate"></div>
+                                            @if ($errors->any())
+                                    @if ($errors->has('tipoPaciente'))
+                                        <div class="form-group">
+                                            <p style="color:red;"> {{ $errors->first('tipoPaciente') }}</p>
+                                        </div>
+                                    @endif
+                                @endif
                             </div>
                         
                            @if(Session::has('notice'))
