@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\Handler;
 use App\Models\users;
 use App\Rules\IsValidPassword;
 use Illuminate\Http\Request;
@@ -82,9 +83,14 @@ class UsersController extends Controller
         //return $datosUsuario;
  $request->password = bcrypt($request->password);
 
- $correo=new RegistroNuevoUsuarioMailable(request('usuario'),request('email'),$passSinEncriptar);
- Mail::to(request('email'))->send($correo);
 
+    try{
+        $correo=new RegistroNuevoUsuarioMailable(request('usuario'),request('email'),$passSinEncriptar);
+        Mail::to(request('email'))->send($correo);
+    }catch(exception  $e){
+        return $e;
+    }
+ 
         return redirect('Usuarios');
     }
  
@@ -161,9 +167,14 @@ class UsersController extends Controller
 
        $users= users::findOrFail($id);
 
-       $pass=Crypt::decryptString(request('passwordrespaldo'));
-       $correo=new ActualizacionDatosMailable(request('usuario'),request('email'),$pass);
-       Mail::to(request('email'))->send($correo);
+       try{
+        $pass=Crypt::decryptString(request('passwordrespaldo'));
+        $correo=new ActualizacionDatosMailable(request('usuario'),request('email'),$pass);
+        Mail::to(request('email'))->send($correo);
+       }catch(exception  $e){
+            return $e;
+       }
+      
 
         return redirect('/Usuarios');
    }

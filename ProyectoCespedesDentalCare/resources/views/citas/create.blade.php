@@ -13,6 +13,17 @@
             <div class="modal-body ">
                 <form action="{{ route('Citas.store') }}" method="post">
                     @csrf
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    @if ($errors->any())
+                        <script>
+                            swal({
+                                title: "Cuidado",
+                                text: "Hay un error en los campos solicitados, por favor verifique los campos.",
+                                icon: "warning",
+                            });
+
+                        </script>
+                    @endif
                     <div class="row">
                         <div class="form-group col-md-12 col-lg-6">
                             <div class="col-12">

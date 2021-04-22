@@ -11,6 +11,17 @@
                     <form action="{{ route('Servicios.update', $servicio->id_Servicio) }}" method="post">
                         @csrf
                         @method('PATCH')
+                        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                        @if ($errors->any())
+                            <script>
+                                swal({
+                                    title: "Cuidado",
+                                    text: "Hay un error en los campos solicitados, por favor verifique los campos.",
+                                    icon: "warning",
+                                });
+    
+                            </script>
+                        @endif
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">

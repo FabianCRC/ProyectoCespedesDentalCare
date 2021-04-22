@@ -6,6 +6,17 @@
             <form action="{{ route('Usuarios.update', $users->id) }}" method="post" enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf
+                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                @if ($errors->any())
+                    <script>
+                        swal({
+                            title: "Cuidado",
+                            text: "Hay un error en los campos solicitados, por favor verifique los campos.",
+                            icon: "warning",
+                        });
+
+                    </script>
+                @endif
                 <div class="text-center mt-3">
                     <img src='{{ asset('storage') . '/' . $users->imagen }}' class="img-fluid rounded-circle avatar"
                         style="height: 200px; width: 200px;" alt="Imagen" />
@@ -162,7 +173,8 @@
                                 autocomplete="password" autofocus>
                             <input type="password" name="passwordO" id="passwordO" value="{{ $users->password }}" hidden>
 
-                            <input type="password" name="passwordrespaldo" id="passwordrespaldo" value="{{ $users->passwordrespaldo }}" hidden>
+                            <input type="password" name="passwordrespaldo" id="passwordrespaldo"
+                                value="{{ $users->passwordrespaldo }}" hidden>
 
                             @if ($errors->any())
                                 @if ($errors->has('password'))

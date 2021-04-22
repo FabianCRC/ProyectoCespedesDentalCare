@@ -6,8 +6,20 @@
             @foreach ($pacientes as $paciente)
                 <form action="{{ route('Pacientes.update', $paciente->id_Paciente) }}" method="POST"
                     enctype="multipart/form-data">
+
                     @csrf
                     @method('PATCH')
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    @if ($errors->any())
+                        <script>
+                            swal({
+                                title: "Cuidado",
+                                text: "Hay un error en los campos solicitados, por favor verifique los campos.",
+                                icon: "warning",
+                            });
+
+                        </script>
+                    @endif
                     <div class="text-center mt-3">
                         <img src='{{ $paciente->imagen_Paciente }}' class="img-fluid rounded-circle avatar"
                             style="height: 200px; width: 200px;" alt="Imagen" />

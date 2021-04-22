@@ -675,7 +675,7 @@
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <input type="Numero Telefónico" class="form-control" name="numero" id="Numero"
-                                        placeholder="Numero célular" data-rule="Numero"
+                                        placeholder="Numero de teléfono" data-rule="Numero"
                                         data-msg="Please enter a valid Numero" />
                                         @if ($errors->any())
                                     @if ($errors->has('numero'))
@@ -702,7 +702,7 @@
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="descripcion" rows="5" data-rule="required"
-                                    data-msg="Please write something for us" placeholder="Descripción"></textarea>
+                                    data-msg="Please write something for us" placeholder="Descripción de la cita a solitar"></textarea>
                                     @if ($errors->any())
                                     @if ($errors->has('descripcion'))
                                         <div class="form-group">

@@ -10,7 +10,17 @@
                 <form action="{{ route('Usuarios.store') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     @csrf
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    @if ($errors->any())
+                        <script>
+                            swal({
+                                title: "Cuidado",
+                                text: "Hay un error en los campos solicitados, por favor verifique los campos.",
+                                icon: "warning",
+                            });
 
+                        </script>
+                    @endif
                     <div class="form-row">
 
 

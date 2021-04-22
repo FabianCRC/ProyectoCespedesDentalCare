@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\Handler;
 use Illuminate\Http\Request;
 use App\Mail\OlvidoContrasenaMailable;
 
@@ -49,9 +50,14 @@ class RestablecerContrasenaController extends Controller
             $password= $a->passwordrespaldo;
         }
       if(!empty($email)){
-        $pass=Crypt::decryptString($password);
-        $correo=new OlvidoContrasenaMailable($email,$usuario,$pass);
-        Mail::to($email)->send($correo);
+        try{
+          $pass=Crypt::decryptString($password);
+          $correo=new OlvidoContrasenaMailable($email,$usuario,$pass);
+          Mail::to($email)->send($correo);
+        }catch(exception  $e){
+        return "1";
+        }
+       
       }
         return view('auth.confirmacioncontrasena');
     }

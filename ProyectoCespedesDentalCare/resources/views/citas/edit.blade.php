@@ -11,6 +11,17 @@
                 <form action="{{ route('Citas.update', $cita->id_Cita) }}" method="post">
                     @method('PATCH')
                     @csrf
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    @if ($errors->any())
+                        <script>
+                            swal({
+                                title: "Cuidado",
+                                text: "Hay un error en los campos solicitados, por favor verifique los campos.",
+                                icon: "warning",
+                            });
+
+                        </script>
+                    @endif
                     <div class="row">
                         <div class="form-group col-md-12 col-lg-6">
                             <div class="col-12">
@@ -95,7 +106,8 @@
                                     @if (!$odontologos->isEmpty())
                                         @foreach ($odontologos as $odontologo)
                                             @if ($cita->id_Usuario == $odontologo->id){
-                                                <option value="{{ $odontologo->id }}" selected>{{ $odontologo->name }}
+                                                <option value="{{ $odontologo->id }}" selected>
+                                                    {{ $odontologo->name }}
                                                     {{ $odontologo->apellido }}
                                                 </option>
                                             }@else{

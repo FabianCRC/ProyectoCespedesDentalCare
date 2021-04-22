@@ -9,6 +9,18 @@
                 <br>
                 <form action="{{ route('Servicios.store') }}" method="post">
                     @csrf
+                    
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    @if ($errors->any())
+                        <script>
+                            swal({
+                                title: "Cuidado",
+                                text: "Hay un error en los campos solicitados, por favor verifique los campos.",
+                                icon: "warning",
+                            });
+
+                        </script>
+                    @endif
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="form-group">
@@ -32,7 +44,7 @@
                                     placeholder="35.000">
                                 @if ($errors->any())
                                     @if ($errors->has('precio_Servicio'))
-                                        <div  class="form-group">
+                                        <div class="form-group">
                                             <p style="color:red;"> {{ $errors->first('precio_Servicio') }}</p>
                                         </div>
                                     @endif
@@ -45,7 +57,7 @@
                                 placeholder="Descripción..."></textarea>
                             @if ($errors->any())
                                 @if ($errors->has('descripcion_Servicio'))
-                                    <div  class="form-group">
+                                    <div class="form-group">
                                         <p style="color:red;"> {{ $errors->first('descripcion_Servicio') }}</p>
                                     </div>
                                 @endif

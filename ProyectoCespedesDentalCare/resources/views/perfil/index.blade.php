@@ -4,6 +4,17 @@
     <div class="card mb-5 shadow-sm border-0 shadow-hover">
         <div class="card-header bg-light border-0 pt-3 pb-0">
             <form action="{{ route('Perfil.update', Auth::user()->id) }}" method="post" enctype="multipart/form-data">
+                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                @if ($errors->any())
+                    <script>
+                        swal({
+                            title: "Cuidado",
+                            text: "Hay un error en los campos solicitados, por favor verifique los campos.",
+                            icon: "warning",
+                        });
+
+                    </script>
+                @endif
                 @method('PATCH')
                 @csrf
                 <div class="text-center mt-3">
