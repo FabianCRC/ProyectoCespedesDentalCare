@@ -2,7 +2,8 @@
 
 Nombre del Proyecto:Cespedes Dental Care Digital
 
-Integrantes: Fabian Rojas Camacho, Brandon Ramirez Mata, Vinicio Barquero Torres
+Integrantes: Fabian Rojas Camacho, Brandon Ramirez Mata, Vinicio Barquero Torres.
+
 Descripcion del Proyecto:
 
 Se llevara a cabo el desarrollo de un sistema web para la clínica Céspedes Dental Care que tenga la capacidad de realizar la gestión 
