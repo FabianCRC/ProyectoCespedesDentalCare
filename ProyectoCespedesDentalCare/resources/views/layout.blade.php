@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Cespedes Dental Care</title>
-    <link href="static/css/styles.css" rel="stylesheet" />
+    <link href="<?php echo URL::asset('static/css/styles.css'); ?>" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -44,7 +44,8 @@
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    aria-haspopup="true" aria-expanded="false"><img src='{{asset('storage') . '/'.  Auth::user()->imagen }}' class="img-fluid rounded-circle avatar"
+                                        alt="Imagen" style="height: 45px;width: 45px" /></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="{{ route('Perfil.index') }}">Mi Perfil</a>
                     <div class="dropdown-divider"></div>
@@ -166,13 +167,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
-    <script src="static/js/scripts.js"></script>
+    <script src="<?php echo URL::asset('static/js/scripts.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="static/assets/demo/chart-area-demo.js"></script>
-    <script src="static/assets/demo/chart-bar-demo.js"></script>
+    <script src="<?php echo URL::asset('static/assets/demo/chart-area-demo.js'); ?>"></script>
+    <script src="<?php echo URL::asset('static/assets/demo/chart-bar-demo.js'); ?>"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/datatables-demo.js"></script>
+    <script src="<?php echo URL::asset('assets/demo/datatables-demo.js'); ?>"></script>
 
 
     <script src="<?php echo URL::asset('static/assets/demo/chart-area-demo.js'); ?>">
@@ -211,7 +212,6 @@
         );
 
     </script>
-    
 </body>
 
 </html>
