@@ -4,7 +4,7 @@
     <div class="form-group text-center">
         <h1>Lista de Servicios</h1>
     </div>
-    @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+    @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2 || Auth::user()->idRol == 4)
         <div class="form-group ml-3">
             <a class="btn btn-secondary " href="{{ route('Servicios.create') }}">
                 Agregar Servicio
@@ -21,7 +21,7 @@
                         <th>Nombre del Servicio</th>
                         <th>Descripcion</th>
                         <th>Valor</th>
-                        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+                        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2 || Auth::user()->idRol == 4)
                             <th scope="col"><small class="font-weight-bold">Editar</small></th>
                             <th scope="col"><small class="font-weight-bold">Eliminar</small></th>
                         @endif
@@ -36,7 +36,7 @@
                             <td>{{ $servicio->descripcion_Servicio }}</td>
                             <td>₡{{ $servicio->precio_Servicio }}</td>
 
-                            @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+                            @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2 || Auth::user()->idRol == 4)
                                 <td>
                                     <div class="row justify-content-center">
                                         <a onclick="false" href="{{ route('Servicios.edit', $servicio->id_Servicio) }}">

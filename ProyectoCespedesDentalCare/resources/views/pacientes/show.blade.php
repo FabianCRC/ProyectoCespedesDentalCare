@@ -86,7 +86,7 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+                        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2 || Auth::user()->idRol == 4)
                             <div class="form-group col-6 btn-md">
                                 <a class="btn btn-secondary btn-block"
                                     href="{{ route('Pacientes.edit', $paciente->id_Paciente) }}">

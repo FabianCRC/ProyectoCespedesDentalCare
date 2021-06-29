@@ -5,7 +5,7 @@
         <div class="form-group text-center">
             <h1>Lista de Citas</h1>
         </div>
-        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2 || Auth::user()->idRol == 4)
             <div class="form-group ml-3">
                 <a class="btn btn-secondary " href="{{ route('Citas.create') }}">
                     Agregar Cita
@@ -28,7 +28,7 @@
                         <th scope="col"><small class="font-weight-bold">Monto</small></th>
                         <th scope="col"><small class="font-weight-bold">Abono</small></th>
                         <th scope="col"><small class="font-weight-bold">Saldo</small></th>
-                        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+                        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2 || Auth::user()->idRol == 4)
                             <th scope="col"><small class="font-weight-bold">Editar</small></th>
                             <th scope="col"><small class="font-weight-bold">Eliminar</small></th>
                         @endif
@@ -70,7 +70,7 @@
                             <td><span class="d-block">₡{{ $cita->monto }}</span></td>
                             <td><span class="d-block">₡{{ $cita->abono }}</span></td>
                             <td><span class="d-block">₡{{ $cita->saldo }}</span></td>
-                            @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+                            @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2 || Auth::user()->idRol == 4)
                                 <td>
                                     <div class="row justify-content-center">
 

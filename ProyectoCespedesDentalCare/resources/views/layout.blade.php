@@ -79,7 +79,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar-week"></i></div>
                             Citas
                         </a>
-                        @if (Auth::user()->idRol == 1)
+                        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 4)
                             <a class="nav-link" href="{{ route('CitasPagina.index') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar-week"></i></div>
                                 Citas en línea

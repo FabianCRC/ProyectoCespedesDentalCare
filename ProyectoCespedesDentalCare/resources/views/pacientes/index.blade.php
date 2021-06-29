@@ -5,7 +5,7 @@
         <div class="form-group text-center">
             <h1>Lista de Pacientes</h1>
         </div>
-        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2)
+        @if (Auth::user()->idRol == 1 || Auth::user()->idRol == 2 || Auth::user()->idRol == 4)
             <div class="row">
                 <!-- Agregar Paciente -->
                 <a data-toggle="modal" data-target="#exampleModal"><span class="btn btn-secondary ml-3">Agregar Paciente
