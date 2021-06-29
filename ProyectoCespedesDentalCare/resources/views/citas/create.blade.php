@@ -81,8 +81,10 @@
                                     <option selected disabled="true">Seleccione un paciente</option>
                                     @if (!$pacientes->isEmpty())
                                         @foreach ($pacientes as $paciente)
+                                         @if(Auth::user()->id == $paciente->dentista_Paciente)
                                             <option value="{{ $paciente->id_Paciente }}">{{ $paciente->id_Paciente }} -
                                                 {{ $paciente->nombre_Paciente }}</option>
+                                          @endif
                                         @endforeach
                                     @else
                                         <option disabled="true">No hay registros</option>
