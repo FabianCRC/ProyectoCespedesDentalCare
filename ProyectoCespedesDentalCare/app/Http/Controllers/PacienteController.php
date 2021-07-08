@@ -23,44 +23,44 @@ class PacienteController extends Controller
 
         //Consulta las ENFERMEDADES registradas en la base de datos
         $enfermedades = \DB::table('enfermedades')
-        ->select('enfermedades.*')
-        ->orderBy('id_Enfermedad','DESC')
-        ->get();
+            ->select('enfermedades.*')
+            ->orderBy('id_Enfermedad', 'DESC')
+            ->get();
 
-        
+
         //Consulta las ALERGIAS registradas en la base de datos
         $alergias = \DB::table('alergias')
-        ->select('alergias.*')
-        ->orderBy('id_Alergia','DESC')
-        ->get();
+            ->select('alergias.*')
+            ->orderBy('id_Alergia', 'DESC')
+            ->get();
 
         //Consulta los PACIENTES registrados en la base de datos
         $pacientes = \DB::table('pacientes')
-                    ->select('pacientes.*')
-                    ->orderBy('nombre_Paciente', 'Desc')
-                    ->get();
+            ->select('pacientes.*')
+            ->orderBy('nombre_Paciente', 'Desc')
+            ->get();
         //Consulta las ALERGIAS DE LOS PACIENTES en la base de datos
         $pacientes_alergias = \DB::table('pacientes_alergias')
-        ->select('pacientes_alergias.*')
-        ->orderBy('id_Paciente_Alergia', 'Desc')
-        ->get();       
+            ->select('pacientes_alergias.*')
+            ->orderBy('id_Paciente_Alergia', 'Desc')
+            ->get();
         //Consulta las Enfermedades DE LOS PACIENTES en la base de datos
         $pacientes_enfermedades = \DB::table('pacientes_enfermedades')
-        ->select('pacientes_enfermedades.*')
-        ->orderBy('id_Paciente_Enfermedad', 'Desc')
-        ->get();
+            ->select('pacientes_enfermedades.*')
+            ->orderBy('id_Paciente_Enfermedad', 'Desc')
+            ->get();
 
         $odontologos = \DB::table('users')
-        ->where('idRol', '2')
-        ->orderBy('name', 'Desc')
-        ->get();
-        
-        
+            ->where('idRol', '2')
+            ->orderBy('name', 'Desc')
+            ->get();
 
 
-        return view('pacientes.index')->with('alergias',$alergias)->with('enfermedades',$enfermedades)
-        ->with('pacientes',$pacientes)->with('pacientes_alergias',$pacientes_alergias)
-        ->with('pacientes_enfermedades',$pacientes_enfermedades) ->with('odontologos',$odontologos);
+
+
+        return view('pacientes.index')->with('alergias', $alergias)->with('enfermedades', $enfermedades)
+            ->with('pacientes', $pacientes)->with('pacientes_alergias', $pacientes_alergias)
+            ->with('pacientes_enfermedades', $pacientes_enfermedades)->with('odontologos', $odontologos);
     }
 
     /**
@@ -70,7 +70,42 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        //
+        //Consulta las ENFERMEDADES registradas en la base de datos
+        $enfermedades = \DB::table('enfermedades')
+            ->select('enfermedades.*')
+            ->orderBy('id_Enfermedad', 'DESC')
+            ->get();
+
+
+        //Consulta las ALERGIAS registradas en la base de datos
+        $alergias = \DB::table('alergias')
+            ->select('alergias.*')
+            ->orderBy('id_Alergia', 'DESC')
+            ->get();
+
+        //Consulta los PACIENTES registrados en la base de datos
+        $pacientes = \DB::table('pacientes')
+            ->select('pacientes.*')
+            ->orderBy('nombre_Paciente', 'Desc')
+            ->get();
+        //Consulta las ALERGIAS DE LOS PACIENTES en la base de datos
+        $pacientes_alergias = \DB::table('pacientes_alergias')
+            ->select('pacientes_alergias.*')
+            ->orderBy('id_Paciente_Alergia', 'Desc')
+            ->get();
+        //Consulta las Enfermedades DE LOS PACIENTES en la base de datos
+        $pacientes_enfermedades = \DB::table('pacientes_enfermedades')
+            ->select('pacientes_enfermedades.*')
+            ->orderBy('id_Paciente_Enfermedad', 'Desc')
+            ->get();
+
+        $odontologos = \DB::table('users')
+            ->where('idRol', '2')
+            ->orderBy('name', 'Desc')
+            ->get();
+        return view('pacientes/create')->with('alergias', $alergias)->with('enfermedades', $enfermedades)
+            ->with('pacientes', $pacientes)->with('pacientes_alergias', $pacientes_alergias)
+            ->with('pacientes_enfermedades', $pacientes_enfermedades)->with('odontologos', $odontologos);
     }
 
     /**
@@ -82,10 +117,10 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'idP' => 'required|min:8',
+            'id_Paciente' => 'required|min:8|unique:pacientes',
             'numeroP' => 'required|min:8|max:20',
-           'nombreP' => 'required|min:3',
-            'correoP' => 'required|email',
+            'nombreP' => 'required|min:3',
+            'correo_Paciente' => 'required|email|unique:pacientes',
             'observacionesP' => 'required|min:2',
             'dentistaP' => 'required|numeric',
             'fechanaciP' => 'required|date',
@@ -93,41 +128,38 @@ class PacienteController extends Controller
             'img' => 'required|image|max:2048',
             'datosP' => 'required|min:2'
         ]);
-
+        //Esto es lo que no sirve
         $imagenes = $request->file('img')->store('public/imagenes');
-
         $url = Storage::url($imagenes);
-  
+
         Paciente::create([
-              'id_Paciente' => request('idP'),
-              'numero_Paciente' => request('numeroP'),
-              'nombre_Paciente' => request('nombreP'),
-              'correo_Paciente' => request('correoP'),
-              'observaciones_Paciente' => request('observacionesP'),
-              'dentista_Paciente' => request('dentistaP'),
-              'fecha_Nacimiento' => request('fechanaciP'),
-              'fecha_Ingreso' => request('fechaingrP'),
-              'datos_Paciente' => request('datosP'),
-              'imagen_Paciente' => $url
-  
-              ]);
-  
-          pacientes_enfermedades::create([
-              'id_Paciente' => request('idP'),
-              'id_Enfermedad' => request('enfermedadesP')
-          ]);
-  
-          pacientes_alergias::create([
-              'id_Paciente' => request('idP'),
-              'id_Alergia' => request('alergiasP')
-          ]);
+            'id_Paciente' => request('id_Paciente'),
+            'numero_Paciente' => request('numeroP'),
+            'nombre_Paciente' => request('nombreP'),
+            'correo_Paciente' => request('correoP'),
+            'observaciones_Paciente' => request('observacionesP'),
+            'dentista_Paciente' => request('dentistaP'),
+            'fecha_Nacimiento' => request('fechanaciP'),
+            'fecha_Ingreso' => request('fechaingrP'),
+            'datos_Paciente' => request('datosP'),
+            'imagen_Paciente' => $url
+
+        ]);
+
+        pacientes_enfermedades::create([
+            'id_Paciente' => request('id_Paciente'),
+            'id_Enfermedad' => request('enfermedadesP')
+        ]);
+
+        pacientes_alergias::create([
+            'id_Paciente' => request('id_Paciente'),
+            'id_Alergia' => request('alergiasP')
+        ]);
 
 
-    
-  
-      return redirect()->route('Pacientes.index');
-  
- 
+
+
+        return redirect()->route('Pacientes.index');
     }
 
     /**
@@ -138,34 +170,32 @@ class PacienteController extends Controller
      */
     public function show($id)
     {
-        $id_Paciente='id_Paciente';
+        $id_Paciente = 'id_Paciente';
         $pacientes = \DB::table('pacientes')
-        ->select('*')
-        ->where($id_Paciente , $id)
-        ->get();
+            ->select('*')
+            ->where($id_Paciente, $id)
+            ->get();
         //Consulta las ENFERMEDADES registradas en la base de datos
         $enfermedades = \DB::table('enfermedades')
-        ->select('enfermedades.*')
-        ->orderBy('id_Enfermedad','DESC')
-        ->get();
+            ->select('enfermedades.*')
+            ->orderBy('id_Enfermedad', 'DESC')
+            ->get();
 
-        
+
         //Consulta las ALERGIAS registradas en la base de datos
         $alergias = \DB::table('alergias')
-        ->select('alergias.*')
-        ->orderBy('id_Alergia','DESC')
-        ->get();
+            ->select('alergias.*')
+            ->orderBy('id_Alergia', 'DESC')
+            ->get();
 
         $odontologos = \DB::table('users')
-        ->where('idRol', '2')
-        ->orderBy('name', 'Desc')
-        ->get();
+            ->where('idRol', '2')
+            ->orderBy('name', 'Desc')
+            ->get();
 
 
-return view('pacientes.show')->with('pacientes',$pacientes)->with('alergias',$alergias)->with('enfermedades',$enfermedades)
-->with('odontologos',$odontologos);
-
-       
+        return view('pacientes.show')->with('pacientes', $pacientes)->with('alergias', $alergias)->with('enfermedades', $enfermedades)
+            ->with('odontologos', $odontologos);
     }
 
     /**
@@ -176,32 +206,31 @@ return view('pacientes.show')->with('pacientes',$pacientes)->with('alergias',$al
      */
     public function edit($id)
     {
-        $id_Paciente='id_Paciente';
+        $id_Paciente = 'id_Paciente';
         $pacientes = \DB::table('pacientes')
-        ->select('*')
-        ->where($id_Paciente , $id)
-        ->get();
+            ->select('*')
+            ->where($id_Paciente, $id)
+            ->get();
         //Consulta las ENFERMEDADES registradas en la base de datos
         $enfermedades = \DB::table('enfermedades')
-        ->select('enfermedades.*')
-        ->orderBy('id_Enfermedad','DESC')
-        ->get();
+            ->select('enfermedades.*')
+            ->orderBy('id_Enfermedad', 'DESC')
+            ->get();
 
-        
+
         //Consulta las ALERGIAS registradas en la base de datos
         $alergias = \DB::table('alergias')
-        ->select('alergias.*')
-        ->orderBy('id_Alergia','DESC')
-        ->get();
+            ->select('alergias.*')
+            ->orderBy('id_Alergia', 'DESC')
+            ->get();
         $odontologos = \DB::table('users')
-        ->where('idRol', '2')
-        ->orderBy('name', 'Desc')
-        ->get();
+            ->where('idRol', '2')
+            ->orderBy('name', 'Desc')
+            ->get();
 
 
-return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$alergias)->with('enfermedades',$enfermedades)
-->with('odontologos',$odontologos);
-
+        return view('pacientes.edit')->with('pacientes', $pacientes)->with('alergias', $alergias)->with('enfermedades', $enfermedades)
+            ->with('odontologos', $odontologos);
     }
 
     /**
@@ -211,12 +240,12 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update (Request $request, $id)
+    public function update(Request $request, $id)
     {
-         $request->validate([
+        $request->validate([
             'idP' => 'required|min:8',
             'numeroP' => 'required|min:8|max:20',
-           'nombreP' => 'required|min:3',
+            'nombreP' => 'required|min:3',
             'correoP' => 'required|email',
             'observacionesP' => 'required|min:2',
             'dentistaP' => 'required|numeric',
@@ -224,26 +253,30 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
             'fechaingrP' => 'required|date',
             'datosP' => 'required|min:2'
         ]);
-       //Actualiza el paciente en la base de datos
-       if($request->file('img') != null){
-        $request->validate([
-            'img' => 'required|image|max:2048',
-        ]);
-    
-        $imagenes = $request->file('img')->store('public/imagenes');
 
-        $url = Storage::url($imagenes);
-    $paciente=\DB::update('update pacientes set numero_Paciente = ?,nombre_Paciente = ?,correo_Paciente = ?,observaciones_Paciente = ?,dentista_Paciente = ?,fecha_Nacimiento = ?,fecha_Ingreso = ?,datos_Paciente	= ?,imagen_Paciente = ?,id_Paciente = ?  where  id_Paciente= ?', 
-                  [request('numeroP'),request('nombreP'),request('correoP'),request('observacionesP'),request('dentistaP'), request('fechanaciP'),request('fechaingrP'),request('datosP'), $url ,request('idP'),$id]);
-            
-       }else{
 
-    $paciente=\DB::update('update pacientes set numero_Paciente = ?,nombre_Paciente = ?,correo_Paciente = ?,observaciones_Paciente = ?,dentista_Paciente = ?,fecha_Nacimiento = ?,fecha_Ingreso = ?,datos_Paciente	= ?,id_Paciente = ?  where  id_Paciente= ?', 
-                  [request('numeroP'),request('nombreP'),request('correoP'),request('observacionesP'),request('dentistaP'), request('fechanaciP'),request('fechaingrP'),request('datosP') ,request('idP'),$id]);
-                  
-       }
+        //Actualiza el paciente en la base de datos
+        if ($request->file('img') != null) {
+            $request->validate([
+                'img' => 'required|image|max:2048',
+            ]);
 
-       return redirect('/Pacientes');
+            $imagenes = $request->file('img')->store('public/imagenes');
+
+            $url = Storage::url($imagenes);
+            $paciente = \DB::update(
+                'update pacientes set numero_Paciente = ?,nombre_Paciente = ?,correo_Paciente = ?,observaciones_Paciente = ?,dentista_Paciente = ?,fecha_Nacimiento = ?,fecha_Ingreso = ?,datos_Paciente	= ?,imagen_Paciente = ?,id_Paciente = ?  where  id_Paciente= ?',
+                [request('numeroP'), request('nombreP'), request('correoP'), request('observacionesP'), request('dentistaP'), request('fechanaciP'), request('fechaingrP'), request('datosP'), $url, request('idP'), $id]
+            );
+        } else {
+
+            $paciente = \DB::update(
+                'update pacientes set numero_Paciente = ?,nombre_Paciente = ?,correo_Paciente = ?,observaciones_Paciente = ?,dentista_Paciente = ?,fecha_Nacimiento = ?,fecha_Ingreso = ?,datos_Paciente	= ?,id_Paciente = ?  where  id_Paciente= ?',
+                [request('numeroP'), request('nombreP'), request('correoP'), request('observacionesP'), request('dentistaP'), request('fechanaciP'), request('fechaingrP'), request('datosP'), request('idP'), $id]
+            );
+        }
+
+        return redirect('/Pacientes');
     }
 
 
@@ -256,28 +289,25 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
      */
     public function destroy(Request $request, $id)
     {
-        $citaPaciente=\DB::select('select count(*) as num from citas a, pacientes b 
+        $citaPaciente = \DB::select('select count(*) as num from citas a, pacientes b 
         where a.id_Paciente=b.id_Paciente 
-        and b.id_Paciente = ?',[$id] );
+        and b.id_Paciente = ?', [$id]);
         foreach ($citaPaciente as $c) {
-            $c= $c->num;
-        } 
-        if($c>0){
-            return redirect()->back()->WithInput()->withErrors(['msj'=> 'Este paciente no se puede eliminar ya que cuenta con citas agendadas,
-            elimine primero las citas del paciente y posteriormente vuelva a eliminarlo' ]);
+            $c = $c->num;
         }
-       //Borra la alergia del paciente de la base de datos
-       $pacientes_alergias=\DB::delete('delete from pacientes_alergias where id_Paciente = ?',[$id]);
-     
-       //Borra la enfermedad del paciente de la base de datos
-       $pacientes_enfermedades=\DB::delete('delete from pacientes_enfermedades where id_Paciente = ?',[$id]);
+        if ($c > 0) {
+            return redirect()->back()->WithInput()->withErrors(['msj' => 'Este paciente no se puede eliminar ya que cuenta con citas agendadas,
+            elimine primero las citas del paciente y posteriormente vuelva a eliminarlo']);
+        }
+        //Borra la alergia del paciente de la base de datos
+        $pacientes_alergias = \DB::delete('delete from pacientes_alergias where id_Paciente = ?', [$id]);
+
+        //Borra la enfermedad del paciente de la base de datos
+        $pacientes_enfermedades = \DB::delete('delete from pacientes_enfermedades where id_Paciente = ?', [$id]);
 
         //Borra el Paciente de la base de datos
-        $paciente=\DB::delete('delete from pacientes where id_Paciente = ?',[$id]);
+        $paciente = \DB::delete('delete from pacientes where id_Paciente = ?', [$id]);
 
-      return redirect()->route('Pacientes.index');
-
-
-
+        return redirect()->route('Pacientes.index');
     }
 }
