@@ -103,7 +103,7 @@
                                 <label for="title">Seleccione un dentista</label>
                                 <select class="form-control selector" name="dentista" id="dentista" required readonly>
                                     <option disabled="true">Seleccione un dentista</option>
-                                    @if (!$odontologos->isEmpty())
+                                    @if (!$odontologos == null)
                                         @foreach ($odontologos as $odontologo)
                                             @if ($cita->id_Usuario == $odontologo->id){
                                                 <option value="{{ $odontologo->id }}" selected>
