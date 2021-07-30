@@ -190,7 +190,7 @@ return view('pacientes.show')->with('pacientes',$pacientes)->with('alergias',$al
         ->select('alergias.*')
         ->orderBy('id_Alergia','DESC')
         ->get();
-        $odontologos=\DB::select(' select * from `users` where  `idRol` = 2 or `idRol` = 4  order by `name` desc');
+        $odontologos=\DB::select('select * from `users` where  `idRol` = 2 or `idRol` = 4  order by `name` desc');
 
 
 return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$alergias)->with('enfermedades',$enfermedades)
@@ -208,7 +208,7 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
     public function update (Request $request, $id)
     {
          $request->validate([
-            'idP' => 'required|min:8|unique',
+            'idP' => 'required|min:8',
             'numeroP' => 'required|min:8|max:20',
            'nombreP' => 'required|min:3',
             'correoP' => 'required|email',

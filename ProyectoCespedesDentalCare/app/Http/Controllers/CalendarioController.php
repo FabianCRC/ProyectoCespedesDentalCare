@@ -18,10 +18,7 @@ class CalendarioController extends Controller
 
        // 
       
-        $odontologos = \DB::table('users')
-       ->where('idRol', '2')
-       ->orderBy('name', 'Desc')
-       ->get();
+       $odontologos=\DB::select(' select * from `users` where  `idRol` = 2 or `idRol` = 4  order by `name` desc');
        $pacientes = \DB::table('pacientes')
        ->get();
         return view('calendario')->with('odontologos',$odontologos)

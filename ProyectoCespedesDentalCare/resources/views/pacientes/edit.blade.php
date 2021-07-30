@@ -98,7 +98,7 @@
                         <div class="form-group col-md-12 col-lg-6">
                             <label for="title">Seleccione un dentista</label>
                             <select class="form-control" required name="dentistaP" id="dentistaP">
-                                @if (!$odontologos->isEmpty())
+                                @if (!$odontologos == null)
                                     @foreach ($odontologos as $odontologo)
                                         @if ($paciente->dentista_Paciente == $odontologo->id)
                                             <option value="{{ $odontologo->id }}" selected>{{ $odontologo->id }} -
