@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/img/favicon.jpg" rel="icon">
+    <link href="assets/img/apple-touch-icon.jpg" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -74,7 +74,7 @@
                     <a href="#contact" class="btn-get-started scrollto">Agendar cita</a>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                    <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+                    <img src="assets/img/hero-img.jpg" class="img-fluid animated" alt="">
                 </div>
             </div>
         </div>
@@ -490,52 +490,56 @@
                             <div class="pic"><img src="assets/img/team/team-1.jpg" alt=""></div>
                             <h4>Dr. Arnaldo Céspedes H.</h4>
                             <span>Odontólogo</span>
-                            <div class="social">
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-brand-whatsapp"></i></a>
-                            </div>
+
                         </div>
                     </div>
 
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="pic"><img src="assets/img/team/team-2.jpg" alt=""></div>
-                            <h4>Dra. Daniela Ramírez H.</h4>
-                            <span>Especialista en ortodoncia y ortopedia funcional</span>
-                            <div class="social">
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-brand-whatsapp"></i></a>
-                            </div>
+                            <h4>Dra. Mariana Ruiz Villalobos.</h4>
+                            <span>Especialista En Ortodoncia.</span>
+
                         </div>
                     </div>
 
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="member" data-aos="fade-up" data-aos-delay="200">
                             <div class="pic"><img src="assets/img/team/team-3.jpg" alt=""></div>
-                            <h4>Dr. Afjas-San Roper Davis</h4>
-                            <span>Especialista en odontopediatría</span>
-                            <div class="social">
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-brand-whatsapp"></i></a>
-                            </div>
+                            <h4>Dr. Adjas-San Roper Davis</h4>
+                            <span>Especialista En Odontopediatría</span>
+
                         </div>
                     </div>
+                    
 
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="member" data-aos="fade-up" data-aos-delay="300">
                             <div class="pic"><img src="assets/img/team/team-4.jpg" alt=""></div>
                             <h4>Dr. Alberto Ramos C.</h4>
-                            <span>Especialista en periodoncia</span>
-                            <div class="social">
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-brand-whatsapp"></i></a>
-                            </div>
+                            <span>Especialista En Periodoncia.</span>
+
                         </div>
                     </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="member" data-aos="fade-up" data-aos-delay="200">
+                            <div class="pic"><img src="assets/img/team/team-5.jpg" alt=""></div>
+                            <h4>Dr. Marco V. Aguilar M.</h4>
+                            <span>Odontólogo Especialista En Endodoncia.</span>
+
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="member" data-aos="fade-up" data-aos-delay="200">
+                            <div class="pic"><img src="assets/img/team/team-6.jpg" alt=""></div>
+                            <h4>Dr. Mauricio Clare C.</h4>
+                            <span>Especialista En Prostodoncia.</span>
+
+                        </div>
+                    </div>
+
                 </div>
 
             </div>

@@ -82,7 +82,7 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'idP' => 'required|min:8',
+            'id_Paciente' => 'required|min:8|unique:pacientes',
             'numeroP' => 'required|min:8|max:20',
            'nombreP' => 'required|min:3',
             'correoP' => 'required|email',
@@ -99,7 +99,7 @@ class PacienteController extends Controller
         $url = Storage::url($imagenes);
   
         Paciente::create([
-              'id_Paciente' => request('idP'),
+              'id_Paciente' => request('id_Paciente'),
               'numero_Paciente' => request('numeroP'),
               'nombre_Paciente' => request('nombreP'),
               'correo_Paciente' => request('correoP'),
@@ -113,12 +113,12 @@ class PacienteController extends Controller
               ]);
   
           pacientes_enfermedades::create([
-              'id_Paciente' => request('idP'),
+              'id_Paciente' => request('id_Paciente'),
               'id_Enfermedad' => request('enfermedadesP')
           ]);
   
           pacientes_alergias::create([
-              'id_Paciente' => request('idP'),
+              'id_Paciente' => request('id_Paciente'),
               'id_Alergia' => request('alergiasP')
           ]);
 
@@ -214,7 +214,7 @@ return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$al
     public function update (Request $request, $id)
     {
          $request->validate([
-            'idP' => 'required|min:8',
+            'idP' => 'required|min:8|unique',
             'numeroP' => 'required|min:8|max:20',
            'nombreP' => 'required|min:3',
             'correoP' => 'required|email',

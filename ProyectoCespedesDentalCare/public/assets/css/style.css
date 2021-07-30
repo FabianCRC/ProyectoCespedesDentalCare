@@ -386,6 +386,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   #hero .hero-img img {
     width: 50%;
+    border-radius: 50%;
   }
 }
 
@@ -405,16 +406,19 @@ h1, h2, h3, h4, h5, h6 {
   }
   #hero .hero-img img {
     width: 70%;
+    border-radius: 50%;
   }
 }
 
 @media (max-width: 575px) {
   #hero .hero-img img {
     width: 80%;
+
   }
 }
 #hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
+  border-radius: 50%;
 }
 
 @media (max-width: 991px) {
@@ -428,6 +432,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   #hero .hero-img {
     text-align: center;
+    border-radius: 50%;
   }
   #hero .hero-img img {
     width: 50%;
@@ -446,12 +451,14 @@ h1, h2, h3, h4, h5, h6 {
   }
   #hero .hero-img img {
     width: 70%;
+    border-radius: 50%;
   }
 }
 
 @media (max-width: 575px) {
   #hero .hero-img img {
     width: 80%;
+    border-radius: 50%;
   }
   #hero .btn-get-started {
     font-size: 16px;

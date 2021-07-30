@@ -32,10 +32,14 @@
                                                 <div class="form-group col-md-6">
                                                     <div class="form-group">
                                                         <label for="inputAddress">Numero de cedula</label>
-                                                        <input type="text" class="form-control" name="idP"
+                                                        <input type="text" class="form-control" name="id_Paciente"
                                                             placeholder="305390002" minlength="7" maxlength="20" required
                                                             pattern="[0-9]+"
                                                             title="Números. Tamaño mínimo: 7. Tamaño máximo: 20">
+                                                            @error('idP')
+                                                        <br>
+                                                        <small class="text-danger">{{ $message }}</small>
+                                                    @enderror
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
@@ -95,10 +99,6 @@
                                                             <option disabled="true">Seleccione un Dentista</option>
                                                         @else
                                                             @foreach ($odontologos as $odontologo)
-<<<<<<< HEAD
-                                                            
-=======
->>>>>>> parent of b1a69f0 (Vista y controlador de pacientes)
                                                                 <option value="{{ $odontologo->id }}">
                                                                     {{ $odontologo->id }}
                                                                     - {{ $odontologo->name }}
