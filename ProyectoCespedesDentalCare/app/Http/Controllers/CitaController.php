@@ -36,10 +36,10 @@ class CitaController extends Controller
         //1 es administradior
         //2 es odontologo
         //3 es secretaria
-
-        $odontologos=\DB::select(' select * from `users` where  `idRol` = 2 or `idRol` = 4  order by `name` desc');
-
-
+        $odontologos = \DB::table('users')
+        ->where('idRol', '2')
+        ->orderBy('name', 'Desc')
+        ->get();
         $pacientes = \DB::table('pacientes')
         ->orderBy('nombre_Paciente', 'Desc')
         ->get();

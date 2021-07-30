@@ -39,7 +39,6 @@
 
                 <tbody>
                     @foreach ($citas as $cita)
-                    @if (Auth::user()->id == $cita->id_Usuario)
                         <tr class="shadow-sm">
                             <td class="d-block"><span class="d-block">{{ $loop->iteration }}</span></td>
                             <td><span class="d-block">{{ $cita->id_Paciente }}</span></td>
@@ -94,7 +93,6 @@
                                 </td>
                             @endif
                         </tr>
-                        @endif
                     @endforeach
                 </tbody>
 
