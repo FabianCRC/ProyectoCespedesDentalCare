@@ -95,7 +95,10 @@
                                                             <option disabled="true">Seleccione un Dentista</option>
                                                         @else
                                                             @foreach ($odontologos as $odontologo)
+<<<<<<< HEAD
                                                             
+=======
+>>>>>>> parent of b1a69f0 (Vista y controlador de pacientes)
                                                                 <option value="{{ $odontologo->id }}">
                                                                     {{ $odontologo->id }}
                                                                     - {{ $odontologo->name }}
