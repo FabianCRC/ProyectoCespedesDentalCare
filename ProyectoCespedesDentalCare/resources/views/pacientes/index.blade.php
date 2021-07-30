@@ -184,7 +184,7 @@
                     <tbody>
 
                         @foreach ($pacientes as $paciente)
-
+                        @if(Auth::user()->id ==  $paciente->dentista_Paciente)
                             <tr class="shadow-sm">
                                 <td class="d-block"><span class="d-block">{{ $loop->iteration }}</span></td>
                                 <td><img src='{{ $paciente->imagen_Paciente }}' class="img-fluid rounded-circle avatar"
@@ -228,7 +228,7 @@
                                 </form>
 
                             </tr>
-
+                        @endif
                         @endforeach
                     </tbody>
                 </table>
