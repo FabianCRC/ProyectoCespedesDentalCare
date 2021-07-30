@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 //El middleware('auth') lo que hace es redireccionar al login si no se encuentra autenticada la sesion
 
 
-Route::view('/','Index')->name('Index');
+Route::view('/','index')->name('Index');
 
 Route::view('/layout','layout')->name('Layout')->middleware('auth');
 
