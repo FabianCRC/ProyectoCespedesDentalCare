@@ -50,10 +50,7 @@ class PacienteController extends Controller
         ->orderBy('id_Paciente_Enfermedad', 'Desc')
         ->get();
 
-        $odontologos = \DB::table('users')
-        ->where('idRol', '2')
-        ->orderBy('name', 'Desc')
-        ->get();
+        $odontologos=\DB::select(' select * from `users` where  `idRol` = 2 or `idRol` = 4  order by `name` desc');
         
         
 
@@ -193,10 +190,7 @@ return view('pacientes.show')->with('pacientes',$pacientes)->with('alergias',$al
         ->select('alergias.*')
         ->orderBy('id_Alergia','DESC')
         ->get();
-        $odontologos = \DB::table('users')
-        ->where('idRol', '2')
-        ->orderBy('name', 'Desc')
-        ->get();
+        $odontologos=\DB::select(' select * from `users` where  `idRol` = 2 or `idRol` = 4  order by `name` desc');
 
 
 return view('pacientes.edit')->with('pacientes',$pacientes)->with('alergias',$alergias)->with('enfermedades',$enfermedades)
